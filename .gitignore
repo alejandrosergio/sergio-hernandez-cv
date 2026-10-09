@@ -1,0 +1,16 @@
+# Dependencias y archivos de trabajo locales
+node_modules/
+.codex/
+.sites-runtime/
+tmp/
+*.log
+
+# Configuración local
+.env
+.env.*
+!.env.example
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+Desktop.ini

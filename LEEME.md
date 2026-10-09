@@ -1,0 +1,52 @@
+# Currículum web de Sergio Hernández
+
+Currículum bilingüe de un Analista y Desarrollador de Software con +6 años de experiencia. Presenta .NET, Power Platform e inteligencia artificial con el mismo peso visual, gestión del ciclo de vida completo (ALM), liderazgo técnico y datos SQL y NoSQL. Auto Control Empresarial figura en 2023–2025 y DynamizaTIC en 2025–2026. Idiomas: español nativo e inglés B1.
+
+## Abrir el currículum
+
+El sitio publicado sirve la versión en español en `/` y la versión en inglés en `/en/`. Ambas contienen todo el currículum en el HTML, incluso sin JavaScript. El botón de idioma cambia el contenido, los controles, la URL y los metadatos sin recargar la página.
+
+La copia `CV_Sergio_Hernandez.html` de la descarga funciona por sí sola: incorpora estilos, comportamiento, fotografía y banderas. También puedes abrir `index.html` junto con los archivos y carpetas del ZIP sin instalar dependencias.
+
+## Editar y generar
+
+- `src/index.html`: contenido original en español.
+- `src/locales/en.json`: traducciones al inglés.
+- `src/script.js`: controladores de idioma, tema, accesibilidad, impresión y navegación.
+- `src/styles.css`: estilos de pantalla e impresión, sin reglas de papel redundantes.
+- `public/`: fotografía original, banderas y favicon que se copian a la versión publicada.
+- `scripts/build.mjs`: genera las páginas estáticas, minifica HTML/CSS/JavaScript y actualiza las descargas.
+- `scripts/check.mjs`: revisa enlaces locales, traducciones, metadatos y regresiones de los controles.
+- `dist/`: archivos listos para publicar. Los recursos se sirven localmente, sin dependencias en ejecución.
+
+Con Node.js y pnpm disponibles:
+
+```sh
+pnpm install --frozen-lockfile
+pnpm build
+pnpm check
+```
+
+El proyecto fija las versiones de sus herramientas de desarrollo. Solo esbuild tiene autorizado un paso de instalación propio. Para editar, cambia los originales en `src/` y vuelve a generar; no edites directamente las copias minificadas. Conserva `public/`, que contiene la fotografía original y las banderas con su licencia. La generación reconstruye los recursos de `dist/` desde esta carpeta, también al utilizar el ZIP descargado.
+
+## Impresión y PDF
+
+**Imprimir CV** abre el diálogo del navegador. Para conservar los hipervínculos, elige **Guardar como PDF** en Chrome o Edge. El documento mantiene los enlaces reales de correo, teléfono, Google Maps, LinkedIn y GitHub: no se convierte en una imagen. La disponibilidad de cada acción al abrir el PDF depende del visor instalado.
+
+Los estilos de papel usan A4 y fondo blanco independientemente del tema, contraste o escala de lectura. Ocultan navegación, botones flotantes y accesibilidad. La impresión utiliza el idioma seleccionado. Desactiva los encabezados y pies de página del navegador para una presentación limpia. Si el visor integrado bloquea el diálogo, el sitio permite abrir el CV en una nueva pestaña.
+
+## Accesibilidad
+
+La tuerca abre ajustes de texto del 100–200 %, alto contraste, reducción de movimiento y espaciado de lectura. Escape cierra el panel y devuelve el foco. Las preferencias se recuerdan solo en este navegador cuando está disponible el almacenamiento. **Restablecer ajustes** restaura el texto al 100 % y la preferencia de movimiento del sistema.
+
+El botón de la esquina inferior izquierda aparece después de bajar 320 píxeles y vuelve al inicio respetando la reducción de movimiento. Los contactos están centrados, con iconos y enlaces descriptivos. La navegación tiene en cuenta la cabecera fija solo cuando realmente está fija.
+
+## SEO
+
+Las páginas en español e inglés tienen títulos y descripciones específicos, dirección canónica propia, referencias recíprocas `hreflang`, metadatos para compartir y datos estructurados `ProfilePage`/`Person`. Se generan `robots.txt` y un mapa del sitio con ambas versiones. Las descargas no se anuncian para indexación. La fotografía original se reutiliza en los metadatos de vista previa.
+
+HTML, CSS y JavaScript se minifican con herramientas dedicadas. Los recursos incluyen una huella de contenido en su URL para evitar que una actualización utilice archivos antiguos. Estas mejoras facilitan el rastreo y reducen el peso; la indexación, posición y visitas dependen también de los buscadores y de la difusión del perfil.
+
+## Privacidad
+
+La página publica los datos profesionales y la fotografía facilitados por el titular. No incorpora analítica, formularios, cookies ni bibliotecas externas en ejecución. Tema, idioma y accesibilidad se guardan localmente; no se envían a otros servicios. Los enlaces externos solo se abren cuando se seleccionan.

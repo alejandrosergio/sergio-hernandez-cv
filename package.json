@@ -1,0 +1,16 @@
+{
+  "name": "sergio-hernandez-cv",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "fflate": "0.8.3",
+    "html-minifier-terser": "7.2.0",
+    "linkedom": "0.18.13"
+  }
+}

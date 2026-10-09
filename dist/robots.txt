@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /descargas/
+Sitemap: https://sergio-hernandez-cv.alejosergio3000.chatgpt.site/sitemap.xml
