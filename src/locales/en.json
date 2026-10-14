@@ -268,11 +268,11 @@
   },
   {
     "selector": ".job:nth-child(4) .job-details li:nth-child(1)",
-    "text": "Developed backend services in a microservices architecture."
+    "text": "Developed backend services with Java and Spring Boot in a microservices architecture."
   },
   {
     "selector": ".job:nth-child(4) .job-details li:nth-child(2)",
-    "text": "Worked with Oracle and PL/SQL to manage business data."
+    "text": "Developed web interfaces with Angular."
   },
   {
     "selector": "#titulo-formacion",
@@ -480,7 +480,7 @@
   },
   {
     "selector": "#copyright",
-    "text": "© 2026 Alejandro’sTech · Website design and development."
+    "text": "© 2026 Alejandro’sTech"
   },
   {
     "selector": "#net-procedures",
@@ -521,5 +521,13 @@
   {
     "selector": "#power-alm",
     "text": "Solutions and ALM"
+  },
+  {
+    "selector": ".job:nth-child(4) .job-details li:nth-child(3)",
+    "text": "Worked with Oracle and PL/SQL to manage business data."
+  },
+  {
+    "selector": "#brand-tagline",
+    "text": "AI and automation that work for your business."
   }
 ]

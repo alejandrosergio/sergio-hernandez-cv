@@ -76,6 +76,8 @@ La fotografía corresponde al titular del currículum. La licencia de las bander
 
 ## Identidad y conocimientos confirmados
 
-El logo SH utiliza trazos de código y nodos como identidad visual del currículum. Alejandro’sTech es el nombre provisional del portfolio y servicios freelance: el acceso indica Próximamente y no tiene un destino asignado. El pie identifica la creación y el desarrollo de la web.
+El logo SH utiliza trazos de código y nodos como identidad visual del currículum. Alejandro’sTech es la marca elegida para el portfolio y servicios freelance: el acceso indica Próximamente y no tiene un destino asignado. El pie presenta el lema «IA y automatización que trabajan para tu negocio». Ambas impresiones incluyen Alejandro’sTech con Próximamente mientras no tenga una URL.
 
 Las tecnologías incluyen ASP.NET Core/Web API, Entity Framework Core, LINQ, inyección de dependencias, pruebas unitarias y procedimientos almacenados; en Power Platform, apps canvas/model-driven, plugins de Dataverse, componentes PCF, RPA, conectores personalizados y soluciones/ALM. Fueron confirmadas por el titular y se reutilizan en ambas versiones impresas. Los seis años corresponden a la trayectoria profesional total, no a una duración atribuida a cada tecnología.
+
+Java y Spring Boot se muestran únicamente en la experiencia de CODESA, junto con microservicios y Angular. La sección de tecnologías describe los conocimientos que se ofrecen actualmente.

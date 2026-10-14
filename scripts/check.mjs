@@ -30,7 +30,12 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(placeholder.getAttribute('href'),null);
   assert.equal(document.querySelector('.job:nth-child(2) .job-period > span').textContent,'2023 – 2025');
   assert.equal(document.querySelector('.language-spanish strong').textContent,language === 'es' ? 'Nativo' : 'Native');
-  assert.doesNotMatch(document.querySelector('main').textContent,/\bPHP\b|Bootstrap|\bSenior\b|Spring Boot|\bJava\b|comercialicé|commercialized|sold|entrega a cliente/iu);
+  assert.doesNotMatch(document.querySelector('main').textContent,/\bPHP\b|Bootstrap|\bSenior\b|comercialicé|commercialized|sold|entrega a cliente/iu);
+  assert.doesNotMatch(document.querySelector('#tecnologias').textContent,/\bJava\b|Spring Boot/iu);
+  for(const name of ['Java','Spring Boot','Angular','micro']){assert.ok(document.querySelector('.job:nth-child(4)').textContent.toLowerCase().includes(name.toLowerCase()));assert.ok(document.querySelector('.recruiter-job:nth-child(4)').textContent.toLowerCase().includes(name.toLowerCase()));}
+  const coming=language==='es'?'Próximamente':'Coming soon';
+  for(const node of document.querySelectorAll('.print-portfolio')){assert.ok(node.textContent.includes('Alejandro’sTech'));assert.ok(node.textContent.includes(coming));assert.equal(node.querySelectorAll('a[href]').length,0);}
+  assert.equal(document.querySelectorAll('.print-portfolio').length,2);
   assert.equal(document.querySelectorAll('.print-option').length,2);
   assert.equal(document.querySelectorAll('.print-option-actions button').length,2);
   assert.equal(document.querySelectorAll('.print-option-actions a').length,0);

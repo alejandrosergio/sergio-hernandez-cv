@@ -30,11 +30,12 @@ No guardar credenciales, tokens, perfiles del navegador, `.env`, `node_modules/`
 ## Contenido y funcionamiento
 
 - Perfil: Analista y Desarrollador de Software, +6 años; español e inglés.
-- .NET, Power Platform e IA mantienen la misma jerarquía de títulos y acentos. En escritorio, Power Platform puede ocupar dos espacios y las otras áreas uno, según la cantidad de contenido confirmada.
+- .NET, Power Platform e IA mantienen la misma jerarquía de títulos y acentos. En escritorio, Power Platform ocupa dos filas junto a .NET e IA apiladas; adaptar la composición al tamaño de pantalla.
 - Mantener la fotografía original, los contactos y sus vínculos, la accesibilidad y la impresión sin controles.
 - Mantener CV completo y CV resumido de lectura rápida, con impresión en ambos idiomas. El CV resumido conserva todas las tecnologías confirmadas del completo. El enlace al currículum web se muestra solo al imprimir, oculto en la página de pantalla. El selector ofrece únicamente impresión.
 - Describir el ciclo de vida completo como capacidad profesional, con enfoque para reclutadores.
-- Mantener las tecnologías y la experiencia confirmadas por el titular; no inventar resultados, certificaciones, herramientas o fechas.
+- Mantener las tecnologías y la experiencia confirmadas por el titular; no inventar resultados, certificaciones, herramientas o fechas. Java y Spring Boot figuran como experiencia histórica en CODESA, no como tecnologías que se ofrecen actualmente.
+- La marca elegida es Alejandro’sTech. Mientras no tenga URL, mostrar Próximamente también en ambas impresiones, sin crear un enlace ficticio.
 
 ## Alcance de la sincronización
 
