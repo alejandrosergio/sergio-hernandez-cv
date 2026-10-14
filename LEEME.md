@@ -1,6 +1,6 @@
 # Currículum web de Sergio Hernández
 
-Currículum bilingüe de un Analista y Desarrollador de Software con +6 años de experiencia. Presenta .NET, Power Platform e inteligencia artificial con el mismo peso visual, gestión del ciclo de vida completo (ALM), liderazgo técnico y datos SQL y NoSQL. Auto Control Empresarial figura en 2023–2025 y DynamizaTIC en 2025–2026. Idiomas: español nativo e inglés B1.
+Currículum bilingüe de un Analista y Desarrollador de Software con +6 años de experiencia. Presenta .NET, Power Platform e inteligencia artificial con títulos de igual jerarquía y una distribución ajustada a su contenido, gestión del ciclo de vida completo (ALM), liderazgo técnico y datos SQL y NoSQL. Auto Control Empresarial figura en 2023–2025 y DynamizaTIC en 2025–2027, indicando el periodo de contrato. Idiomas: español nativo e inglés B1.
 
 ## Abrir el currículum
 
@@ -54,3 +54,9 @@ HTML, CSS y JavaScript se minifican con herramientas dedicadas. Los recursos inc
 ## Privacidad
 
 La página publica los datos profesionales y la fotografía facilitados por el titular. No incorpora analítica, formularios, cookies ni bibliotecas externas en ejecución. Tema, idioma y accesibilidad se guardan localmente; no se envían a otros servicios. Los enlaces externos solo se abren cuando se seleccionan.
+
+## Identidad y conocimientos confirmados
+
+El logo SH utiliza trazos de código y nodos como identidad visual del currículum. Alejandro’sTech es el nombre provisional del portfolio y servicios freelance: el acceso indica Próximamente y no tiene un destino asignado. El pie identifica la creación y el desarrollo de la web.
+
+Las tecnologías incluyen ASP.NET Core/Web API, Entity Framework Core, LINQ, inyección de dependencias, pruebas unitarias y procedimientos almacenados; en Power Platform, apps canvas/model-driven, plugins de Dataverse, componentes PCF, RPA, conectores personalizados y soluciones/ALM. Fueron confirmadas por el titular y se reutilizan en ambas versiones impresas. Los seis años corresponden a la trayectoria profesional total, no a una duración atribuida a cada tecnología.

@@ -71,7 +71,7 @@ function profileSchema(language) {
       image:`${origin}/images/sergio-hernandez.jpeg`, url:urls[language],
       sameAs:['https://www.linkedin.com/in/sergio-alejandro-hernandez-patino/','https://github.com/alejandrosergio'],
       homeLocation:{'@type':'Place',name:'Cali, Colombia'}, knowsLanguage:['es','en'],
-      knowsAbout:['C#','.NET','Microsoft Power Platform','Microsoft 365','Azure','Artificial intelligence','REST APIs','SQL Server','MySQL','MongoDB','Application lifecycle management']
+      knowsAbout:['C#','.NET','ASP.NET Core','Web API','Entity Framework Core','LINQ','Dependency injection','Unit testing','Microsoft Power Platform','Power Apps','Microsoft Dataverse','Power Apps component framework','Robotic process automation','Microsoft 365','Azure','Artificial intelligence','REST APIs','SQL Server','MySQL','MongoDB','Application lifecycle management']
     }
   };
 }
@@ -138,6 +138,8 @@ const spanishTemplate = document.toString();
 for (const language of ['es','en']) {
   const {document:page} = parseHTML(spanishTemplate);
   applyTranslations(page,language);
+  page.querySelector('link[rel="icon"]').href = `favicon.svg?v=${hash(await readFile(path.join(site,'public/favicon.svg')))}`;
+  page.querySelector('.monogram img').src = `images/sh-logo.svg?v=${hash(await readFile(path.join(site,'public/images/sh-logo.svg')))}`;
   page.querySelector('link[rel="stylesheet"]').href = `styles.css?v=${hash(stylesheet)}`;
   page.querySelector('script[src]').src = `script.js?v=${hash(javascript)}`;
   page.querySelector('.portrait img').src = `images/sergio-hernandez.jpeg?v=${hash(await readFile(path.join(site,'public/images/sergio-hernandez.jpeg')))}`;
@@ -163,7 +165,7 @@ download.querySelector('link[rel="stylesheet"]').replaceWith(element('style',{},
 download.querySelector('script[src]').remove();
 download.querySelector('meta[name="robots"]').content = 'noindex,nofollow';
 const embeddedAssets = new Map();
-for (const [file,mime] of [['favicon.svg','image/svg+xml'],['flags/us.svg','image/svg+xml'],['flags/es.svg','image/svg+xml'],['images/sergio-hernandez.jpeg','image/jpeg']]) {
+for (const [file,mime] of [['favicon.svg','image/svg+xml'],['flags/us.svg','image/svg+xml'],['flags/es.svg','image/svg+xml'],['images/sergio-hernandez.jpeg','image/jpeg'],['images/sh-logo.svg','image/svg+xml']]) {
   embeddedAssets.set(file,`data:${mime};base64,${(await readFile(path.join(dist,file))).toString('base64')}`);
 }
 for (const node of download.querySelectorAll('[href],[src],[data-flag-en],[data-flag-es]')) {

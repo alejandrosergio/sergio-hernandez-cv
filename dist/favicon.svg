@@ -1,1 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="10" fill="#132f46"/><text x="32" y="41" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-weight="700" font-size="28">SH</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="sh-title">
+  <title id="sh-title">Sergio Hernández</title>
+  <defs>
+    <linearGradient id="sh-surface" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#123f68"/><stop offset="1" stop-color="#102438"/></linearGradient>
+    <linearGradient id="sh-accent" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#69b7ff"/><stop offset="1" stop-color="#71e4e1"/></linearGradient>
+  </defs>
+  <rect x="1" y="1" width="62" height="62" rx="14" fill="url(#sh-surface)" stroke="#3c658d"/>
+  <g fill="none" stroke="url(#sh-accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m14 22-5 10 5 10m36-20 5 10-5 10M24 12h12l6 6M40 52H28l-6-6"/></g>
+  <g fill="#71e4e1"><circle cx="22" cy="12" r="2.3"/><circle cx="43" cy="19" r="2.3"/><circle cx="42" cy="52" r="2.3"/><circle cx="21" cy="45" r="2.3"/></g>
+  <g fill="none" stroke="#f3f8ff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M29 25c-2-2-9-3-10 1-2 6 12 4 11 10-1 6-9 5-12 2M36 23v18m11-18v18M36 32h11"/></g>
+</svg>

@@ -30,7 +30,7 @@ No guardar credenciales, tokens, perfiles del navegador, `.env`, `node_modules/`
 ## Contenido y funcionamiento
 
 - Perfil: Analista y Desarrollador de Software, +6 años; español e inglés.
-- .NET, Power Platform e IA tienen el mismo peso visual.
+- .NET, Power Platform e IA mantienen la misma jerarquía de títulos y acentos. En escritorio, Power Platform puede ocupar dos espacios y las otras áreas uno, según la cantidad de contenido confirmada.
 - Mantener la fotografía original, los contactos y sus vínculos, la accesibilidad y la impresión sin controles.
 - Mantener CV completo y CV resumido de lectura rápida, con impresión en ambos idiomas. El CV resumido conserva todas las tecnologías confirmadas del completo. El enlace al currículum web se muestra solo al imprimir, oculto en la página de pantalla. El selector ofrece únicamente impresión.
 - Describir el ciclo de vida completo como capacidad profesional, con enfoque para reclutadores.

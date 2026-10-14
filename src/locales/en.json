@@ -6,7 +6,7 @@
   {
     "selector": "meta[name=\"description\"]",
     "attribute": "content",
-    "text": "Sergio Hernández, Software Analyst and Developer. 6+ years with .NET, Power Platform, AI, systems integration and ALM. Based in Cali, Colombia."
+    "text": "Sergio Hernández, Software Analyst and Developer with over six years of experience. .NET applications and APIs, Power Platform, automation and AI. Cali, Colombia."
   },
   {
     "selector": ".skip-link",
@@ -92,15 +92,15 @@
   },
   {
     "selector": ".experience-note p",
-    "html": "Years of experience<br> building business solutions"
+    "html": "Years of<br> experience"
   },
   {
     "selector": ".profile-summary p:first-child",
-    "text": "Over six years of experience in backend development, technology consulting and team leadership."
+    "text": "Software analyst and developer with over six years of experience in backend development, technology consulting and team leadership."
   },
   {
     "selector": ".profile-summary p:last-child",
-    "text": "I build applications, automation and integrations for business processes. My work spans requirements analysis and architecture through testing, production deployment and support."
+    "html": "I develop applications and APIs with <strong>.NET</strong>, business solutions with <strong>Power Platform</strong> and <strong>AI</strong> integrations. I connect processes and data and support the software lifecycle: requirements, architecture, development, testing, deployment and maintenance."
   },
   {
     "selector": ".contact-strip",
@@ -121,7 +121,7 @@
   },
   {
     "selector": ".specialty-power-platform .specialty-content > p:first-child",
-    "text": "I build applications with Power Apps and Dataverse and automate processes with Power Automate. I integrate APIs through custom connectors and Microsoft 365 tools, and develop Power BI reports."
+    "text": "I develop canvas and model-driven apps with Power Apps and Dataverse. I extend solutions with plug-ins, code components (PCF) and custom connectors. I automate processes and desktop tasks with Power Automate and RPA, manage solutions and ALM, and visualize data with Power BI."
   },
   {
     "selector": ".specialty-power-platform .tech-list",
@@ -138,7 +138,7 @@
   },
   {
     "selector": ".specialty-net .specialty-content > p",
-    "text": "I develop backend services and business applications with C# and .NET. I integrate REST APIs and SQL data, and deploy services on Azure."
+    "text": "I develop REST APIs and backend services with ASP.NET Core. I work with Entity Framework Core, LINQ and SQL, apply dependency injection and unit testing, and integrate Azure services."
   },
   {
     "selector": ".specialty-net .tech-list",
@@ -208,7 +208,7 @@
   },
   {
     "selector": ".shared-grid > div:nth-child(6) dd",
-    "text": "Node.js, Git and GitHub."
+    "text": "Node.js · Microservices · Git · GitHub."
   },
   {
     "selector": "#titulo-experiencia",
@@ -216,7 +216,7 @@
   },
   {
     "selector": ".job:nth-child(1) .job-period > span:first-child",
-    "text": "2025–2026"
+    "text": "2025–2027"
   },
   {
     "selector": ".job:nth-child(-n+2) .job-country",
@@ -228,15 +228,15 @@
   },
   {
     "selector": ".job:nth-child(1) .job-details li:nth-child(1)",
-    "text": "Developed applications with Power Apps and Dataverse and automated processes with Power Automate."
+    "text": "Develop applications with Power Apps and Dataverse and automate processes with Power Automate."
   },
   {
     "selector": ".job:nth-child(1) .job-details li:nth-child(2)",
-    "text": "Connected external systems through REST APIs and Azure services."
+    "text": "Connect external systems through REST APIs and Azure services."
   },
   {
     "selector": ".job:nth-child(1) .job-details li:nth-child(3)",
-    "text": "Led requirements analysis, implementation and user adoption."
+    "text": "Lead requirements analysis, implementation and user adoption."
   },
   {
     "selector": ".job:nth-child(2) .job-role",
@@ -466,7 +466,60 @@
     "text": "https://sergio-hernandez-cv.alejosergio3000.chatgpt.site/en/"
   },
   {
-    "selector": ".specialty-power-platform .tech-list li:nth-child(7)",
+    "selector": ".job-contract",
+    "text": "Contract term"
+  },
+  {
+    "selector": ".portfolio-status",
+    "text": "Coming soon"
+  },
+  {
+    "selector": "#portfolio-link",
+    "attribute": "aria-label",
+    "text": "Alejandro’sTech, website coming soon"
+  },
+  {
+    "selector": "#copyright",
+    "text": "© 2026 Alejandro’sTech · Website design and development."
+  },
+  {
+    "selector": "#net-procedures",
+    "text": "Stored procedures"
+  },
+  {
+    "selector": "#net-di",
+    "text": "Dependency injection"
+  },
+  {
+    "selector": "#net-testing",
+    "text": "Unit testing"
+  },
+  {
+    "selector": "#power-canvas",
+    "text": "Canvas apps"
+  },
+  {
+    "selector": "#power-model-driven",
+    "text": "Model-driven apps"
+  },
+  {
+    "selector": "#power-plugins",
+    "text": "Dataverse plug-ins"
+  },
+  {
+    "selector": "#power-pcf",
+    "text": "PCF code components"
+  },
+  {
+    "selector": "#power-rpa",
+    "text": "RPA (desktop automation)"
+  },
+  {
+    "selector": "#power-connectors",
     "text": "Custom connectors"
+  },
+  {
+    "selector": "#power-alm",
+    "text": "Solutions and ALM"
   }
 ]

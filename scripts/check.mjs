@@ -23,6 +23,11 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(schema.mainEntity.name,'Sergio Alejandro Hernández Patiño');
   assert.equal(schema.inLanguage,language);
   assert.match(document.querySelector('.shared-grid').textContent,/MongoDB/);
+  assert.equal(document.querySelector('.job:nth-child(1) .job-period > span').textContent,'2025–2027');
+  assert.equal(document.querySelector('.recruiter-job:first-child .recruiter-job-contract').textContent,language === 'es' ? 'Periodo de contrato' : 'Contract term');
+  const placeholder=document.getElementById('portfolio-link');
+  assert.equal(placeholder.getAttribute('aria-disabled'),'true');
+  assert.equal(placeholder.getAttribute('href'),null);
   assert.equal(document.querySelector('.job:nth-child(2) .job-period > span').textContent,'2023 – 2025');
   assert.equal(document.querySelector('.language-spanish strong').textContent,language === 'es' ? 'Nativo' : 'Native');
   assert.doesNotMatch(document.querySelector('main').textContent,/\bPHP\b|Bootstrap|\bSenior\b|Spring Boot|\bJava\b|comercialicé|commercialized|sold|entrega a cliente/iu);
@@ -37,9 +42,10 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.doesNotMatch(document.getElementById('print-chooser').textContent,/\bPDF\b/iu);
   const printSkills = document.querySelector('#recruiter-print .recruiter-section:nth-of-type(2)');
   const normalize = value => value.replace(/\s+/g,' ').trim();
-  for (const node of document.querySelectorAll('.specialty .tech-list li,.specialty .ecosystem span,.shared-grid dd')) {
+  for (const node of document.querySelectorAll('.specialty .tech-list li,.specialty .ecosystem span,.shared-grid [data-print-technology] dd')) {
     assert.ok(normalize(printSkills.textContent).includes(normalize(node.textContent)),`Print summary omits confirmed skills: ${node.textContent}`);
   }
+  for(const skill of ['ASP.NET Core','Web API','Entity Framework Core','LINQ','PCF','RPA']){assert.ok(document.querySelector('#tecnologias').textContent.includes(skill));assert.ok(printSkills.textContent.includes(skill));}
   const webURL = `${origin}/${language === 'en' ? 'en/' : ''}`;
   assert.equal(document.getElementById('web-print-link').href,webURL);
   assert.equal(document.querySelector('#recruiter-print .print-web-link a').href,webURL);
