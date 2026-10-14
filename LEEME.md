@@ -1,6 +1,6 @@
 # Currículum web de Sergio Hernández
 
-Currículum bilingüe de un Analista y Desarrollador de Software con +6 años de experiencia. Presenta .NET, Power Platform e inteligencia artificial con títulos de igual jerarquía y una distribución ajustada a su contenido, gestión del ciclo de vida completo (ALM), liderazgo técnico y datos SQL y NoSQL. Auto Control Empresarial figura en 2023–2025 y DynamizaTIC en 2025–2027, indicando el periodo de contrato. Idiomas: español nativo e inglés B1.
+Currículum bilingüe de un Analista y Desarrollador de Software full stack con +6 años de experiencia. Presenta .NET, Power Platform e inteligencia artificial con títulos de igual jerarquía y una distribución ajustada a su contenido, gestión del ciclo de vida completo (ALM), liderazgo técnico y datos SQL y NoSQL. Auto Control Empresarial figura en 2023–2025 y DynamizaTIC en 2025–2027. Idiomas: español nativo e inglés B1.
 
 ## Abrir el currículum
 
@@ -57,8 +57,10 @@ La página publica los datos profesionales y la fotografía facilitados por el t
 
 ## Identidad y conocimientos confirmados
 
-El logo SH utiliza trazos de código y nodos como identidad visual del currículum. Alejandro’sTech es la marca elegida para el portfolio y servicios freelance: el acceso indica Próximamente y no tiene un destino asignado. El pie presenta el lema «IA y automatización que trabajan para tu negocio». Ambas impresiones incluyen Alejandro’sTech con Próximamente mientras no tenga una URL.
+El logo utiliza un monograma SH blanco sobre azul, sin trazos decorativos. Alejandro’sTech es la marca elegida para el portfolio y servicios freelance: el acceso indica Próximamente y no tiene un destino asignado. El pie identifica a Alejandro’sTech como la marca tecnológica de Sergio Alejandro Hernández Patiño, con Copyright © 2026. Ambas impresiones incluyen Alejandro’sTech con Próximamente mientras no tenga una URL.
 
 Las tecnologías incluyen ASP.NET Core/Web API, Entity Framework Core, LINQ, inyección de dependencias, pruebas unitarias y procedimientos almacenados; en Power Platform, apps canvas/model-driven, plugins de Dataverse, componentes PCF, RPA, conectores personalizados y soluciones/ALM. Fueron confirmadas por el titular y se reutilizan en ambas versiones impresas. Los seis años corresponden a la trayectoria profesional total, no a una duración atribuida a cada tecnología.
 
-Java y Spring Boot se muestran únicamente en la experiencia de CODESA, junto con microservicios y Angular. La sección de tecnologías describe los conocimientos que se ofrecen actualmente.
+Java, Spring Boot, Oracle, PL/SQL y microservicios se muestran únicamente en la experiencia de CODESA, junto con Angular. La sección de tecnologías describe los conocimientos que se ofrecen actualmente.
+
+Las etiquetas de tecnologías agrupan las capacidades relacionadas sin duplicar Power Apps, Dataverse ni RPA. Microsoft 365 incluye los portales de administración de Microsoft 365, SharePoint, Entra ID y seguridad. Python no se presenta como competencia. El CV resumido mantiene tres tarjetas de tecnología con igual espacio y conserva todos los conocimientos ofrecidos.

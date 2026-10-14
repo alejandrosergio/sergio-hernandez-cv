@@ -1,12 +1,12 @@
 [
   {
     "selector": "title",
-    "text": "Sergio Hernández | Software Analyst and Developer"
+    "text": "Sergio Hernández | Full Stack Developer"
   },
   {
     "selector": "meta[name=\"description\"]",
     "attribute": "content",
-    "text": "Sergio Hernández, Software Analyst and Developer with over six years of experience. .NET applications and APIs, Power Platform, automation and AI. Cali, Colombia."
+    "text": "Full stack developer with over six years of experience. Angular, .NET, Power Platform and AI for business applications, automation and system integration."
   },
   {
     "selector": ".skip-link",
@@ -92,15 +92,15 @@
   },
   {
     "selector": ".experience-note p",
-    "html": "Years of<br> experience"
+    "html": "Years of experience<br>building business solutions"
   },
   {
     "selector": ".profile-summary p:first-child",
-    "text": "Software analyst and developer with over six years of experience in backend development, technology consulting and team leadership."
+    "text": "I build full stack solutions that connect interfaces, services and data. With over six years of experience, I turn business needs into applications, automation and integrations."
   },
   {
     "selector": ".profile-summary p:last-child",
-    "html": "I develop applications and APIs with <strong>.NET</strong>, business solutions with <strong>Power Platform</strong> and <strong>AI</strong> integrations. I connect processes and data and support the software lifecycle: requirements, architecture, development, testing, deployment and maintenance."
+    "html": "I work with <strong>Angular and .NET</strong>, <strong>Power Platform</strong> and <strong>AI</strong>. I combine development, consulting and technical leadership to take solutions from analysis to production and support their evolution."
   },
   {
     "selector": ".contact-strip",
@@ -172,19 +172,19 @@
   },
   {
     "selector": ".shared-grid > div:nth-child(2) dt",
-    "text": "APIs and integration"
+    "text": "System integration"
   },
   {
     "selector": ".shared-grid > div:nth-child(2) dd",
-    "text": "REST APIs, JSON and OAuth 2.0 authentication."
+    "text": "JSON · OAuth 2.0 authentication."
   },
   {
     "selector": ".shared-grid > div:nth-child(3) dt",
-    "text": "SQL and NoSQL data"
+    "text": "Additional SQL and NoSQL data"
   },
   {
     "selector": ".shared-grid > div:nth-child(3) dd",
-    "text": "SQL Server · Oracle · PL/SQL · MySQL · MongoDB (NoSQL)."
+    "text": "MySQL · MongoDB (NoSQL)."
   },
   {
     "selector": ".shared-grid > div:nth-child(4) dt",
@@ -204,11 +204,11 @@
   },
   {
     "selector": ".shared-grid > div:nth-child(6) dt",
-    "text": "Backend and development tools"
+    "text": "Development tools"
   },
   {
     "selector": ".shared-grid > div:nth-child(6) dd",
-    "text": "Node.js · Microservices · Git · GitHub."
+    "text": "Node.js · Git · GitHub."
   },
   {
     "selector": "#titulo-experiencia",
@@ -391,20 +391,8 @@
     "text": "2023 – 2025"
   },
   {
-    "selector": ".specialty-ai .tech-list li:nth-child(1)",
-    "text": "Generative AI"
-  },
-  {
-    "selector": ".specialty-ai .tech-list li:nth-child(4)",
-    "text": "AI automation"
-  },
-  {
     "selector": ".specialty-ai .ecosystem strong",
     "text": "AI assistants"
-  },
-  {
-    "selector": ".specialty-ai .tech-list li:nth-child(3)",
-    "text": "AI APIs"
   },
   {
     "selector": "#print-chooser-title",
@@ -466,10 +454,6 @@
     "text": "https://sergio-hernandez-cv.alejosergio3000.chatgpt.site/en/"
   },
   {
-    "selector": ".job-contract",
-    "text": "Contract term"
-  },
-  {
     "selector": ".portfolio-status",
     "text": "Coming soon"
   },
@@ -480,7 +464,7 @@
   },
   {
     "selector": "#copyright",
-    "text": "© 2026 Alejandro’sTech"
+    "text": "Copyright © 2026 · Created by Alejandro’sTech, Sergio Alejandro Hernández Patiño’s technology brand."
   },
   {
     "selector": "#net-procedures",
@@ -495,24 +479,12 @@
     "text": "Unit testing"
   },
   {
-    "selector": "#power-canvas",
-    "text": "Canvas apps"
-  },
-  {
-    "selector": "#power-model-driven",
-    "text": "Model-driven apps"
-  },
-  {
-    "selector": "#power-plugins",
-    "text": "Dataverse plug-ins"
-  },
-  {
     "selector": "#power-pcf",
     "text": "PCF code components"
   },
   {
     "selector": "#power-rpa",
-    "text": "RPA (desktop automation)"
+    "text": "Power Automate Desktop / RPA"
   },
   {
     "selector": "#power-connectors",
@@ -527,7 +499,31 @@
     "text": "Worked with Oracle and PL/SQL to manage business data."
   },
   {
-    "selector": "#brand-tagline",
-    "text": "AI and automation that work for your business."
+    "selector": "#power-apps",
+    "text": "Power Apps (canvas and model-driven)"
+  },
+  {
+    "selector": "#power-dataverse",
+    "text": "Dataverse and plug-ins"
+  },
+  {
+    "selector": "#m365-admin-label",
+    "text": "Administration portals"
+  },
+  {
+    "selector": "#m365-admin-skills",
+    "text": "Microsoft 365 · SharePoint · Entra ID · Security"
+  },
+  {
+    "selector": "#ai-models",
+    "text": "Generative AI / LLM"
+  },
+  {
+    "selector": "#ai-apis",
+    "text": "AI APIs"
+  },
+  {
+    "selector": "#ai-automation",
+    "text": "AI automation"
   }
 ]

@@ -25,6 +25,17 @@ const recruiterCopy = JSON.parse(recruiterSource);
 const englishTitle = english.find(entry => entry.selector === 'title').text;
 const englishDescription = english.find(entry => entry.selector === 'meta[name="description"]').text;
 const description = document.querySelector('meta[name="description"]').content;
+const resourceAttributes = ['href','src','data-flag-en','data-flag-es'];
+
+// La publicación en /en/ y la copia autónoma usan el mismo recorrido de recursos.
+function updateResources(page,resolve) {
+  for (const node of page.querySelectorAll(resourceAttributes.map(attribute => `[${attribute}]`).join(','))) {
+    for (const attribute of resourceAttributes) {
+      const value = node.getAttribute(attribute);
+      if (value) node.setAttribute(attribute,resolve(value));
+    }
+  }
+}
 
 function element(tag, attributes, text) {
   const node = document.createElement(tag);
@@ -49,47 +60,62 @@ addLocalizedMeta('property','og:title',document.title,englishTitle);
 addLocalizedMeta('property','og:description',description,englishDescription);
 addLocalizedMeta('property','og:url',urls.es,urls.en);
 addLocalizedMeta('property','og:locale','es_CO','en_US');
+addLocalizedMeta('property','og:locale:alternate','en_US','es_CO');
+addLocalizedMeta('property','og:site_name','Sergio Hernández | Currículum profesional','Sergio Hernández | Professional CV');
 for (const [key,value] of Object.entries({
-  'og:type':'profile','og:site_name':'Sergio Hernández | Currículum profesional',
+  'og:type':'profile',
   'og:image':`${origin}/images/sergio-hernandez.jpeg`,'og:image:width':'853','og:image:height':'1280',
   'og:image:alt':'Sergio Alejandro Hernández Patiño'
 })) document.head.append(element('meta',{property:key,content:value}));
 document.head.append(element('meta',{name:'twitter:card',content:'summary'}));
 document.head.append(element('meta',{name:'twitter:image',content:`${origin}/images/sergio-hernandez.jpeg`}));
+document.head.append(element('meta',{name:'twitter:image:alt',content:'Sergio Alejandro Hernández Patiño'}));
 addLocalizedMeta('name','twitter:title',document.title,englishTitle);
 addLocalizedMeta('name','twitter:description',description,englishDescription);
 
-function profileSchema(language) {
+// El SEO toma las competencias ofrecidas del contenido visible, sin otra lista que mantener.
+function offeredTechnologies(page) {
+  const normalize = value => value.replace(/\s+/g,' ').trim().replace(/\.$/,'');
+  const terms = [
+    ...[...page.querySelectorAll('.specialty h3')].flatMap(node => node.textContent.split(/\s+&\s+/)),
+    ...[...page.querySelectorAll('.specialty .tech-list li,.specialty .ecosystem strong')].map(node => node.textContent),
+    ...[...page.querySelectorAll('.specialty .ecosystem span,.shared-grid [data-print-technology] dd')].flatMap(node => node.textContent.split(/\s*[·,]\s*|\s+(?:y|and)\s+/))
+  ].map(normalize).filter(Boolean);
+  return [...new Map(terms.map(term => [term.toLocaleLowerCase(),term])).values()];
+}
+
+function profileSchema(page,language) {
   return {
     '@context':'https://schema.org', '@type':'ProfilePage', '@id':`${urls[language]}#profile`,
     url:urls[language], inLanguage:language,
     name:language === 'es' ? 'Currículum de Sergio Alejandro Hernández Patiño' : 'Sergio Alejandro Hernández Patiño — Professional CV',
     mainEntity:{
       '@type':'Person', '@id':`${origin}/#person`, name:'Sergio Alejandro Hernández Patiño', alternateName:'Sergio Hernández',
-      jobTitle:language === 'es' ? 'Analista y Desarrollador de Software' : 'Software Analyst and Developer',
+      jobTitle:page.querySelector('.role').textContent.trim(),
       description:language === 'es' ? description : englishDescription,
       image:`${origin}/images/sergio-hernandez.jpeg`, url:urls[language],
       sameAs:['https://www.linkedin.com/in/sergio-alejandro-hernandez-patino/','https://github.com/alejandrosergio'],
       homeLocation:{'@type':'Place',name:'Cali, Colombia'}, knowsLanguage:['es','en'],
-      knowsAbout:['C#','.NET','ASP.NET Core','Web API','Entity Framework Core','LINQ','Dependency injection','Unit testing','Microsoft Power Platform','Power Apps','Microsoft Dataverse','Power Apps component framework','Robotic process automation','Microsoft 365','Azure','Artificial intelligence','REST APIs','SQL Server','MySQL','MongoDB','Application lifecycle management']
+      knowsAbout:offeredTechnologies(page)
     }
   };
 }
-document.head.append(element('script',{id:'profile-schema',type:'application/ld+json'},JSON.stringify(profileSchema('es'))));
-english.push({selector:'#profile-schema',text:JSON.stringify(profileSchema('en'))});
 
 function valueOf(node, entry) {
   return entry.attribute ? node.getAttribute(entry.attribute) : ('html' in entry ? node.innerHTML : node.textContent);
 }
 const translations = english.map(entry => {
   const nodes = [...document.querySelectorAll(entry.selector)];
-  if (!nodes.length) throw new Error(`Missing translation target: ${entry.selector}`);
+  if (!nodes.length) throw new Error(`No existe el destino de traducción: ${entry.selector}`);
   const es = valueOf(nodes[0],entry);
-  if (nodes.some(node => valueOf(node,entry) !== es)) throw new Error(`Different Spanish values share ${entry.selector}`);
+  if (nodes.some(node => valueOf(node,entry) !== es)) throw new Error(`Hay textos en español distintos bajo el selector ${entry.selector}`);
   return {selector:entry.selector, ...(entry.attribute ? {attribute:entry.attribute} : {}), format:'html' in entry ? 'html' : 'text', es, en:entry.html ?? entry.text};
 });
 const {document:englishProfile} = parseHTML(document.toString());
 applyTranslations(englishProfile,'en');
+const schemas = {es:JSON.stringify(profileSchema(document,'es')),en:JSON.stringify(profileSchema(englishProfile,'en'))};
+document.head.append(element('script',{id:'profile-schema',type:'application/ld+json'},schemas.es));
+translations.push({selector:'#profile-schema',format:'text',...schemas});
 const recruiterMarkup = {es:createRecruiterMarkup(document,recruiterCopy.es,urls.es),en:createRecruiterMarkup(englishProfile,recruiterCopy.en,urls.en)};
 const recruiterPrint = element('section',{id:'recruiter-print',class:'recruiter-resume'});
 recruiterPrint.innerHTML = recruiterMarkup.es;
@@ -134,22 +160,25 @@ function applyTranslations(page, language) {
   page.getElementById('language-flag').setAttribute('src',`flags/${target === 'en' ? 'us' : 'es'}.svg`);
 }
 
+const assetTypes = new Map([
+  ['favicon.svg','image/svg+xml'],['flags/us.svg','image/svg+xml'],['flags/es.svg','image/svg+xml'],
+  ['images/sergio-hernandez.jpeg','image/jpeg'],['images/sh-logo.svg','image/svg+xml']
+]);
+const assetContents = new Map(await Promise.all([...assetTypes.keys()].map(async file => [file,await readFile(path.join(dist,file))])));
+const versionedResources = [
+  ['link[rel="icon"]','href','favicon.svg',hash(assetContents.get('favicon.svg'))],
+  ['.monogram img','src','images/sh-logo.svg',hash(assetContents.get('images/sh-logo.svg'))],
+  ['link[rel="stylesheet"]','href','styles.css',hash(stylesheet)],
+  ['script[src]','src','script.js',hash(javascript)],
+  ['.portrait img','src','images/sergio-hernandez.jpeg',hash(assetContents.get('images/sergio-hernandez.jpeg'))]
+];
 const spanishTemplate = document.toString();
 for (const language of ['es','en']) {
   const {document:page} = parseHTML(spanishTemplate);
   applyTranslations(page,language);
-  page.querySelector('link[rel="icon"]').href = `favicon.svg?v=${hash(await readFile(path.join(site,'public/favicon.svg')))}`;
-  page.querySelector('.monogram img').src = `images/sh-logo.svg?v=${hash(await readFile(path.join(site,'public/images/sh-logo.svg')))}`;
-  page.querySelector('link[rel="stylesheet"]').href = `styles.css?v=${hash(stylesheet)}`;
-  page.querySelector('script[src]').src = `script.js?v=${hash(javascript)}`;
-  page.querySelector('.portrait img').src = `images/sergio-hernandez.jpeg?v=${hash(await readFile(path.join(site,'public/images/sergio-hernandez.jpeg')))}`;
+  for (const [selector,attribute,file,version] of versionedResources) page.querySelector(selector).setAttribute(attribute,`${file}?v=${version}`);
   if (language === 'en') {
-    for (const node of page.querySelectorAll('[href],[src],[data-flag-en],[data-flag-es]')) {
-      for (const attribute of ['href','src','data-flag-en','data-flag-es']) {
-        const value = node.getAttribute(attribute);
-        if (value && /^(?:styles\.css|script\.js|favicon\.svg|flags\/|images\/)/.test(value)) node.setAttribute(attribute,`../${value}`);
-      }
-    }
+    updateResources(page,value => /^(?:styles\.css|script\.js|favicon\.svg|flags\/|images\/)/.test(value) ? `../${value}` : value);
   }
   await writeFile(path.join(dist,language === 'es' ? 'index.html' : 'en/index.html'),await minify(page.toString(),htmlOptions));
 }
@@ -164,16 +193,8 @@ const {document:download} = parseHTML(spanishTemplate);
 download.querySelector('link[rel="stylesheet"]').replaceWith(element('style',{},stylesheet));
 download.querySelector('script[src]').remove();
 download.querySelector('meta[name="robots"]').content = 'noindex,nofollow';
-const embeddedAssets = new Map();
-for (const [file,mime] of [['favicon.svg','image/svg+xml'],['flags/us.svg','image/svg+xml'],['flags/es.svg','image/svg+xml'],['images/sergio-hernandez.jpeg','image/jpeg'],['images/sh-logo.svg','image/svg+xml']]) {
-  embeddedAssets.set(file,`data:${mime};base64,${(await readFile(path.join(dist,file))).toString('base64')}`);
-}
-for (const node of download.querySelectorAll('[href],[src],[data-flag-en],[data-flag-es]')) {
-  for (const attribute of ['href','src','data-flag-en','data-flag-es']) {
-    const value = node.getAttribute(attribute);
-    if (embeddedAssets.has(value)) node.setAttribute(attribute,embeddedAssets.get(value));
-  }
-}
+const embeddedAssets = new Map([...assetTypes].map(([file,mime]) => [file,`data:${mime};base64,${assetContents.get(file).toString('base64')}`]));
+updateResources(download,value => embeddedAssets.get(value) ?? value);
 download.body.append(element('script',{},javascript));
 await writeFile(path.join(dist,'descargas/CV_Sergio_Hernandez.html'),await minify(download.toString(),htmlOptions));
 

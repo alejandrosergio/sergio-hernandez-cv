@@ -22,17 +22,33 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(schema['@type'],'ProfilePage');
   assert.equal(schema.mainEntity.name,'Sergio Alejandro Hernández Patiño');
   assert.equal(schema.inLanguage,language);
+  assert.match(document.title,/Full Stack/);
+  assert.ok(schema.mainEntity.knowsAbout.some(skill=>skill.includes('Entra ID')));
+  assert.doesNotMatch(schema.mainEntity.knowsAbout.join(' '),/Oracle|PL\/SQL|microservicios|microservices|Python/iu);
+  assert.equal(document.querySelector('meta[property="og:description"]').content,document.querySelector('meta[name="description"]').content);
+  assert.equal(document.querySelector('meta[property="og:title"]').content,document.title);
   assert.match(document.querySelector('.shared-grid').textContent,/MongoDB/);
   assert.equal(document.querySelector('.job:nth-child(1) .job-period > span').textContent,'2025–2027');
-  assert.equal(document.querySelector('.recruiter-job:first-child .recruiter-job-contract').textContent,language === 'es' ? 'Periodo de contrato' : 'Contract term');
+  assert.equal(document.querySelectorAll('.job-contract,.recruiter-job-contract').length,0);
+  assert.doesNotMatch(document.querySelector('body').textContent,/Periodo de contrato|Contract term/iu);
   const placeholder=document.getElementById('portfolio-link');
   assert.equal(placeholder.getAttribute('aria-disabled'),'true');
   assert.equal(placeholder.getAttribute('href'),null);
   assert.equal(document.querySelector('.job:nth-child(2) .job-period > span').textContent,'2023 – 2025');
   assert.equal(document.querySelector('.language-spanish strong').textContent,language === 'es' ? 'Nativo' : 'Native');
   assert.doesNotMatch(document.querySelector('main').textContent,/\bPHP\b|Bootstrap|\bSenior\b|comercialicé|commercialized|sold|entrega a cliente/iu);
-  assert.doesNotMatch(document.querySelector('#tecnologias').textContent,/\bJava\b|Spring Boot/iu);
+  assert.doesNotMatch(document.querySelector('#tecnologias').textContent,/\bJava\b|Spring Boot|Oracle|PL\/SQL|microservicios|microservices/iu);
   for(const name of ['Java','Spring Boot','Angular','micro']){assert.ok(document.querySelector('.job:nth-child(4)').textContent.toLowerCase().includes(name.toLowerCase()));assert.ok(document.querySelector('.recruiter-job:nth-child(4)').textContent.toLowerCase().includes(name.toLowerCase()));}
+  const offered = document.querySelector('#tecnologias');
+  assert.ok(offered.textContent.includes('Entra ID'));
+  assert.equal(offered.querySelectorAll('#power-apps').length,1);
+  assert.equal(offered.querySelectorAll('#power-canvas,#power-model-driven').length,0);
+  assert.match(document.querySelector('.profile-summary').textContent,/full stack/i);
+  assert.doesNotMatch(document.querySelector('.profile-summary').textContent,/analista y desarrollador|software analyst and developer|backend/iu);
+  assert.doesNotMatch(document.querySelector('#recruiter-print .recruiter-section').textContent,/backend/iu);
+  assert.equal(document.querySelectorAll('#brand-tagline').length,0);
+  assert.match(document.getElementById('copyright').textContent,/Copyright © 2026.*Alejandro’sTech/);
+  assert.doesNotMatch(offered.textContent,/Python/iu);
   const coming=language==='es'?'Próximamente':'Coming soon';
   for(const node of document.querySelectorAll('.print-portfolio')){assert.ok(node.textContent.includes('Alejandro’sTech'));assert.ok(node.textContent.includes(coming));assert.equal(node.querySelectorAll('a[href]').length,0);}
   assert.equal(document.querySelectorAll('.print-portfolio').length,2);

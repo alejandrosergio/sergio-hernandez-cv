@@ -70,13 +70,15 @@ h1 span { font-weight:550; color:var(--accent); }
 .portrait-frame { padding:.35rem; border:1px solid var(--primary-line); border-radius:22px; background:var(--soft); box-shadow:0 12px 30px rgba(0,103,184,.08); }
 .portrait img { display:block; width:100%; height:auto; aspect-ratio:1/1.08; object-fit:cover; object-position:50% 15%; border-radius:18px; }
 .portrait-caption { display:grid; gap:.65rem; margin-top:.75rem; }
-.experience-note { display:flex; align-items:center; justify-content:center; width:100%; min-height:4rem; gap:.8rem; padding:.6rem .9rem; margin:0; border:1px solid var(--brand); background:var(--brand); color:#fff; border-radius:9px; }
+/* Ambas tarjetas comparten tamaño y centro visual, sin recortar el texto. */
+.experience-note,.portfolio-link { width:100%; min-height:5.5rem; padding:.6rem .9rem; border-radius:9px; text-align:center; }
+.experience-note { display:flex; align-items:center; justify-content:center; gap:.8rem; margin:0; border:1px solid var(--brand); background:var(--brand); color:#fff; }
 .experience-number { color:inherit; font-size:2rem; font-weight:720; line-height:1; letter-spacing:-.045em; }
 .experience-note p { margin:0; color:inherit; font-size:.875rem; line-height:1.35; }
-.portfolio-link { display:grid; grid-template-columns:18px minmax(0,1fr); grid-template-rows:auto auto; gap:0 .55rem; align-items:center; align-content:center; width:100%; min-height:4rem; padding:.6rem .9rem; border:1px dashed var(--primary-line); border-radius:9px; background:var(--paper); color:var(--ink); line-height:1.4; cursor:default; }
-.portfolio-link svg { grid-row:1 / span 2; width:18px; height:18px; color:var(--accent); }
+.portfolio-link { display:grid; grid-template-columns:18px minmax(0,max-content); grid-template-rows:auto auto; gap:0 .55rem; align-items:center; align-content:center; justify-content:center; border:1px solid var(--primary-line); background:var(--soft); color:var(--ink); line-height:1.4; cursor:default; }
+.portfolio-link svg { width:18px; height:18px; color:var(--accent); }
 .portfolio-name { min-width:0; font-size:.875rem; font-weight:600; overflow-wrap:anywhere; }
-.portfolio-status { grid-column:2; margin-top:.1rem; color:var(--muted); font-size:.75rem; }
+.portfolio-status { grid-column:1 / -1; margin-top:.25rem; color:var(--muted); font-size:.75rem; }
 .profile-summary { max-width:850px; margin-top:1.15rem; }
 .profile-summary p { margin:0 0 .8rem; }
 strong { font-weight:600; }
@@ -91,7 +93,8 @@ strong { font-weight:600; }
 .section-index { margin:0; color:var(--accent); font-size:.875rem; font-weight:600; font-variant-numeric:tabular-nums; }
 h2 { margin:0; font-size:1.4rem; line-height:1.4; letter-spacing:-.025em; color:var(--ink); font-weight:650; }
 h3 { color:var(--ink); }
-.specialties { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); grid-template-areas:"power net" "power ai"; gap:.9rem; align-items:start; }
+/* Power Platform ocupa dos filas; la columna derecha gana ancho para .NET e IA. */
+.specialties { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); grid-template-areas:"power net" "power ai"; gap:.9rem; align-items:stretch; }
 .specialty { padding:1.2rem; background:var(--soft); border:1px solid var(--line); border-top:3px solid var(--accent); border-radius:12px; min-width:0; transition:border-color .18s ease; }
 .specialty-net { grid-area:net; }
 .specialty-ai { grid-area:ai; }
@@ -120,7 +123,6 @@ h3 { color:var(--ink); }
 .job:last-child { padding-bottom:0; }
 .job-period { padding-top:.15rem; font-size:.875rem; font-weight:600; color:var(--ink); }
 .job-country { display:block; font-weight:400; color:var(--muted); margin-top:.2rem; }
-.job-contract { display:block; margin-top:.15rem; color:var(--muted); font-size:.75rem; font-weight:400; line-height:1.45; }
 .job-content { position:relative; padding:0 0 1.8rem 1.6rem; border-left:1px solid var(--line); }
 .job-content::before { content:""; position:absolute; width:7px; height:7px; left:-4px; top:.65rem; border:2px solid var(--muted); background:var(--paper); border-radius:50%; }
 .job:last-child .job-content { padding-bottom:0; }
@@ -145,7 +147,6 @@ h3 { color:var(--ink); }
 .footer-credit { min-width:0; }
 .footer-credit p:first-child { color:var(--ink); font-weight:600; }
 #copyright { margin-top:.2rem; font-size:.75rem; }
-#brand-tagline { margin-top:.2rem; font-size:.75rem; color:var(--muted); }
 .resume-footer a { text-decoration:none; white-space:nowrap; }
 .resume-footer a:hover { text-decoration:underline; color:var(--accent); }
 .noscript-note { max-width:1112px; margin:0 auto 2rem; padding:0 1.5rem; }
@@ -188,6 +189,7 @@ h3 { color:var(--ink); }
  .shared-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem 1.4rem; }
  .specialty-power-platform .tech-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.55rem; }
  .specialty-power-platform .tech-list li { display:flex; align-items:center; min-height:2.4rem; padding:.45rem .65rem; font-size:.875rem; }
+ .specialty-power-platform .tech-list li:first-child { grid-column:1 / -1; }
  .specialty-power-platform .specialty-content .ecosystem { margin-top:1.35rem; }
 }
 @media screen and (max-width:1050px) {
@@ -209,16 +211,15 @@ h3 { color:var(--ink); }
  .header-inner { padding:.7rem 1.1rem .35rem; }
  .wordmark { gap:.6rem; font-size:.875rem; }
  .monogram { width:40px; height:40px; }
- .action-button { min-height:42px; padding:.4rem .65rem; font-size:.875rem; }
+ .action-button { flex:1; min-height:42px; padding:.4rem .65rem; font-size:.875rem; }
  .header-actions { width:100%; margin:.25rem 0 0; }
- .action-button { flex:1; }
  .language-button { flex:0 0 auto; }
  .theme-button { flex:0 0 auto; min-width:44px; }
  .theme-button #theme-label { display:none; }
  .navigation { gap:.45rem; }
  .navigation a { padding:.55rem 0; font-size:.875rem; }
  .resume { margin:0; border:0; border-top:3px solid var(--brand); border-radius:0; box-shadow:none; padding:1.8rem 1.25rem 0; }
- .profile-topline { align-items:flex-start; gap:.6rem; }
+ .profile-topline { flex-wrap:wrap; align-items:flex-start; gap:.6rem; }
  .eyebrow,.location { font-size:.875rem; }
  .profile-heading { display:block; margin-top:1.55rem; margin-bottom:1.1rem; }
  h1 { font-size:clamp(2rem,7.6vw,2.8rem); }
@@ -251,7 +252,6 @@ h3 { color:var(--ink); }
  .language { grid-template-columns:7rem minmax(0,1fr); gap:1rem; }
  .language strong span { display:inline; margin-left:.5rem; }
  .resume-footer { flex-wrap:wrap; align-items:flex-start; font-size:.875rem; margin-top:2.2rem; padding-bottom:1.5rem; }
- .profile-topline { flex-wrap:wrap; }
  .resume { padding-bottom:4.5rem; }
  .accessibility-toggle { right:1rem; bottom:1rem; }
  .back-to-top { left:1rem; bottom:1rem; }
@@ -285,7 +285,6 @@ h3 { color:var(--ink); }
  .experience-note { min-height:0; margin:0; padding:0; border:0; background:#fff; color:#102d52; flex-direction:row; gap:5pt; }
  .experience-number { color:#005a9e; font-size:17pt; }
  .experience-note p { font-size:8.5pt; }
- .experience-note p br { display:initial; }
  .contact-strip { display:block; margin-top:9pt; padding:6pt 0; text-align:center; }
  .contact-strip a { display:inline-block; margin:0 6pt; font-size:8.5pt; white-space:nowrap; }
  .contact-strip svg { width:11pt; height:11pt; margin-right:3pt; }
@@ -308,6 +307,7 @@ h3 { color:var(--ink); }
  .tech-list { display:block; margin:5pt 0 0; }
  .tech-list li { margin:0 3pt 3pt 0; padding:1pt 4pt; font-size:10pt; }
  .specialty-content .ecosystem { font-size:10pt; margin:3pt 0 0; }
+ .specialty-power-platform .specialty-content .ecosystem { margin-top:3pt; }
  .ecosystem strong { display:inline; margin-right:4pt; }
  .shared-stack { margin-top:8pt; }
  .shared-stack > h3 { font-size:10.5pt; margin-bottom:6pt; break-after:avoid; }
@@ -318,7 +318,6 @@ h3 { color:var(--ink); }
  .timeline { display:block; }
  .job { display:block; padding-bottom:5pt; break-inside:avoid; }
  .job-period { float:left; width:85pt; padding:0; font-size:9pt; }
- .job-contract { font-size:8.5pt; margin-top:2pt; }
  .job-content { margin-left:100pt; padding:0 0 3pt 12pt; }
  .job h3 { font-size:11pt; }
  .job-role { font-size:10pt; margin:2pt 0 3pt; }
@@ -347,8 +346,9 @@ h3 { color:var(--ink); }
  .recruiter-section { margin-top:5pt; }
  .recruiter-section h2 { break-after:avoid; display:block; margin:0 0 5pt; font-size:11.5pt; color:#102d52; }
  .recruiter-section p { margin:0 0 4pt; }
- .recruiter-skills { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8pt; align-items:start; }
- .recruiter-skill { break-inside:avoid; padding:5pt 8pt; border:1px solid #dce6f2; border-top:2pt solid #0078d4; border-radius:4pt; }
+ /* La fila toma la altura de la tarjeta más extensa y conserva los tres fondos. */
+ .recruiter-skills { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8pt; align-items:stretch; }
+ .recruiter-skill { min-width:0; break-inside:avoid; padding:5pt 8pt; border:1px solid #dce6f2; border-top:2pt solid #0078d4; border-radius:4pt; }
  .recruiter-skill h3 { margin:0 0 4pt; font-size:10pt; color:#005a9e; }
  .recruiter-skill p,.recruiter-other-skills { font-size:10pt; }
  .recruiter-ecosystems { margin-top:5pt!important; font-size:10pt; }
@@ -358,7 +358,6 @@ h3 { color:var(--ink); }
  .recruiter-job-heading { display:flex; justify-content:space-between; gap:12pt; }
  .recruiter-job h3 { margin:0; font-size:10.5pt; color:#102d52; }
  .recruiter-job-period { font-size:8.5pt; white-space:nowrap; }
- .recruiter-job-contract { display:block; color:#52657c; font-size:8.5pt; line-height:1.4; text-align:right; }
  .recruiter-job-role { margin:2pt 0 3pt!important; font-size:9pt; font-weight:600; }
  .recruiter-job ul { margin:0; padding-left:13pt; }
  .recruiter-job li { margin:1pt 0; }
