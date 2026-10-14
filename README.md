@@ -11,15 +11,15 @@ Currículum web bilingüe de **Sergio Alejandro Hernández Patiño**, Analista y
 - Español e inglés, con contenido completo en ambas páginas estáticas.
 - Diseño adaptable a móvil y escritorio, con modos claro y oscuro.
 - Ajustes de texto, alto contraste, reducción de movimiento y espaciado de lectura.
-- Selector de CV Web completo y CV Reclutador de una página, con descarga PDF e impresión en A4.
-- PDF en español e inglés con enlaces de contacto y un enlace al currículum web que solo aparece en el documento impreso.
+- Selector de CV completo y CV resumido, con impresión en A4 en el idioma actual.
+- Ambas versiones impresas conservan los contactos y un enlace al currículum web, visible solo al imprimir.
 - Navegación por secciones y botón para volver al inicio.
 - Metadatos SEO, referencias entre idiomas, sitemap y datos estructurados del perfil.
 - Copia HTML autónoma y archivos minificados para publicación.
 
 ## Tecnología del sitio
 
-La interfaz utiliza **HTML5, CSS3 y JavaScript**. La generación se realiza con **Node.js y pnpm**, utilizando esbuild, html-minifier-terser, linkedom, fflate y PDFKit; pdf-lib verifica los documentos generados. El sitio publicado funciona con archivos estáticos y recursos locales.
+La interfaz utiliza **HTML5, CSS3 y JavaScript**. La generación se realiza con **Node.js y pnpm**, utilizando esbuild, html-minifier-terser, linkedom y fflate. El sitio publicado funciona con archivos estáticos y recursos locales.
 
 ## Estructura
 
@@ -54,7 +54,7 @@ pnpm build
 pnpm check
 ```
 
-Edita el contenido en `src/index.html` y las traducciones en `src/locales/en.json`. El resumen breve bilingüe está en `src/recruiter.json`; nombres, contactos, empresas, cargos, fechas y formación se reutilizan del CV completo. Los cambios de apariencia y comportamiento se realizan en `src/styles.css` y `src/script.js`. Ejecuta la generación para actualizar `dist/`, los cuatro PDF y las descargas.
+Edita el contenido en `src/index.html` y las traducciones en `src/locales/en.json`. El resumen breve bilingüe está en `src/recruiter.json`; nombres, contactos, tecnologías, empresas, cargos, fechas y formación se reutilizan del CV completo. Los cambios de apariencia y comportamiento se realizan en `src/styles.css` y `src/script.js`. Ejecuta la generación para actualizar `dist/` y las copias HTML.
 
 Los metadatos y el mapa del sitio están configurados para la dirección publicada indicada arriba. Si cambias el dominio, actualiza la constante `origin` en `scripts/build.mjs` y vuelve a generar.
 
@@ -66,9 +66,9 @@ La configuración y los pasos para usar el proyecto están en [docs/SINCRONIZACI
 
 ## Impresión
 
-Selecciona **Imprimir CV** y elige **CV Web** o **CV Reclutador**. Cada opción permite descargar el PDF directamente o abrir la impresión del navegador. El CV Web incluye todo el contenido; el CV Reclutador ofrece una página con perfil, competencias, experiencia resumida, formación y contactos. Ambos usan el idioma seleccionado y conservan los vínculos a Maps, correo, teléfono, LinkedIn y GitHub.
+Selecciona **Imprimir CV** y elige **CV completo** o **CV resumido**. El completo incluye todo el contenido de la web; el resumido presenta un perfil breve, todas las tecnologías y la trayectoria condensada. Ambos abren la impresión del navegador, usan el idioma seleccionado y conservan los vínculos a Maps, correo, teléfono, LinkedIn y GitHub.
 
-Los dos documentos incluyen un enlace clicable al currículum completo en la web. Ese enlace se oculta en la página de pantalla. Para guardar desde el diálogo del navegador, elige **Guardar como PDF** y desactiva sus encabezados y pies de página. Las descargas se generan en `dist/descargas/` como `CV_Sergio_Hernandez_Web_ES.pdf`, `CV_Sergio_Hernandez_Reclutador_ES.pdf` y sus versiones `_EN.pdf`.
+Los documentos impresos incluyen un enlace clicable al currículum completo en la web del mismo idioma. Ese enlace se oculta en la página de pantalla. Desactiva los encabezados y pies de página del navegador para una presentación limpia.
 
 ## Recursos
 

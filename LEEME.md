@@ -17,8 +17,8 @@ La copia `CV_Sergio_Hernandez.html` de la descarga funciona por sí sola: incorp
 - `src/styles.css`: estilos de pantalla e impresión, sin reglas de papel redundantes.
 - `public/`: fotografía original, banderas y favicon que se copian a la versión publicada.
 - `scripts/build.mjs`: genera las páginas estáticas, minifica HTML/CSS/JavaScript y actualiza las descargas.
-- `scripts/build-pdf.mjs`: reutiliza los datos del CV completo y genera los cuatro PDF con texto seleccionable y enlaces reales.
-- `scripts/check.mjs`: revisa enlaces locales, traducciones, metadatos, las dos opciones de impresión, el teclado y los enlaces de los PDF.
+- `scripts/build-print.mjs`: reutiliza los datos y todas las tecnologías del CV completo en el marcado para impresión resumida.
+- `scripts/check.mjs`: revisa enlaces locales, traducciones, metadatos, las dos opciones de impresión, el teclado y los enlaces de las versiones impresas.
 - `dist/`: archivos listos para publicar. Los recursos se sirven localmente, sin dependencias en ejecución.
 
 Con Node.js y pnpm disponibles:
@@ -31,11 +31,11 @@ pnpm check
 
 El proyecto fija las versiones de sus herramientas de desarrollo. Solo esbuild tiene autorizado un paso de instalación propio. Para editar, cambia los originales en `src/` y vuelve a generar; no edites directamente las copias minificadas. Conserva `public/`, que contiene la fotografía original y las banderas con su licencia. La generación reconstruye los recursos de `dist/` desde esta carpeta, también al utilizar el ZIP descargado.
 
-## Impresión y PDF
+## Impresión
 
-**Imprimir CV** abre un selector con **CV Web** (todo el contenido) y **CV Reclutador** (una página de lectura rápida). Cada versión permite **Descargar PDF** directamente e **Imprimir** desde el navegador. Se generan cuatro archivos: ambas versiones en español e inglés. Los PDF se incluyen también en el ZIP, dentro de `descargas/`.
+**Imprimir CV** abre un selector con **CV completo** (todo el contenido) y **CV resumido** (perfil breve, todas las tecnologías y experiencia condensada). Cada versión abre el diálogo de impresión del navegador en el idioma actual.
 
-Ambos documentos incluyen **Ver el currículum vitae completo en la web**, un enlace clicable a la página del mismo idioma. El enlace solo se muestra al imprimir o en los PDF; permanece oculto en la página de pantalla. Se mantienen los enlaces reales de correo, teléfono, Google Maps, LinkedIn y GitHub y el texto seleccionable. Para guardar desde Chrome o Edge, elige **Guardar como PDF** en su diálogo. La disponibilidad de cada acción al abrir el PDF depende del visor instalado.
+Ambos documentos incluyen **Ver el currículum vitae completo en la web**, un enlace clicable a la página del mismo idioma. El enlace solo se muestra al imprimir. Se mantienen los enlaces reales de correo, teléfono, Google Maps, LinkedIn y GitHub.
 
 Los estilos de papel usan A4 y fondo blanco independientemente del tema, contraste o escala de lectura. Ocultan navegación, botones flotantes, el selector y accesibilidad. La impresión utiliza el idioma y la versión seleccionados. Desactiva los encabezados y pies de página del navegador para una presentación limpia. Si el visor integrado bloquea el diálogo, el sitio permite abrir la misma versión del CV en una nueva pestaña.
 

@@ -45,12 +45,12 @@
   {
     "selector": "#print-cv",
     "attribute": "title",
-    "text": "Download or print the CV"
+    "text": "Choose a version to print"
   },
   {
     "selector": "#print-cv",
     "attribute": "aria-label",
-    "text": "Download or print the CV"
+    "text": "Choose a version to print"
   },
   {
     "selector": "#print-help > span:first-child",
@@ -66,7 +66,7 @@
   },
   {
     "selector": ".eyebrow",
-    "text": "Development · Automation · Integration - AI"
+    "text": "Business software · Automation · AI"
   },
   {
     "selector": ".location",
@@ -95,57 +95,12 @@
     "html": "Years of experience<br> building business solutions"
   },
   {
-    "selector": ".value-line",
-    "html": "Over six years connecting<br><span>business, data and software.</span>"
-  },
-  {
     "selector": ".profile-summary p:first-child",
-    "text": "My career began with backend service development and grew into technology consulting and team leadership. That journey has given me an end-to-end perspective: understanding a need, designing the solution and taking it through to production."
+    "text": "Over six years of experience in backend development, technology consulting and team leadership."
   },
   {
     "selector": ".profile-summary p:last-child",
-    "html": "I work with <strong>.NET, Power Platform and artificial intelligence</strong> to turn business needs into applications, automation and integrations. I combine analysis, architecture and development with testing and application lifecycle management (ALM) to take solutions into production and support their evolution."
-  },
-  {
-    "selector": ".recruiter-highlights",
-    "attribute": "aria-label",
-    "text": "Professional summary in three points"
-  },
-  {
-    "selector": ".recruiter-highlights li:nth-child(1) .highlight-kicker",
-    "text": "Specialties"
-  },
-  {
-    "selector": "#highlight-specialties",
-    "text": ".NET · Power Platform · AI"
-  },
-  {
-    "selector": ".recruiter-highlights li:nth-child(1) p",
-    "text": "Business applications, automation and integrations."
-  },
-  {
-    "selector": ".recruiter-highlights li:nth-child(2) .highlight-kicker",
-    "text": "What I build"
-  },
-  {
-    "selector": ".recruiter-highlights li:nth-child(2) strong",
-    "text": "End-to-end solutions"
-  },
-  {
-    "selector": ".recruiter-highlights li:nth-child(2) p",
-    "text": "Applications and services, from analysis to production deployment."
-  },
-  {
-    "selector": ".recruiter-highlights li:nth-child(3) .highlight-kicker",
-    "text": "How I work"
-  },
-  {
-    "selector": ".recruiter-highlights li:nth-child(3) strong",
-    "text": "Business understanding and ALM"
-  },
-  {
-    "selector": ".recruiter-highlights li:nth-child(3) p",
-    "text": "Requirements, architecture, testing and software evolution."
+    "text": "I build applications, automation and integrations for business processes. My work spans requirements analysis and architecture through testing, production deployment and support."
   },
   {
     "selector": ".contact-strip",
@@ -158,7 +113,7 @@
   },
   {
     "selector": "#titulo-tecnologias",
-    "text": "Technology that works for your business"
+    "text": "Technologies and skills"
   },
   {
     "selector": ".specialty-power-platform .overline",
@@ -166,7 +121,7 @@
   },
   {
     "selector": ".specialty-power-platform .specialty-content > p:first-child",
-    "text": "I turn business needs into intuitive applications and automated workflows, bringing data, teams and Microsoft 365 tools together in one solution."
+    "text": "I build applications with Power Apps and Dataverse and automate processes with Power Automate. I integrate APIs through custom connectors and Microsoft 365 tools, and develop Power BI reports."
   },
   {
     "selector": ".specialty-power-platform .tech-list",
@@ -183,7 +138,7 @@
   },
   {
     "selector": ".specialty-net .specialty-content > p",
-    "text": "I build applications and services that connect systems and data, combining C#, .NET, SQL Server and Azure to solve integration and business development challenges."
+    "text": "I develop backend services and business applications with C# and .NET. I integrate REST APIs and SQL data, and deploy services on Azure."
   },
   {
     "selector": ".specialty-net .tech-list",
@@ -200,7 +155,7 @@
   },
   {
     "selector": ".specialty-ai .specialty-content > p:first-child",
-    "text": "I integrate AI into applications and automation, and use assistants to support analysis, development and documentation. I combine generative AI, large language models (LLMs) and API integration with technical review of the results."
+    "text": "I integrate language models into applications and automation through APIs. I use AI assistants for analysis, development and documentation, with technical review of the results."
   },
   {
     "selector": ".specialty-ai .tech-list",
@@ -229,7 +184,7 @@
   },
   {
     "selector": ".shared-grid > div:nth-child(3) dd",
-    "text": "SQL Server, MySQL and MongoDB (NoSQL)."
+    "text": "SQL Server · Oracle · PL/SQL · MySQL · MongoDB (NoSQL)."
   },
   {
     "selector": ".shared-grid > div:nth-child(4) dt",
@@ -245,7 +200,7 @@
   },
   {
     "selector": ".shared-grid > div:nth-child(5) dd",
-    "text": "Requirements analysis, solution design and team coordination."
+    "text": "Solution design, team coordination and technology consulting."
   },
   {
     "selector": ".shared-grid > div:nth-child(6) dt",
@@ -258,47 +213,6 @@
   {
     "selector": "#titulo-experiencia",
     "text": "Professional experience"
-  },
-  {
-    "selector": ".delivery-story .overline",
-    "text": "End-to-end development · ALM"
-  },
-  {
-    "selector": "#titulo-entrega",
-    "text": "An end-to-end view of the software lifecycle"
-  },
-  {
-    "selector": ".delivery-story > p:last-child",
-    "text": "I support solution development from requirements definition through production deployment. I connect business analysis, architecture, implementation and quality with version control, documentation and support to keep applications useful, stable and ready to evolve."
-  },
-  {
-    "selector": ".delivery-stages",
-    "attribute": "aria-label",
-    "text": "Application lifecycle stages I manage"
-  },
-  {
-    "selector": ".delivery-stages li:nth-child(1) strong",
-    "text": "Requirements"
-  },
-  {
-    "selector": ".delivery-stages li:nth-child(2) strong",
-    "text": "Design and architecture"
-  },
-  {
-    "selector": ".delivery-stages li:nth-child(3) strong",
-    "text": "Development and integration"
-  },
-  {
-    "selector": ".delivery-stages li:nth-child(4) strong",
-    "text": "Testing and validation"
-  },
-  {
-    "selector": ".delivery-stages li:nth-child(5) strong",
-    "text": "Deployment and documentation"
-  },
-  {
-    "selector": ".delivery-stages li:nth-child(6) strong",
-    "text": "Support and evolution"
   },
   {
     "selector": ".job:nth-child(1) .job-period > span:first-child",
@@ -314,7 +228,7 @@
   },
   {
     "selector": ".job:nth-child(1) .job-details li:nth-child(1)",
-    "text": "Turned business needs into applications with Power Apps and Dataverse and automated processes with Power Automate."
+    "text": "Developed applications with Power Apps and Dataverse and automated processes with Power Automate."
   },
   {
     "selector": ".job:nth-child(1) .job-details li:nth-child(2)",
@@ -322,7 +236,7 @@
   },
   {
     "selector": ".job:nth-child(1) .job-details li:nth-child(3)",
-    "text": "Led solutions from requirements gathering through implementation and user adoption."
+    "text": "Led requirements analysis, implementation and user adoption."
   },
   {
     "selector": ".job:nth-child(2) .job-role",
@@ -330,11 +244,11 @@
   },
   {
     "selector": ".job:nth-child(2) .job-details li:nth-child(1)",
-    "text": "Coordinated the technical team and defined the development strategy to turn ideas into business solutions."
+    "text": "Led the technical team and defined the development strategy."
   },
   {
     "selector": ".job:nth-child(2) .job-details li:nth-child(2)",
-    "text": "Designed and implemented architectures with Microsoft 365, Power Platform and Azure to integrate systems and support their growth."
+    "text": "Designed and implemented architectures and integrations with Microsoft 365, Power Platform and Azure."
   },
   {
     "selector": ".job:nth-child(3) .job-role",
@@ -346,7 +260,7 @@
   },
   {
     "selector": ".job:nth-child(3) .job-details li:nth-child(2)",
-    "text": "Turned data into Power BI dashboards and reports to make analysis easier."
+    "text": "Developed Power BI dashboards and reports for data analysis."
   },
   {
     "selector": ".job:nth-child(4) .job-role",
@@ -494,11 +408,11 @@
   },
   {
     "selector": "#print-chooser-title",
-    "text": "Choose your CV"
+    "text": "Choose which CV to print"
   },
   {
     "selector": "#print-chooser-description",
-    "text": "Download the PDF or print the version you prefer."
+    "text": "Select the version you prefer. It will print in the current language."
   },
   {
     "selector": "#print-chooser-close",
@@ -512,11 +426,11 @@
   },
   {
     "selector": "#print-web-kicker",
-    "text": "Complete version"
+    "text": "All the content"
   },
   {
     "selector": "#print-web-title",
-    "text": "Web CV"
+    "text": "Complete CV"
   },
   {
     "selector": "#print-web-description",
@@ -524,47 +438,23 @@
   },
   {
     "selector": "#print-recruiter-kicker",
-    "text": "Quick read · 1 page"
+    "text": "Quick read"
   },
   {
     "selector": "#print-recruiter-title",
-    "text": "Recruiter CV"
+    "text": "Concise CV"
   },
   {
     "selector": "#print-recruiter-description",
-    "text": "Profile, core skills and a concise career history to find the essentials at a glance."
-  },
-  {
-    "selector": ".download-pdf",
-    "text": "Download PDF"
+    "text": "A brief profile, all technologies and a concise career history for an initial review."
   },
   {
     "selector": "#print-web",
-    "text": "Print Web CV"
+    "text": "Print complete CV"
   },
   {
     "selector": "#print-recruiter",
-    "text": "Print Recruiter CV"
-  },
-  {
-    "selector": "#download-web-pdf",
-    "attribute": "href",
-    "text": "https://sergio-hernandez-cv.alejosergio3000.chatgpt.site/descargas/CV_Sergio_Hernandez_Web_EN.pdf"
-  },
-  {
-    "selector": "#download-recruiter-pdf",
-    "attribute": "href",
-    "text": "https://sergio-hernandez-cv.alejosergio3000.chatgpt.site/descargas/CV_Sergio_Hernandez_Reclutador_EN.pdf"
-  },
-  {
-    "selector": "#download-web-pdf",
-    "attribute": "download",
-    "text": "CV_Sergio_Hernandez_Web_EN.pdf"
-  },
-  {
-    "selector": "#download-recruiter-pdf",
-    "attribute": "download",
-    "text": "CV_Sergio_Hernandez_Reclutador_EN.pdf"
+    "text": "Print concise CV"
   },
   {
     "selector": "#web-print-link",
@@ -574,5 +464,9 @@
     "selector": "#web-print-link",
     "attribute": "href",
     "text": "https://sergio-hernandez-cv.alejosergio3000.chatgpt.site/en/"
+  },
+  {
+    "selector": ".specialty-power-platform .tech-list li:nth-child(7)",
+    "text": "Custom connectors"
   }
 ]

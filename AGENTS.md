@@ -16,7 +16,7 @@ Destinos de este proyecto:
 1. Leer este archivo y las instrucciones de Sites disponibles. Abrir y sincronizar las fuentes del Site mediante su flujo oficial antes de editar. Conservar el resultado de apertura para publicar.
 2. Leer la rama y el árbol actuales de GitHub. Comparar con el estado conocido; conservar cambios del usuario en cualquiera de los dos destinos. Integrar diferencias antes de continuar y pedir información solo cuando una decisión del usuario sea indispensable. No forzar referencias, borrar historial ni sobrescribir cambios concurrentes.
 3. Editar `src/` y, cuando proceda, `public/`. Mantener español e inglés. `dist/` es la salida generada, no el lugar de edición manual.
-4. Instalar las dependencias cuando falten o cambien, generar con `pnpm build` y verificar con `pnpm check`. Revisar la presentación o el PDF cuando el cambio afecte a su diseño o comportamiento. Reutilizar comprobaciones válidas si sus entradas no cambian.
+4. Instalar las dependencias cuando falten o cambien, generar con `pnpm build` y verificar con `pnpm check`. Revisar la presentación y las versiones de impresión cuando el cambio afecte a su diseño o comportamiento. Reutilizar comprobaciones válidas si sus entradas no cambian.
 5. Publicar el Site mediante las herramientas y el flujo oficiales de Sites. Confirmar el estado satisfactorio de la publicación y conservar el público actual.
 6. Guardar en GitHub la misma versión de los archivos administrados. Usar la conexión GitHub o Git con autenticación existente. Para las herramientas Git Data, crear los blobs y el árbol, crear un commit con el padre actual y actualizar `main` con comprobación del SHA esperado, sin forzar. Verificar la referencia y los archivos resultantes.
 7. Informar de ambos resultados: URL de la web, enlace al commit de GitHub y verificaciones relevantes. Si uno falla, indicar qué quedó pendiente y resolverlo antes de dar por completa la sincronización. No afirmar que ambos están actualizados sin comprobarlo.
@@ -32,7 +32,7 @@ No guardar credenciales, tokens, perfiles del navegador, `.env`, `node_modules/`
 - Perfil: Analista y Desarrollador de Software, +6 años; español e inglés.
 - .NET, Power Platform e IA tienen el mismo peso visual.
 - Mantener la fotografía original, los contactos y sus vínculos, la accesibilidad y la impresión sin controles.
-- Mantener CV Web completo y CV Reclutador de lectura rápida, con descarga PDF e impresión en ambos idiomas. El enlace al currículum web se muestra solo en los PDF y en la impresión, oculto en la página de pantalla.
+- Mantener CV completo y CV resumido de lectura rápida, con impresión en ambos idiomas. El CV resumido conserva todas las tecnologías confirmadas del completo. El enlace al currículum web se muestra solo al imprimir, oculto en la página de pantalla. El selector ofrece únicamente impresión.
 - Describir el ciclo de vida completo como capacidad profesional, con enfoque para reclutadores.
 - Mantener las tecnologías y la experiencia confirmadas por el titular; no inventar resultados, certificaciones, herramientas o fechas.
 

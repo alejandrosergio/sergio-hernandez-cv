@@ -24,7 +24,7 @@ const ui = Object.fromEntries([
   'accessibility-toggle','accessibility-panel','accessibility-close','accessibility-reset',
   'text-size','text-size-value','text-decrease','text-increase','contrast-toggle','motion-toggle','spacing-toggle',
   'print-cv','print-help','print-open','back-to-top',
-  'print-chooser','print-chooser-close','print-web','print-recruiter','download-web-pdf','download-recruiter-pdf'
+  'print-chooser','print-chooser-close','print-web','print-recruiter'
 ].map(id => [id, byId(id)]));
 const media = {
   dark: matchMedia('(prefers-color-scheme: dark)'),
@@ -226,7 +226,7 @@ function initPrinting() {
     root.dataset.printChooserOpen = 'true';
     inertBackground = [...document.body.children].filter(node => node !== ui['print-chooser'] && node.tagName !== 'SCRIPT').map(node => [node,node.inert]);
     inertBackground.forEach(([node]) => {node.inert = true;});
-    ui['download-web-pdf'].focus({preventScroll:true});
+    ui['print-web'].focus({preventScroll:true});
   });
   ui['print-chooser-close'].addEventListener('click', () => closeChooser());
   ui['print-chooser'].addEventListener('click', event => {if (event.target === ui['print-chooser']) closeChooser();});

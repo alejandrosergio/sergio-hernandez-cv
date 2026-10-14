@@ -1,11 +1,10 @@
 import assert from 'node:assert/strict';
-import { readFile, access } from 'node:fs/promises';
+import { readFile, access, readdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import vm from 'node:vm';
 import { parseHTML } from 'linkedom';
 import { unzipSync } from 'fflate';
-import { PDFDocument, PDFName, PDFString, PDFHexString } from 'pdf-lib';
 
 const dist = fileURLToPath(new URL('../dist/',import.meta.url));
 const script = await readFile(path.join(dist,'script.js'),'utf8');
@@ -28,14 +27,22 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(document.querySelector('.language-spanish strong').textContent,language === 'es' ? 'Nativo' : 'Native');
   assert.doesNotMatch(document.querySelector('main').textContent,/\bPHP\b|Bootstrap|\bSenior\b|Spring Boot|\bJava\b|comercialicé|commercialized|sold|entrega a cliente/iu);
   assert.equal(document.querySelectorAll('.print-option').length,2);
+  assert.equal(document.querySelectorAll('.print-option-actions button').length,2);
+  assert.equal(document.querySelectorAll('.print-option-actions a').length,0);
   assert.ok(document.querySelector('#web-print-link').closest('.print-only'));
   assert.equal(document.querySelectorAll('.recruiter-job').length,4);
+  assert.deepEqual([...document.querySelectorAll('.recruiter-contact a')].map(link => link.getAttribute('href')),[document.querySelector('.location'),...document.querySelectorAll('.contact-strip a')].map(link => link.getAttribute('href')), 'Print preserves every contact URL exactly');
   assert.equal(document.querySelector('#recruiter-print').querySelectorAll('.recruiter-skill').length,3);
-  for (const [variant,name] of [['web','Web'],['recruiter','Reclutador']]) {
-    const link = document.getElementById(`download-${variant}-pdf`);
-    assert.match(link.href,new RegExp(`/descargas/CV_Sergio_Hernandez_${name}_${language.toUpperCase()}\\.pdf\\?v=`));
-    assert.equal(link.getAttribute('download'),`CV_Sergio_Hernandez_${name}_${language.toUpperCase()}.pdf`);
+  assert.equal(document.querySelectorAll('a[href*=".pdf"],a[download$=".pdf"],[id^="download-"][id$="-pdf"]').length,0);
+  assert.doesNotMatch(document.getElementById('print-chooser').textContent,/\bPDF\b/iu);
+  const printSkills = document.querySelector('#recruiter-print .recruiter-section:nth-of-type(2)');
+  const normalize = value => value.replace(/\s+/g,' ').trim();
+  for (const node of document.querySelectorAll('.specialty .tech-list li,.specialty .ecosystem span,.shared-grid dd')) {
+    assert.ok(normalize(printSkills.textContent).includes(normalize(node.textContent)),`Print summary omits confirmed skills: ${node.textContent}`);
   }
+  const webURL = `${origin}/${language === 'en' ? 'en/' : ''}`;
+  assert.equal(document.getElementById('web-print-link').href,webURL);
+  assert.equal(document.querySelector('#recruiter-print .print-web-link a').href,webURL);
   const ids = [...document.querySelectorAll('[id]')].map(node => node.id);
   assert.equal(new Set(ids).size,ids.length);
   for (const node of document.querySelectorAll('[href],[src]')) {
@@ -97,7 +104,7 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
     assert.equal(page.getElementById('accessibility-panel').hidden,true);
     assert.equal(page.getElementById('print-chooser').hidden,false);
     assert.equal(page.getElementById('print-cv').getAttribute('aria-expanded'),'true');
-    assert.equal(focused,page.getElementById('download-web-pdf'));
+    assert.equal(focused,page.getElementById('print-web'));
     assert.equal(page.querySelector('main').inert,true);
     click('print-chooser-close');
     assert.equal(page.getElementById('print-chooser').hidden,true);
@@ -120,7 +127,9 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
     window.print = () => emitWindow('beforeprint');
     click('print-cv');
     click('language-toggle');
-    assert.equal(new URL(page.getElementById('download-recruiter-pdf').href).pathname,`/descargas/CV_Sergio_Hernandez_Reclutador_${language === 'es' ? 'EN' : 'ES'}.pdf`);
+    const switchedURL = `${origin}/${language === 'es' ? 'en/' : ''}`;
+    assert.equal(page.getElementById('web-print-link').href,switchedURL);
+    assert.equal(page.querySelector('#recruiter-print .print-web-link a').href,switchedURL);
     assert.equal(page.querySelector('.recruiter-photo').src,new URL(page.querySelector('.portrait img').getAttribute('src'),page.baseURI).href);
     const escape = new window.Event('keydown');
     escape.key = 'Escape';
@@ -142,29 +151,10 @@ const download = parseHTML(await read('descargas/CV_Sergio_Hernandez.html')).doc
 assert.equal(download.querySelectorAll('script[src],link[rel="stylesheet"]').length,0);
 assert.equal(download.querySelector('meta[name="robots"]').content,'noindex,nofollow');
 assert.match(download.querySelector('.portrait img').src,/^data:image\/jpeg;base64,/);
-for (const language of ['es','en']) {
-  for (const variant of ['Web','Reclutador']) {
-    const bytes = await readFile(path.join(dist,`descargas/CV_Sergio_Hernandez_${variant}_${language.toUpperCase()}.pdf`));
-    const pdf = await PDFDocument.load(bytes);
-    assert.ok(pdf.getPageCount() > 0);
-    if (variant === 'Reclutador') assert.equal(pdf.getPageCount(),1);
-    const webURL = `${origin}/${language === 'en' ? 'en/' : ''}`;
-    for (const page of pdf.getPages()) {
-      const annotations = page.node.Annots();
-      assert.ok(annotations);
-      const urls = annotations.asArray().flatMap(ref => {
-        const annotation = pdf.context.lookup(ref);
-        const action = annotation.lookup(PDFName.of('A'));
-        const uri = action?.lookup(PDFName.of('URI'));
-        return uri instanceof PDFString || uri instanceof PDFHexString ? [uri.decodeText()] : [];
-      });
-      assert.ok(urls.includes(webURL),`${variant} ${language}: missing clickable website link`);
-    }
-  }
-}
+assert.ok((await readdir(path.join(dist,'descargas'))).every(file => !file.endsWith('.pdf')));
 const zip = unzipSync(new Uint8Array(await readFile(path.join(dist,'descargas/CV_Sergio_Hernandez_HTML_CSS_JS.zip'))));
 assert.deepEqual(Buffer.from(zip['script.js']),Buffer.from(script));
 assert.ok(zip['src/script.js'] && zip['src/locales/en.json'] && zip['en/index.html']);
 assert.ok(zip['public/favicon.svg'] && zip['public/flags/us.svg'] && zip['public/images/sergio-hernandez.jpeg']);
-for (const language of ['ES','EN']) for (const variant of ['Web','Reclutador']) assert.ok(zip[`descargas/CV_Sergio_Hernandez_${variant}_${language}.pdf`]);
-console.log('Passed: bilingual SEO, both print variants, keyboard access, downloads and clickable PDF website links.');
+assert.ok(Object.keys(zip).every(file => !file.endsWith('.pdf')));
+console.log('Passed: bilingual SEO, both print variants, complete technology list, keyboard access and print-only website links.');
