@@ -23,7 +23,7 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(schema.mainEntity.name,'Sergio Alejandro Hernández Patiño');
   assert.equal(schema.inLanguage,language);
   assert.match(document.title,/Full Stack/);
-  assert.ok(schema.mainEntity.knowsAbout.some(skill=>skill.includes('Entra ID')));
+  assert.ok(schema.mainEntity.knowsAbout.some(skill=>skill.includes('Identity')));
   assert.doesNotMatch(schema.mainEntity.knowsAbout.join(' '),/Oracle|PL\/SQL|microservicios|microservices|Python/iu);
   assert.equal(document.querySelector('meta[property="og:description"]').content,document.querySelector('meta[name="description"]').content);
   assert.equal(document.querySelector('meta[property="og:title"]').content,document.title);
@@ -40,7 +40,7 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.doesNotMatch(document.querySelector('#tecnologias').textContent,/\bJava\b|Spring Boot|Oracle|PL\/SQL|microservicios|microservices/iu);
   for(const name of ['Java','Spring Boot','Angular','micro']){assert.ok(document.querySelector('.job:nth-child(4)').textContent.toLowerCase().includes(name.toLowerCase()));assert.ok(document.querySelector('.recruiter-job:nth-child(4)').textContent.toLowerCase().includes(name.toLowerCase()));}
   const offered = document.querySelector('#tecnologias');
-  assert.ok(offered.textContent.includes('Entra ID'));
+  assert.ok(offered.textContent.includes('Identity'));
   assert.equal(offered.querySelectorAll('#power-apps').length,1);
   assert.equal(offered.querySelectorAll('#power-canvas,#power-model-driven').length,0);
   assert.match(document.querySelector('.profile-summary').textContent,/full stack/i);

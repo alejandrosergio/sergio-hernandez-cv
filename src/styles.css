@@ -68,7 +68,8 @@ h1 span { font-weight:550; color:var(--accent); }
 .focus-line > [aria-hidden] { color:#82919d; }
 .portrait { width:100%; max-width:15.5rem; min-width:0; margin:0; justify-self:end; }
 .portrait-frame { padding:.35rem; border:1px solid var(--primary-line); border-radius:22px; background:var(--soft); box-shadow:0 12px 30px rgba(0,103,184,.08); }
-.portrait img { display:block; width:100%; height:auto; aspect-ratio:1/1.08; object-fit:cover; object-position:50% 15%; border-radius:18px; }
+/* El recorte de pantalla muestra más traje y deja menos fondo sobre la cabeza. */
+.portrait img { display:block; width:100%; height:auto; aspect-ratio:1/1.08; object-fit:cover; object-position:50% 30%; border-radius:18px; }
 .portrait-caption { display:grid; grid-auto-rows:1fr; gap:.5rem; margin-top:.5rem; }
 /* Tarjetas compactas de igual altura: el contenido puede crecer al ampliar el texto. */
 .experience-note,.portfolio-link { width:100%; min-height:3.375rem; padding:.4rem .55rem; border-radius:9px; text-align:center; }
@@ -190,7 +191,7 @@ h3 { color:var(--ink); }
  /* La columna de la foto se ajusta al perfil y evita un hueco bajo la descripción. */
  .portrait { display:grid; grid-template-rows:minmax(11.5rem,1fr) auto; align-self:stretch; }
  .portrait-frame { position:relative; min-height:0; }
- .portrait-frame img { position:absolute; inset:.35rem; width:calc(100% - .7rem); height:calc(100% - .7rem); aspect-ratio:auto; }
+ .portrait-frame img { position:absolute; inset:.35rem; width:calc(100% - .7rem); height:calc(100% - .7rem); aspect-ratio:auto; object-position:50% 24%; }
  .shared-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem 1.4rem; }
  .specialty-power-platform .tech-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.55rem; }
  .specialty-power-platform .tech-list li { display:flex; align-items:center; min-height:2.4rem; padding:.45rem .65rem; font-size:.875rem; }
@@ -284,7 +285,7 @@ h3 { color:var(--ink); }
  .profile-summary p { margin-bottom:5pt; }
  .portrait { max-width:none; margin:0; }
  .portrait-frame { padding:0; border:0; border-radius:8pt; box-shadow:none; background:#fff; }
- .portrait img { height:100pt; width:100pt; border-radius:8pt; }
+ .portrait img { height:100pt; width:100pt; border-radius:8pt; object-position:50% 15%; }
  .portrait-caption { margin-top:5pt; gap:0; }
  .experience-note { min-height:0; margin:0; padding:0; border:0; background:#fff; color:#102d52; flex-direction:row; gap:5pt; }
  .experience-number { color:#005a9e; font-size:17pt; }

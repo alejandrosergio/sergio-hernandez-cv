@@ -35,6 +35,7 @@ No guardar credenciales, tokens, perfiles del navegador, `.env`, `node_modules/`
 - Mantener CV completo y CV resumido de lectura rápida, con impresión en ambos idiomas. El CV resumido conserva todas las tecnologías confirmadas del completo. El enlace al currículum web se muestra solo al imprimir, oculto en la página de pantalla. El selector ofrece únicamente impresión.
 - Describir el ciclo de vida completo como capacidad profesional, con enfoque para reclutadores. Mantener el texto «Años de experiencia creando soluciones empresariales» y las tarjetas bajo la foto centradas y compactas, con altura ajustada al texto y sin saltos de línea forzados; las tecnologías del CV resumido ocupan tres tarjetas de igual altura. Las fechas no llevan la anotación de periodo de contrato.
 - Mantener las tecnologías y la experiencia confirmadas por el titular; no inventar resultados, certificaciones, herramientas o fechas. Java, Spring Boot, Oracle, PL/SQL y microservicios figuran como experiencia histórica en CODESA, no como tecnologías que se ofrecen actualmente. Python no está confirmado y no debe añadirse como competencia.
+- Los portales de administración confirmados son Security, Identity, Azure, SharePoint y Power Platform.
 - La marca elegida es Alejandro’sTech. Mientras no tenga URL, mostrar Próximamente también en ambas impresiones, sin crear un enlace ficticio.
 
 ## Alcance de la sincronización
