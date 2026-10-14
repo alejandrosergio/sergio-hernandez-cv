@@ -1,9 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="sh-title">
   <title id="sh-title">Sergio Hernández</title>
-  <!-- Monograma legible también en tamaños pequeños, sin adornos decorativos. -->
-  <rect width="64" height="64" rx="14" fill="#0078d4"/>
-  <g fill="#fff">
-    <path d="M30.9 21.5c-2.5-1.7-5.4-2.5-8.7-2.5-5.6 0-9.1 2.8-9.1 7.4 0 3.9 3 5.9 8.4 7.3l2 .5c3 .8 4.1 1.8 4.1 3.4 0 2-1.8 3.2-4.9 3.2-3.5 0-6.3-1.2-8.8-3.1l-2.3 3.8c2.8 2.3 6.7 3.6 11 3.6 6 0 9.5-3 9.5-7.8 0-4.1-2.8-6.2-8.4-7.6l-2-.5c-2.8-.7-4.1-1.6-4.1-3.2 0-1.8 1.7-2.9 4.5-2.9 2.7 0 5.1.9 7.3 2.4z"/>
-    <path d="M35 19.5h4.8v10.2h9.4V19.5H54v25h-4.8V34h-9.4v10.5H35z"/>
+  <!-- Se conserva el monograma de trazo fino, sin circuitos ni líneas decorativas. -->
+  <defs>
+    <linearGradient id="sh-surface" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#164568"/>
+      <stop offset="1" stop-color="#11263b"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="13" fill="url(#sh-surface)"/>
+  <g fill="none" stroke="#f3f8ff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" transform="translate(32 32) scale(1.2) translate(-32 -32)">
+    <path d="M29 25c-2-2-9-3-10 1-2 6 12 4 11 10-1 6-9 5-12 2"/>
+    <path d="M36 23v18m11-18v18M36 32h11"/>
   </g>
 </svg>

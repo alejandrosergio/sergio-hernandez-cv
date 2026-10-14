@@ -57,7 +57,7 @@ La página publica los datos profesionales y la fotografía facilitados por el t
 
 ## Identidad y conocimientos confirmados
 
-El logo utiliza un monograma SH blanco sobre azul, sin trazos decorativos. Alejandro’sTech es la marca elegida para el portfolio y servicios freelance: el acceso indica Próximamente y no tiene un destino asignado. El pie identifica a Alejandro’sTech como la marca tecnológica de Sergio Alejandro Hernández Patiño, con Copyright © 2026. Ambas impresiones incluyen Alejandro’sTech con Próximamente mientras no tenga una URL.
+El logo utiliza un monograma SH de trazo fino sobre un fondo oscuro, sin circuitos ni líneas decorativas; se muestra a 32 px en la cabecera. Alejandro’sTech es la marca elegida para el portfolio y servicios freelance: el acceso indica Próximamente y no tiene un destino asignado. El pie identifica a Alejandro’sTech como la marca tecnológica de Sergio Alejandro Hernández Patiño, con Copyright © 2026. Ambas impresiones incluyen Alejandro’sTech con Próximamente mientras no tenga una URL.
 
 Las tecnologías incluyen ASP.NET Core/Web API, Entity Framework Core, LINQ, inyección de dependencias, pruebas unitarias y procedimientos almacenados; en Power Platform, apps canvas/model-driven, plugins de Dataverse, componentes PCF, RPA, conectores personalizados y soluciones/ALM. Fueron confirmadas por el titular y se reutilizan en ambas versiones impresas. Los seis años corresponden a la trayectoria profesional total, no a una duración atribuida a cada tecnología.
 

@@ -92,7 +92,7 @@
   },
   {
     "selector": ".experience-note p",
-    "html": "Years of experience<br>building business solutions"
+    "text": "Years of experience building business solutions"
   },
   {
     "selector": ".profile-summary p:first-child",
