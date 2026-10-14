@@ -45,12 +45,12 @@
   {
     "selector": "#print-cv",
     "attribute": "title",
-    "text": "Print or save as PDF"
+    "text": "Download or print the CV"
   },
   {
     "selector": "#print-cv",
     "attribute": "aria-label",
-    "text": "Print or save as PDF"
+    "text": "Download or print the CV"
   },
   {
     "selector": "#print-help > span:first-child",
@@ -491,5 +491,88 @@
   {
     "selector": ".specialty-ai .tech-list li:nth-child(3)",
     "text": "AI APIs"
+  },
+  {
+    "selector": "#print-chooser-title",
+    "text": "Choose your CV"
+  },
+  {
+    "selector": "#print-chooser-description",
+    "text": "Download the PDF or print the version you prefer."
+  },
+  {
+    "selector": "#print-chooser-close",
+    "attribute": "aria-label",
+    "text": "Close CV options"
+  },
+  {
+    "selector": "#print-chooser-close",
+    "attribute": "title",
+    "text": "Close CV options"
+  },
+  {
+    "selector": "#print-web-kicker",
+    "text": "Complete version"
+  },
+  {
+    "selector": "#print-web-title",
+    "text": "Web CV"
+  },
+  {
+    "selector": "#print-web-description",
+    "text": "The complete résumé: profile, technologies, experience, education and languages."
+  },
+  {
+    "selector": "#print-recruiter-kicker",
+    "text": "Quick read · 1 page"
+  },
+  {
+    "selector": "#print-recruiter-title",
+    "text": "Recruiter CV"
+  },
+  {
+    "selector": "#print-recruiter-description",
+    "text": "Profile, core skills and a concise career history to find the essentials at a glance."
+  },
+  {
+    "selector": ".download-pdf",
+    "text": "Download PDF"
+  },
+  {
+    "selector": "#print-web",
+    "text": "Print Web CV"
+  },
+  {
+    "selector": "#print-recruiter",
+    "text": "Print Recruiter CV"
+  },
+  {
+    "selector": "#download-web-pdf",
+    "attribute": "href",
+    "text": "https://sergio-hernandez-cv.alejosergio3000.chatgpt.site/descargas/CV_Sergio_Hernandez_Web_EN.pdf"
+  },
+  {
+    "selector": "#download-recruiter-pdf",
+    "attribute": "href",
+    "text": "https://sergio-hernandez-cv.alejosergio3000.chatgpt.site/descargas/CV_Sergio_Hernandez_Reclutador_EN.pdf"
+  },
+  {
+    "selector": "#download-web-pdf",
+    "attribute": "download",
+    "text": "CV_Sergio_Hernandez_Web_EN.pdf"
+  },
+  {
+    "selector": "#download-recruiter-pdf",
+    "attribute": "download",
+    "text": "CV_Sergio_Hernandez_Reclutador_EN.pdf"
+  },
+  {
+    "selector": "#web-print-link",
+    "text": "View the complete curriculum vitae on the web"
+  },
+  {
+    "selector": "#web-print-link",
+    "attribute": "href",
+    "text": "https://sergio-hernandez-cv.alejosergio3000.chatgpt.site/en/"
   }
 ]

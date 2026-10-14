@@ -6,6 +6,7 @@ import { build, transform } from 'esbuild';
 import { minify } from 'html-minifier-terser';
 import { parseHTML } from 'linkedom';
 import { zipSync } from 'fflate';
+import { createRecruiterMarkup, generatePdfs } from './build-pdf.mjs';
 
 const site = fileURLToPath(new URL('../', import.meta.url));
 const dist = path.join(site, 'dist');
@@ -19,6 +20,16 @@ const htmlOptions = {collapseWhitespace:true, removeComments:true, removeAttribu
 const spanishSource = await read('src/index.html');
 const {document} = parseHTML(spanishSource);
 const english = JSON.parse(await read('src/locales/en.json'));
+const recruiterSource = await read('src/recruiter.json');
+const recruiterCopy = JSON.parse(recruiterSource);
+const photo = await readFile(path.join(site,'public/images/sergio-hernandez.jpeg'));
+const pdfRevision = hash(spanishSource + JSON.stringify(english) + recruiterSource + await read('scripts/build-pdf.mjs') + hash(photo));
+for (const id of ['download-web-pdf','download-recruiter-pdf']) {
+  const link = document.getElementById(id);
+  link.href += `?v=${pdfRevision}`;
+  const translation = english.find(entry => entry.selector === `#${id}` && entry.attribute === 'href');
+  translation.text += `?v=${pdfRevision}`;
+}
 const englishTitle = english.find(entry => entry.selector === 'title').text;
 const englishDescription = english.find(entry => entry.selector === 'meta[name="description"]').text;
 const description = document.querySelector('meta[name="description"]').content;
@@ -85,6 +96,13 @@ const translations = english.map(entry => {
   if (nodes.some(node => valueOf(node,entry) !== es)) throw new Error(`Different Spanish values share ${entry.selector}`);
   return {selector:entry.selector, ...(entry.attribute ? {attribute:entry.attribute} : {}), format:'html' in entry ? 'html' : 'text', es, en:entry.html ?? entry.text};
 });
+const {document:englishProfile} = parseHTML(document.toString());
+applyTranslations(englishProfile,'en');
+const recruiterMarkup = {es:createRecruiterMarkup(document,recruiterCopy.es,urls.es),en:createRecruiterMarkup(englishProfile,recruiterCopy.en,urls.en)};
+const recruiterPrint = element('section',{id:'recruiter-print',class:'recruiter-resume'});
+recruiterPrint.innerHTML = recruiterMarkup.es;
+document.body.insertBefore(recruiterPrint,document.getElementById('print-chooser'));
+translations.push({selector:'#recruiter-print',format:'html',...recruiterMarkup});
 const javascriptBuild = await build({
   absWorkingDir:site, entryPoints:['src/script.js'], write:false, bundle:true, minify:true,
   format:'iife', platform:'browser', target:'es2020', charset:'utf8', legalComments:'none',
@@ -119,9 +137,11 @@ function applyTranslations(page, language) {
 }
 
 const spanishTemplate = document.toString();
+const localizedPages = {};
 for (const language of ['es','en']) {
   const {document:page} = parseHTML(spanishTemplate);
   applyTranslations(page,language);
+  localizedPages[language] = page;
   page.querySelector('link[rel="stylesheet"]').href = `styles.css?v=${hash(stylesheet)}`;
   page.querySelector('script[src]').src = `script.js?v=${hash(javascript)}`;
   page.querySelector('.portrait img').src = `images/sergio-hernandez.jpeg?v=${hash(await readFile(path.join(site,'public/images/sergio-hernandez.jpeg')))}`;
@@ -135,6 +155,7 @@ for (const language of ['es','en']) {
   }
   await writeFile(path.join(dist,language === 'es' ? 'index.html' : 'en/index.html'),await minify(page.toString(),htmlOptions));
 }
+const pdfs = await generatePdfs({pages:localizedPages,copy:recruiterCopy,photo,outputDirectory:path.join(dist,'descargas'),urls});
 
 const alternateLinks = Object.entries(urls).map(([lang,url]) => `<xhtml:link rel="alternate" hreflang="${lang}" href="${url}"/>`).join('') + `<xhtml:link rel="alternate" hreflang="x-default" href="${urls.es}"/>`;
 const lastModified = new Date().toISOString().slice(0,10);
@@ -172,9 +193,10 @@ async function addZipDirectory(relative, name = relative) {
 for (const file of ['index.html','styles.css','script.js','favicon.svg','robots.txt','sitemap.xml']) await addZipFile(`dist/${file}`,file);
 for (const directory of ['flags','images','en']) await addZipDirectory(`dist/${directory}`,directory);
 await addZipFile('dist/descargas/CV_Sergio_Hernandez.html','CV_Sergio_Hernandez.html');
+for (const pdf of pdfs) await addZipFile(`dist/descargas/${pdf.file}`,`descargas/${pdf.file}`);
 for (const file of ['LEEME.md','package.json','pnpm-lock.yaml','pnpm-workspace.yaml']) await addZipFile(file);
 await addZipDirectory('src');
 await addZipDirectory('scripts');
 await addZipDirectory('public');
 await writeFile(path.join(dist,'descargas/CV_Sergio_Hernandez_HTML_CSS_JS.zip'),zipSync(files,{level:9}));
-console.log(JSON.stringify({pages:['/','/en/'],javascriptBytes:Buffer.byteLength(javascript),cssBytes:Buffer.byteLength(stylesheet),zipFiles:Object.keys(files).length}));
+console.log(JSON.stringify({pages:['/','/en/'],pdfs,javascriptBytes:Buffer.byteLength(javascript),cssBytes:Buffer.byteLength(stylesheet),zipFiles:Object.keys(files).length}));

@@ -1,0 +1,46 @@
+{
+  "es": {
+    "experience": "+6 años de experiencia",
+    "profileTitle": "Perfil profesional",
+    "summary": "Analista y desarrollador de software con más de seis años de experiencia en aplicaciones, automatización e integraciones empresariales. Trayectoria en desarrollo backend, consultoría tecnológica y dirección de equipos.",
+    "lifecycle": "Ciclo de vida completo: requerimientos, arquitectura, desarrollo, pruebas, despliegue, documentación y soporte.",
+    "skillsTitle": "Competencias clave",
+    "specialties": [
+      {"title": "C# y .NET", "skills": "C# · .NET · SQL Server · Azure"},
+      {"title": "Power Platform", "skills": "Power Apps · Power Automate · Dataverse · Power BI"},
+      {"title": "Inteligencia artificial", "skills": "IA generativa · LLM · APIs de IA · Automatización con IA"}
+    ],
+    "otherSkills": "Angular · JavaScript · TypeScript · APIs REST · MySQL · MongoDB · Node.js · Git y GitHub",
+    "experienceTitle": "Experiencia profesional",
+    "jobBullets": [
+      ["Aplicaciones con Power Apps y Dataverse; automatización con Power Automate.", "Integración con APIs REST y Azure; soluciones desde requerimientos hasta adopción."],
+      ["Dirección del equipo técnico y estrategia de desarrollo.", "Arquitecturas con Microsoft 365, Power Platform y Azure."],
+      ["Aplicaciones con Power Apps y .NET; automatización con Power Automate.", "Dashboards e informes con Power BI."],
+      ["Servicios backend en arquitectura de microservicios.", "Gestión de datos empresariales con Oracle y PL/SQL."]
+    ],
+    "educationTitle": "Formación e idiomas",
+    "webLink": "Ver el currículum vitae completo en la web"
+  },
+  "en": {
+    "experience": "6+ years of experience",
+    "profileTitle": "Professional profile",
+    "summary": "Software analyst and developer with over six years of experience in business applications, automation and systems integration. Background in backend development, technology consulting and team leadership.",
+    "lifecycle": "Full software lifecycle: requirements, architecture, development, testing, deployment, documentation and support.",
+    "skillsTitle": "Core skills",
+    "specialties": [
+      {"title": "C# and .NET", "skills": "C# · .NET · SQL Server · Azure"},
+      {"title": "Power Platform", "skills": "Power Apps · Power Automate · Dataverse · Power BI"},
+      {"title": "Artificial intelligence", "skills": "Generative AI · LLMs · AI APIs · AI automation"}
+    ],
+    "otherSkills": "Angular · JavaScript · TypeScript · REST APIs · MySQL · MongoDB · Node.js · Git and GitHub",
+    "experienceTitle": "Professional experience",
+    "jobBullets": [
+      ["Power Apps and Dataverse applications; automation with Power Automate.", "REST API and Azure integration; solutions from requirements through adoption."],
+      ["Technical team leadership and development strategy.", "Architectures with Microsoft 365, Power Platform and Azure."],
+      ["Power Apps and .NET applications; automation with Power Automate.", "Dashboards and reports with Power BI."],
+      ["Backend services in a microservices architecture.", "Business data management with Oracle and PL/SQL."]
+    ],
+    "educationTitle": "Education and languages",
+    "webLink": "View the complete curriculum vitae on the web"
+  }
+}

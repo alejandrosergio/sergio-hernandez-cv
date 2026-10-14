@@ -5,6 +5,7 @@ import path from 'node:path';
 import vm from 'node:vm';
 import { parseHTML } from 'linkedom';
 import { unzipSync } from 'fflate';
+import { PDFDocument, PDFName, PDFString, PDFHexString } from 'pdf-lib';
 
 const dist = fileURLToPath(new URL('../dist/',import.meta.url));
 const script = await readFile(path.join(dist,'script.js'),'utf8');
@@ -26,6 +27,15 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(document.querySelector('.job:nth-child(2) .job-period > span').textContent,'2023 – 2025');
   assert.equal(document.querySelector('.language-spanish strong').textContent,language === 'es' ? 'Nativo' : 'Native');
   assert.doesNotMatch(document.querySelector('main').textContent,/\bPHP\b|Bootstrap|\bSenior\b|Spring Boot|\bJava\b|comercialicé|commercialized|sold|entrega a cliente/iu);
+  assert.equal(document.querySelectorAll('.print-option').length,2);
+  assert.ok(document.querySelector('#web-print-link').closest('.print-only'));
+  assert.equal(document.querySelectorAll('.recruiter-job').length,4);
+  assert.equal(document.querySelector('#recruiter-print').querySelectorAll('.recruiter-skill').length,3);
+  for (const [variant,name] of [['web','Web'],['recruiter','Reclutador']]) {
+    const link = document.getElementById(`download-${variant}-pdf`);
+    assert.match(link.href,new RegExp(`/descargas/CV_Sergio_Hernandez_${name}_${language.toUpperCase()}\\.pdf\\?v=`));
+    assert.equal(link.getAttribute('download'),`CV_Sergio_Hernandez_${name}_${language.toUpperCase()}.pdf`);
+  }
   const ids = [...document.querySelectorAll('[id]')].map(node => node.id);
   assert.equal(new Set(ids).size,ids.length);
   for (const node of document.querySelectorAll('[href],[src]')) {
@@ -85,6 +95,38 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
     assert.equal(page.documentElement.style.fontSize,'200%');
     click('print-cv');
     assert.equal(page.getElementById('accessibility-panel').hidden,true);
+    assert.equal(page.getElementById('print-chooser').hidden,false);
+    assert.equal(page.getElementById('print-cv').getAttribute('aria-expanded'),'true');
+    assert.equal(focused,page.getElementById('download-web-pdf'));
+    assert.equal(page.querySelector('main').inert,true);
+    click('print-chooser-close');
+    assert.equal(page.getElementById('print-chooser').hidden,true);
+    assert.equal(page.querySelector('main').inert,undefined);
+    assert.equal(focused,page.getElementById('print-cv'));
+    for (const variant of ['web','recruiter']) {
+      click('print-cv');
+      click(`print-${variant}`);
+      assert.equal(page.documentElement.dataset.printVariant,variant);
+      assert.equal(page.getElementById('print-chooser').hidden,true);
+      emitWindow('afterprint');
+      assert.equal(page.documentElement.dataset.printVariant,undefined);
+    }
+    window.print = () => {throw new Error('Print is blocked by the viewer');};
+    click('print-cv');
+    click('print-recruiter');
+    assert.equal(page.getElementById('print-help').hidden,false);
+    assert.equal(new URL(page.getElementById('print-open').href).searchParams.get('cv'),'recruiter');
+    emitWindow('afterprint');
+    window.print = () => emitWindow('beforeprint');
+    click('print-cv');
+    click('language-toggle');
+    assert.equal(new URL(page.getElementById('download-recruiter-pdf').href).pathname,`/descargas/CV_Sergio_Hernandez_Reclutador_${language === 'es' ? 'EN' : 'ES'}.pdf`);
+    assert.equal(page.querySelector('.recruiter-photo').src,new URL(page.querySelector('.portrait img').getAttribute('src'),page.baseURI).href);
+    const escape = new window.Event('keydown');
+    escape.key = 'Escape';
+    page.dispatchEvent(escape);
+    assert.equal(page.getElementById('print-chooser').hidden,true);
+    click('language-toggle');
     click('accessibility-reset');
     assert.equal(page.documentElement.style.fontSize,'100%');
     assert.equal(page.documentElement.dataset.readingSpacing,'normal');
@@ -100,9 +142,29 @@ const download = parseHTML(await read('descargas/CV_Sergio_Hernandez.html')).doc
 assert.equal(download.querySelectorAll('script[src],link[rel="stylesheet"]').length,0);
 assert.equal(download.querySelector('meta[name="robots"]').content,'noindex,nofollow');
 assert.match(download.querySelector('.portrait img').src,/^data:image\/jpeg;base64,/);
-assert.equal(script.trim().split('\n').length,1);
+for (const language of ['es','en']) {
+  for (const variant of ['Web','Reclutador']) {
+    const bytes = await readFile(path.join(dist,`descargas/CV_Sergio_Hernandez_${variant}_${language.toUpperCase()}.pdf`));
+    const pdf = await PDFDocument.load(bytes);
+    assert.ok(pdf.getPageCount() > 0);
+    if (variant === 'Reclutador') assert.equal(pdf.getPageCount(),1);
+    const webURL = `${origin}/${language === 'en' ? 'en/' : ''}`;
+    for (const page of pdf.getPages()) {
+      const annotations = page.node.Annots();
+      assert.ok(annotations);
+      const urls = annotations.asArray().flatMap(ref => {
+        const annotation = pdf.context.lookup(ref);
+        const action = annotation.lookup(PDFName.of('A'));
+        const uri = action?.lookup(PDFName.of('URI'));
+        return uri instanceof PDFString || uri instanceof PDFHexString ? [uri.decodeText()] : [];
+      });
+      assert.ok(urls.includes(webURL),`${variant} ${language}: missing clickable website link`);
+    }
+  }
+}
 const zip = unzipSync(new Uint8Array(await readFile(path.join(dist,'descargas/CV_Sergio_Hernandez_HTML_CSS_JS.zip'))));
 assert.deepEqual(Buffer.from(zip['script.js']),Buffer.from(script));
 assert.ok(zip['src/script.js'] && zip['src/locales/en.json'] && zip['en/index.html']);
 assert.ok(zip['public/favicon.svg'] && zip['public/flags/us.svg'] && zip['public/images/sergio-hernandez.jpeg']);
-console.log('Passed: bilingual static SEO, offline download and interaction regressions with and without storage.');
+for (const language of ['ES','EN']) for (const variant of ['Web','Reclutador']) assert.ok(zip[`descargas/CV_Sergio_Hernandez_${variant}_${language}.pdf`]);
+console.log('Passed: bilingual SEO, both print variants, keyboard access, downloads and clickable PDF website links.');

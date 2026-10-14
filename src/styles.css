@@ -14,6 +14,23 @@ button,a { -webkit-tap-highlight-color:transparent; }
 :focus-visible { outline:3px solid var(--accent); outline-offset:5px; border-radius:2px; }
 ::selection { background:#c6e4ff; color:#102d52; }
 [hidden] { display:none!important; }
+.print-only,.recruiter-resume { display:none; }
+html[data-print-chooser-open="true"] { overflow:hidden; }
+.print-chooser { position:fixed; inset:0; z-index:40; display:flex; align-items:center; justify-content:center; padding:1.25rem; overflow:auto; background:rgba(9,21,35,.58); }
+.print-chooser-panel { width:min(100%,660px); max-height:calc(100dvh - 2.5rem); overflow:auto; padding:1.75rem; border:1px solid var(--line); border-radius:24px; background:var(--paper); box-shadow:0 24px 80px rgba(0,0,0,.25); }
+.print-chooser-heading { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+.print-chooser-heading h2 { margin:0; font-size:1.5rem; color:var(--navy); }
+#print-chooser-description { margin:.6rem 0 1.35rem; color:var(--muted); }
+.print-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+.print-option { min-width:0; display:flex; flex-direction:column; padding:1.2rem; border:1px solid var(--line); border-top:3px solid var(--accent); border-radius:12px; background:var(--soft); }
+.print-option h3 { margin:.35rem 0 .5rem; color:var(--navy); font-size:1.3rem; }
+.print-option > p:not(.overline) { margin:0 0 1.2rem; font-size:.9rem; }
+.print-option .overline { color:var(--accent); font-size:.75rem; }
+.print-option-actions { display:flex; flex-direction:column; gap:.65rem; margin-top:auto; }
+.print-option-actions .action-button { white-space:normal; text-align:center; text-decoration:none; }
+.download-pdf { background:var(--brand); color:#fff; border-color:var(--brand); }
+.download-pdf:hover { background:var(--accent); color:var(--paper); }
+@media (max-width:540px) { .print-options { grid-template-columns:1fr; } .print-chooser-panel { padding:1.2rem; } }
 .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 .skip-link { position:fixed; top:-6rem; left:1rem; z-index:20; padding:.6rem 1rem; background:var(--brand); color:#fff; }
 .skip-link:focus { top:1rem; }
@@ -326,4 +343,34 @@ h3 { color:var(--ink); }
  .language + .language { margin-top:6pt; }
  .language strong { margin-left:15pt; }
  .language strong span { display:inline; margin-left:4pt; font-size:8.5pt; }
+ .pdf-web-link { display:block; margin:12pt 0 0; padding-top:7pt; border-top:1px solid #dce6f2; font-size:9pt; break-inside:avoid; }
+ .pdf-web-link a { color:#005a9e; text-decoration:underline; }
+ html[data-print-variant="recruiter"] .resume { display:none!important; }
+ html[data-print-variant="recruiter"] .recruiter-resume { display:block!important; }
+ .recruiter-resume { font-size:9.5pt; line-height:1.3; color:#263747; }
+ .recruiter-header { display:grid; grid-template-columns:minmax(0,1fr) 68pt; gap:16pt; margin-bottom:8pt; }
+ .recruiter-header h1 { margin:3pt 0 5pt; font-size:23pt; line-height:1.1; }
+ .recruiter-role { margin:0 0 5pt; font-size:12pt; font-weight:600; color:#102d52; }
+ .recruiter-focus { margin:0; font-size:10pt; font-weight:600; color:#005a9e; }
+ .recruiter-photo { width:68pt; height:85pt; object-fit:cover; object-position:50% 15%; border-radius:5pt; }
+ .recruiter-contact { display:flex; flex-wrap:wrap; gap:4pt 12pt; padding:7pt 0; border-top:1px solid #dce6f2; border-bottom:1px solid #dce6f2; font-size:8.5pt; }
+ .recruiter-section { margin-top:11pt; break-inside:avoid; }
+ .recruiter-section h2 { display:block; margin:0 0 5pt; font-size:11.5pt; color:#102d52; }
+ .recruiter-section p { margin:0 0 4pt; }
+ .recruiter-skills { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8pt; }
+ .recruiter-skill { padding:6pt 8pt; border:1px solid #dce6f2; border-top:2pt solid #0078d4; border-radius:4pt; }
+ .recruiter-skill h3 { margin:0 0 4pt; font-size:10pt; color:#005a9e; }
+ .recruiter-skill p,.recruiter-other-skills { font-size:8.5pt; }
+ .recruiter-other-skills { margin-top:6pt!important; }
+ .recruiter-jobs { margin:0; padding:0; list-style:none; }
+ .recruiter-job { margin-top:8pt; break-inside:avoid; }
+ .recruiter-job-heading { display:flex; justify-content:space-between; gap:12pt; }
+ .recruiter-job h3 { margin:0; font-size:10.5pt; color:#102d52; }
+ .recruiter-job-period { font-size:8.5pt; white-space:nowrap; }
+ .recruiter-job-role { margin:2pt 0 3pt!important; font-size:9pt; font-weight:600; }
+ .recruiter-job ul { margin:0; padding-left:13pt; }
+ .recruiter-job li { margin:2pt 0; }
+ .recruiter-education { display:grid; grid-template-columns:minmax(0,2fr) minmax(0,1fr); gap:18pt; }
+ .recruiter-education h3 { margin:0 0 3pt; font-size:9.5pt; }
+ .recruiter-resume .pdf-web-link { margin-top:11pt; }
 }

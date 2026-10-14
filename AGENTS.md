@@ -32,6 +32,7 @@ No guardar credenciales, tokens, perfiles del navegador, `.env`, `node_modules/`
 - Perfil: Analista y Desarrollador de Software, +6 años; español e inglés.
 - .NET, Power Platform e IA tienen el mismo peso visual.
 - Mantener la fotografía original, los contactos y sus vínculos, la accesibilidad y la impresión sin controles.
+- Mantener CV Web completo y CV Reclutador de lectura rápida, con descarga PDF e impresión en ambos idiomas. El enlace al currículum web se muestra solo en los PDF y en la impresión, oculto en la página de pantalla.
 - Describir el ciclo de vida completo como capacidad profesional, con enfoque para reclutadores.
 - Mantener las tecnologías y la experiencia confirmadas por el titular; no inventar resultados, certificaciones, herramientas o fechas.
 

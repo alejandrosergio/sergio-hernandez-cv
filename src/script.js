@@ -23,7 +23,8 @@ const ui = Object.fromEntries([
   'theme-toggle','theme-label','language-toggle','language-flag','language-label','language-status',
   'accessibility-toggle','accessibility-panel','accessibility-close','accessibility-reset',
   'text-size','text-size-value','text-decrease','text-increase','contrast-toggle','motion-toggle','spacing-toggle',
-  'print-cv','print-help','print-open','back-to-top'
+  'print-cv','print-help','print-open','back-to-top',
+  'print-chooser','print-chooser-close','print-web','print-recruiter','download-web-pdf','download-recruiter-pdf'
 ].map(id => [id, byId(id)]));
 const media = {
   dark: matchMedia('(prefers-color-scheme: dark)'),
@@ -55,6 +56,7 @@ const flagURLs = ui['language-flag'] ? {
   en: new URL(ui['language-flag'].dataset.flagEn, document.baseURI).href
 } : {};
 const themeColor = document.querySelector('meta[name="theme-color"]');
+const portraitURL = new URL(document.querySelector('.portrait img').getAttribute('src'),document.baseURI).href;
 
 function applyTheme() {
   const theme = state.chosenTheme || (media.dark.matches ? 'dark' : 'light');
@@ -126,6 +128,8 @@ function applyLanguage(language, announce = false) {
   ui['language-label'].textContent = target === 'en' ? 'English' : 'Español';
   updateLanguageURL();
   if (ui['print-open']) ui['print-open'].href = location.href;
+  const recruiterPhoto = document.querySelector('.recruiter-photo');
+  if (recruiterPhoto) recruiterPhoto.src = portraitURL;
   applyAccessibility();
   if (announce) ui['language-status'].textContent = state.language === 'es' ? 'Idioma cambiado a español.' : 'Language changed to English.';
 }
@@ -195,13 +199,52 @@ function initLanguage() {
 
 function initPrinting() {
   let printStarted = false;
+  const requestedVariant = new URL(location.href).searchParams.get('cv');
+  if (requestedVariant === 'web' || requestedVariant === 'recruiter') root.dataset.printVariant = requestedVariant;
+  let inertBackground = [];
+  const closeChooser = (returnFocus = true) => {
+    ui['print-chooser'].hidden = true;
+    ui['print-cv'].setAttribute('aria-expanded','false');
+    inertBackground.forEach(([node,inert]) => {node.inert = inert;});
+    inertBackground = [];
+    root.removeAttribute('data-print-chooser-open');
+    if (returnFocus) ui['print-cv'].focus({preventScroll:true});
+  };
   window.addEventListener('beforeprint', () => {
     printStarted = true;
     closeAccessibility(false);
+    closeChooser(false);
     ui['print-help'].hidden = true;
   });
+  window.addEventListener('afterprint', () => {delete root.dataset.printVariant;});
   ui['print-cv'].hidden = false;
   ui['print-cv'].addEventListener('click', () => {
+    closeAccessibility(false);
+    if (!ui['print-chooser'].hidden) {closeChooser();return;}
+    ui['print-chooser'].hidden = false;
+    ui['print-cv'].setAttribute('aria-expanded','true');
+    root.dataset.printChooserOpen = 'true';
+    inertBackground = [...document.body.children].filter(node => node !== ui['print-chooser'] && node.tagName !== 'SCRIPT').map(node => [node,node.inert]);
+    inertBackground.forEach(([node]) => {node.inert = true;});
+    ui['download-web-pdf'].focus({preventScroll:true});
+  });
+  ui['print-chooser-close'].addEventListener('click', () => closeChooser());
+  ui['print-chooser'].addEventListener('click', event => {if (event.target === ui['print-chooser']) closeChooser();});
+  document.addEventListener('keydown', event => {
+    if (ui['print-chooser'].hidden) return;
+    if (event.key === 'Escape') {event.preventDefault();closeChooser();return;}
+    if (event.key !== 'Tab') return;
+    const controls = [...ui['print-chooser'].querySelectorAll('a[href],button')];
+    const first = controls[0], last = controls.at(-1);
+    if (event.shiftKey && document.activeElement === first) {event.preventDefault();last.focus();}
+    else if (!event.shiftKey && document.activeElement === last) {event.preventDefault();first.focus();}
+  });
+  for (const variant of ['web','recruiter']) ui[`print-${variant}`].addEventListener('click', () => {
+    root.dataset.printVariant = variant;
+    const fallbackURL = new URL(location.href);
+    fallbackURL.searchParams.set('cv',variant);
+    ui['print-open'].href = fallbackURL.href;
+    closeChooser();
     printStarted = false;
     try { window.focus(); window.print(); } catch { /* Algunos visores bloquean el diálogo. */ }
     if (!printStarted) ui['print-help'].hidden = false;
