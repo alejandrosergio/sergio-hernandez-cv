@@ -48,7 +48,7 @@ addLocalizedMeta('property','og:url',urls.es,urls.en);
 addLocalizedMeta('property','og:locale','es_CO','en_US');
 for (const [key,value] of Object.entries({
   'og:type':'profile','og:site_name':'Sergio Hernández | Currículum profesional',
-  'og:image':`${origin}/images/sergio-hernandez.jpeg`,'og:image:width':'608','og:image:height':'608',
+  'og:image':`${origin}/images/sergio-hernandez.jpeg`,'og:image:width':'853','og:image:height':'1280',
   'og:image:alt':'Sergio Alejandro Hernández Patiño'
 })) document.head.append(element('meta',{property:key,content:value}));
 document.head.append(element('meta',{name:'twitter:card',content:'summary'}));
@@ -124,6 +124,7 @@ for (const language of ['es','en']) {
   applyTranslations(page,language);
   page.querySelector('link[rel="stylesheet"]').href = `styles.css?v=${hash(stylesheet)}`;
   page.querySelector('script[src]').src = `script.js?v=${hash(javascript)}`;
+  page.querySelector('.portrait img').src = `images/sergio-hernandez.jpeg?v=${hash(await readFile(path.join(site,'public/images/sergio-hernandez.jpeg')))}`;
   if (language === 'en') {
     for (const node of page.querySelectorAll('[href],[src],[data-flag-en],[data-flag-es]')) {
       for (const attribute of ['href','src','data-flag-en','data-flag-es']) {

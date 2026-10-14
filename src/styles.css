@@ -52,7 +52,7 @@ h1 span { font-weight:550; color:var(--accent); }
 .focus-line > [aria-hidden] { color:#82919d; }
 .portrait { width:100%; max-width:15.5rem; min-width:0; margin:0; justify-self:end; }
 .portrait-frame { padding:.5rem; border:1px solid var(--primary-line); border-radius:24px; background:linear-gradient(135deg,var(--accent-soft),var(--paper)); box-shadow:0 18px 40px rgba(0,103,184,.1); }
-.portrait img { display:block; width:100%; height:auto; aspect-ratio:1/1.08; object-fit:cover; object-position:50% 45%; border-radius:18px; }
+.portrait img { display:block; width:100%; height:auto; aspect-ratio:1/1.08; object-fit:cover; object-position:50% 15%; border-radius:18px; }
 .experience-note { display:flex; align-items:center; justify-content:center; gap:1rem; padding:1rem; margin:.85rem 0 0; background:var(--brand); color:#fff; border-radius:16px; }
 .experience-number { color:inherit; font-size:2.75rem; font-weight:720; line-height:1.1; letter-spacing:-.055em; }
 .experience-number > span { color:var(--accent); font-size:2.2rem; vertical-align:top; padding-left:.1rem; }
