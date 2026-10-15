@@ -1,4 +1,5 @@
 import translations from 'cv:translations';
+import { createCursorDetail } from './cursor.js';
 
 // Preferencias compatibles con las versiones anteriores y con almacenamiento bloqueado.
 const preferences = {
@@ -46,6 +47,10 @@ const state = {
     reducedMotion: typeof accessibilitySaved.reducedMotion === 'boolean' ? accessibilitySaved.reducedMotion : media.motion.matches
   }
 };
+const cursorDetail = createCursorDetail({
+  motionMedia:media.motion,
+  isDisabled:() => state.accessibility.reducedMotion || state.accessibility.highContrast
+});
 const themeCopy = {
   es: { light:'Modo claro', dark:'Modo oscuro', lightAction:'Activar modo claro', darkAction:'Activar modo oscuro' },
   en: { light:'Light mode', dark:'Dark mode', lightAction:'Switch to light mode', darkAction:'Switch to dark mode' }
@@ -87,6 +92,7 @@ function applyAccessibility() {
   ui['contrast-toggle'].checked = settings.highContrast;
   ui['motion-toggle'].checked = settings.reducedMotion;
   ui['spacing-toggle'].checked = settings.readingSpacing;
+  cursorDetail.refresh();
   applyTheme();
 }
 

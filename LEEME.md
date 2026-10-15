@@ -14,6 +14,7 @@ La copia `CV_Sergio_Hernandez.html` de la descarga funciona por sí sola: incorp
 - `src/locales/en.json`: traducciones al inglés.
 - `src/recruiter.json`: resumen bilingüe para reclutadores, sin datos profesionales inventados.
 - `src/script.js`: controladores de idioma, tema, accesibilidad, impresión y navegación.
+- `src/cursor.js`: halo decorativo del ratón, aislado de los controles y las preferencias.
 - `src/styles.css`: estilos de pantalla e impresión, sin reglas de papel redundantes.
 - `public/`: fotografía original, banderas y favicon que se copian a la versión publicada.
 - `scripts/build.mjs`: genera las páginas estáticas, minifica HTML/CSS/JavaScript y actualiza las descargas.
@@ -45,9 +46,11 @@ La tuerca abre ajustes de texto del 100–200 %, alto contraste, reducción de m
 
 El botón de la esquina inferior izquierda aparece después de bajar 320 píxeles y vuelve al inicio respetando la reducción de movimiento. Los contactos están centrados, con iconos y enlaces descriptivos. La navegación tiene en cuenta la cabecera fija solo cuando realmente está fija.
 
+El detalle del puntero conserva el cursor nativo y se muestra solo con ratón. Se oculta al usar teclado, salir de la ventana, imprimir, activar alto contraste o reducir movimiento, también según la preferencia del sistema. Su posición se actualiza como máximo una vez por fotograma, sin mantener una animación en reposo.
+
 ## SEO
 
-Las páginas en español e inglés tienen títulos y descripciones específicos, dirección canónica propia, referencias recíprocas `hreflang`, metadatos para compartir y datos estructurados `ProfilePage`/`Person`. Se generan `robots.txt` y un mapa del sitio con ambas versiones. Las descargas no se anuncian para indexación. La fotografía original se reutiliza en los metadatos de vista previa.
+Las páginas en español e inglés tienen títulos y descripciones específicos, dirección canónica propia, referencias recíprocas `hreflang`, metadatos para compartir y datos estructurados `ProfilePage`/`Person`. Se generan `robots.txt` y un mapa del sitio con ambas versiones. El mapa omite fechas de modificación automáticas que solo reflejen una recompilación. Las descargas no se anuncian para indexación. La fotografía original se reutiliza en los metadatos de vista previa.
 
 HTML, CSS y JavaScript se minifican con herramientas dedicadas. Los recursos incluyen una huella de contenido en su URL para evitar que una actualización utilice archivos antiguos. Estas mejoras facilitan el rastreo y reducen el peso; la indexación, posición y visitas dependen también de los buscadores y de la difusión del perfil.
 

@@ -180,7 +180,7 @@
   },
   {
     "selector": ".shared-grid > div:nth-child(3) dt",
-    "text": "Additional SQL and NoSQL data"
+    "text": "Additional databases"
   },
   {
     "selector": ".shared-grid > div:nth-child(3) dd",
@@ -256,7 +256,7 @@
   },
   {
     "selector": ".job:nth-child(3) .job-details li:nth-child(1)",
-    "text": "Developed applications with Power Apps and .NET, automated processes with Power Automate."
+    "text": "Developed applications with Power Apps and .NET and automated processes with Power Automate."
   },
   {
     "selector": ".job:nth-child(3) .job-details li:nth-child(2)",

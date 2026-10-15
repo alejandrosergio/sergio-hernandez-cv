@@ -184,8 +184,8 @@ for (const language of ['es','en']) {
 }
 
 const alternateLinks = Object.entries(urls).map(([lang,url]) => `<xhtml:link rel="alternate" hreflang="${lang}" href="${url}"/>`).join('') + `<xhtml:link rel="alternate" hreflang="x-default" href="${urls.es}"/>`;
-const lastModified = new Date().toISOString().slice(0,10);
-await writeFile(path.join(dist,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${Object.values(urls).map(url => `<url><loc>${url}</loc><lastmod>${lastModified}</lastmod>${alternateLinks}</url>`).join('')}</urlset>`);
+// No se publica lastmod sin una fecha verificable de actualización del contenido.
+await writeFile(path.join(dist,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${Object.values(urls).map(url => `<url><loc>${url}</loc>${alternateLinks}</url>`).join('')}</urlset>`);
 await writeFile(path.join(dist,'robots.txt'),`User-agent: *\nAllow: /\nDisallow: /descargas/\nSitemap: ${origin}/sitemap.xml\n`);
 
 // Una sola copia autónoma, con el mismo comportamiento y todos los recursos incorporados.

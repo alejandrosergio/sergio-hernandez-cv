@@ -9,7 +9,8 @@ Currículum web bilingüe de **Sergio Alejandro Hernández Patiño**, Analista y
 ## Funcionalidades
 
 - Español e inglés, con contenido completo en ambas páginas estáticas.
-- Diseño adaptable a móvil y escritorio, con modos claro y oscuro.
+- Diseño adaptable a móvil y escritorio, con modos claro y oscuro y reflujo al ampliar el texto.
+- Halo azul discreto que acompaña al ratón y respeta teclado, táctil y reducción de movimiento.
 - Ajustes de texto, alto contraste, reducción de movimiento y espaciado de lectura.
 - Selector con CV resumido primero y CV completo después, con impresión en A4 en el idioma actual.
 - Ambas versiones impresas conservan los contactos y un enlace al currículum web, visible solo al imprimir.
@@ -30,6 +31,7 @@ src/                  Contenido y código editable
   recruiter.json      Resumen para reclutadores en español e inglés
   styles.css          Estilos de pantalla e impresión
   script.js           Idioma, tema, accesibilidad y navegación
+  cursor.js           Detalle decorativo del ratón
 public/               Fotografía, banderas y favicon
 scripts/              Generación y verificaciones
 dist/                 Archivos listos para abrir o publicar

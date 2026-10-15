@@ -1,3 +1,4 @@
+import './check-cursor.mjs';
 import assert from 'node:assert/strict';
 import { readFile, access, readdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
