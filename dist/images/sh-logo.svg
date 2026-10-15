@@ -1,12 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="sh-title sh-description">
   <title id="sh-title">SH · Sergio Hernández</title>
-  <desc id="sh-description">Monograma geométrico SH en la cabeza de un agente robot.</desc>
-  <!-- La silueta y el visor comparten el centro (32, 32). -->
-  <path fill="#6bbcff" d="M28 6h8v6h10l8 8v5h6v14h-6v5l-8 8h-7v6H25v-6h-7l-8-8v-5H4V25h6v-5l8-8h10z"/>
-  <path fill="#12283c" d="M19 16h26l6 6v20l-6 6H19l-6-6V22z"/>
-  <!-- Las letras ocupan de (17, 20) a (47, 44), centradas en el visor. -->
+  <desc id="sh-description">Monograma geométrico SH en un agente robot de hombros simétricos.</desc>
+  <!-- Los hombros nacen del cuello y conservan la simetría en el eje x = 32. -->
+  <path d="M5 62v-1a8 8 0 0 1 8-8h12m14 0h12a8 8 0 0 1 8 8v1" fill="none" stroke="#6bbcff" stroke-width="2.4" stroke-linecap="round"/>
+  <path fill="#6bbcff" d="M28 2h8v6h11l9 9v5h5v14h-5v5l-9 9h-8v5H25v-5h-8l-9-9v-5H3V22h5v-5l9-9h11z"/>
+  <path fill="#12283c" d="M19 13h26l7 7v18l-7 7H19l-7-7V20z"/>
+  <!-- SH y visor comparten el centro (32, 29), con 6 unidades libres por eje. -->
   <g fill="#f3f8ff">
-    <path d="M22 20h9v6h-8v3h4l4 4v6l-5 5h-9v-6h8v-3h-4l-4-4v-6z"/>
-    <path d="M33 20h5v9h4v-9h5v24h-5v-9h-4v9h-5z"/>
+    <path d="M22 19h9v5h-8v3h4l4 4v4l-4 4H18v-5h8v-3h-4l-4-4v-4z"/>
+    <path d="M33 19h4v8h5v-8h4v20h-4v-8h-5v8h-4z"/>
   </g>
 </svg>

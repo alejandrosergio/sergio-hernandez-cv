@@ -36,7 +36,7 @@ El proyecto fija las versiones de sus herramientas de desarrollo. Solo esbuild t
 
 **Imprimir CV** abre un selector con **CV resumido** primero (perfil completo, todas las tecnologías y experiencia condensada) y **CV completo** después (todo el contenido). Cada versión abre el diálogo de impresión del navegador en el idioma actual.
 
-Ambos documentos incluyen **Ver el currículum vitae completo en la web**, un enlace clicable a la página del mismo idioma. El enlace solo se muestra al imprimir. Se mantienen los enlaces reales de correo, teléfono, Google Maps, LinkedIn y GitHub.
+Ambos documentos incluyen **Ver el currículum vitae completo en la web**, un enlace clicable a la página del mismo idioma. El enlace solo se muestra al imprimir. Se mantienen los enlaces reales de correo, teléfono, Google Maps, LinkedIn y GitHub, con texto azul y subrayado al imprimir.
 
 Los estilos de papel usan A4 y fondo blanco independientemente del tema, contraste o escala de lectura. Ocultan navegación, botones flotantes, el selector y accesibilidad. La impresión utiliza el idioma y la versión seleccionados. Desactiva los encabezados y pies de página del navegador para una presentación limpia. Si el visor integrado bloquea el diálogo, el sitio permite abrir la misma versión del CV en una nueva pestaña.
 
@@ -46,7 +46,7 @@ La tuerca abre ajustes de texto del 100–200 %, alto contraste, reducción de m
 
 El botón de la esquina inferior izquierda aparece después de bajar 320 píxeles y vuelve al inicio respetando la reducción de movimiento. Los contactos están centrados, con iconos y enlaces descriptivos. La navegación tiene en cuenta la cabecera fija solo cuando realmente está fija.
 
-El detalle del puntero conserva el cursor nativo y se muestra solo con ratón. Se oculta al usar teclado, salir de la ventana, imprimir, activar alto contraste o reducir movimiento, también según la preferencia del sistema. Su posición se actualiza como máximo una vez por fotograma, sin mantener una animación en reposo.
+El detalle del puntero conserva el cursor nativo y se muestra solo con ratón. Se oculta al usar teclado, salir de la ventana, imprimir, activar alto contraste o reducir movimiento, también según la preferencia del sistema. El anillo transparente de 26 px sigue el movimiento con una transición breve de 80 ms. Su posición se actualiza como máximo una vez por fotograma, sin mantener una animación en reposo.
 
 ## SEO
 
@@ -60,7 +60,7 @@ La página publica los datos profesionales y la fotografía facilitados por el t
 
 ## Identidad y conocimientos confirmados
 
-El logo utiliza un monograma SH geométrico centrado en una cabeza de agente robot, sin símbolos HTML. Alejandro’sTech es la marca elegida para el portfolio y servicios freelance: el acceso indica Próximamente y no tiene un destino asignado. Su tarjeta compacta usa un borde de color y alinea el estado con el nombre, dejando el globo a un lado. El pie muestra «Copyright © 2026 Alejandro’sTech. Todos los derechos reservados.», con su traducción al inglés. Ambas impresiones incluyen Alejandro’sTech con Próximamente mientras no tenga una URL.
+El logo utiliza un monograma SH geométrico con margen interior, centrado en una cabeza de agente robot con hombros simétricos. El favicon simplifica la figura a la cabeza para facilitar la lectura a 16 px. Alejandro’sTech es la marca elegida para el portfolio y servicios freelance: el acceso indica Próximamente y no tiene un destino asignado. Su tarjeta compacta usa un borde de color y alinea el estado con el nombre, dejando el globo a un lado. El pie muestra «Copyright © 2026 Alejandro’sTech. Todos los derechos reservados.», con su traducción al inglés. Ambas impresiones incluyen Alejandro’sTech con Próximamente mientras no tenga una URL.
 
 Las tecnologías incluyen ASP.NET Core/Web API, Entity Framework Core, LINQ, inyección de dependencias, pruebas unitarias y procedimientos almacenados; en Power Platform, apps canvas/model-driven, plugins de Dataverse, componentes PCF, RPA, conectores personalizados y soluciones/ALM. Fueron confirmadas por el titular y se reutilizan en ambas versiones impresas. Los seis años corresponden a la trayectoria profesional total, no a una duración atribuida a cada tecnología.
 

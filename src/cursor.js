@@ -7,6 +7,7 @@ export function createCursorDetail({motionMedia, isDisabled}) {
   let printing = false;
   let pending = false;
   let frame = null;
+  let positioned = false;
   let x = 0;
   let y = 0;
 
@@ -14,6 +15,7 @@ export function createCursorDetail({motionMedia, isDisabled}) {
     if (pending && typeof cancelAnimationFrame === 'function') cancelAnimationFrame(frame);
     pending = false;
     frame = null;
+    positioned = false;
     if (halo) halo.hidden = true;
   }
 
@@ -39,8 +41,12 @@ export function createCursorDetail({motionMedia, isDisabled}) {
         halo.setAttribute('aria-hidden', 'true');
         document.body.append(halo);
       }
-      halo.style.transform = `translate3d(${x - 11}px,${y - 11}px,0)`;
+      // La primera posición se muestra directamente, las siguientes se suavizan por CSS.
+      // Al volver desde teclado o fuera de la ventana no se anima desde un punto antiguo.
+      halo.classList.toggle('is-following', positioned);
+      halo.style.transform = `translate3d(${x - 13}px,${y - 13}px,0)`;
       halo.hidden = false;
+      positioned = true;
     });
   }, {passive:true});
   document.addEventListener('pointerout', event => { if (!event.relatedTarget) hide(); }, {passive:true});

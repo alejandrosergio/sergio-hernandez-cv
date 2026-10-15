@@ -69,8 +69,12 @@ assert.equal(page.frames.size, 1, 'Los eventos rápidos comparten un solo fotogr
 page.flush();
 assert.equal(page.halo().getAttribute('aria-hidden'), 'true');
 assert.equal(page.halo().hidden, false);
-assert.equal(page.halo().style.transform, 'translate3d(139px,159px,0)');
+assert.equal(page.halo().style.transform, 'translate3d(137px,157px,0)');
+assert.equal(page.halo().classList.contains('is-following'), false, 'La primera posición aparece directamente');
 assert.equal(page.frames.size, 0, 'No hay animación permanente después del movimiento');
+page.move(170, 190); page.flush();
+assert.equal(page.halo().classList.contains('is-following'), true, 'El seguimiento posterior usa la transición breve');
+assert.equal(page.halo().style.transform, 'translate3d(157px,177px,0)');
 
 for (const stop of [
   () => page.emit('keydown', {key:'Tab'}),
@@ -83,6 +87,9 @@ for (const stop of [
   page.move(); page.flush(); stop();
   assert.equal(page.halo().hidden, true);
   assert.equal(page.frames.size, 0);
+  page.move(300, 320); page.flush();
+  assert.equal(page.halo().classList.contains('is-following'), false, 'Reaparecer evita el recorrido desde una posición antigua');
+  assert.equal(page.halo().style.transform, 'translate3d(287px,307px,0)');
 }
 page.move();
 page.emit('pointerout', {relatedTarget:null});

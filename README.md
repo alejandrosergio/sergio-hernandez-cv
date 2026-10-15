@@ -13,7 +13,7 @@ Currículum web bilingüe de **Sergio Alejandro Hernández Patiño**, Analista y
 - Halo azul discreto que acompaña al ratón y respeta teclado, táctil y reducción de movimiento.
 - Ajustes de texto, alto contraste, reducción de movimiento y espaciado de lectura.
 - Selector con CV resumido primero y CV completo después, con impresión en A4 en el idioma actual.
-- Ambas versiones impresas conservan los contactos y un enlace al currículum web, visible solo al imprimir.
+- Ambas versiones impresas conservan los contactos y un enlace al currículum web, visible solo al imprimir. Todos los vínculos impresos se distinguen en azul y subrayados.
 - Navegación por secciones y botón para volver al inicio.
 - Metadatos SEO, referencias entre idiomas, sitemap y datos estructurados del perfil.
 - Copia HTML autónoma y archivos minificados para publicación.
@@ -78,7 +78,7 @@ La fotografía corresponde al titular del currículum. La licencia de las bander
 
 ## Identidad y conocimientos confirmados
 
-El logo utiliza un monograma SH geométrico centrado en una cabeza de agente robot, sin símbolos HTML. Alejandro’sTech es la marca elegida para el portfolio y servicios freelance: el acceso indica Próximamente y no tiene un destino asignado. Su tarjeta compacta usa un borde de color y alinea el estado con el nombre, dejando el globo a un lado. El pie muestra «Copyright © 2026 Alejandro’sTech. Todos los derechos reservados.», con su traducción al inglés. Ambas impresiones incluyen Alejandro’sTech con Próximamente mientras no tenga una URL.
+El logo utiliza un monograma SH geométrico con margen interior, centrado en una cabeza de agente robot con hombros simétricos. El favicon simplifica la figura a la cabeza para facilitar la lectura a 16 px. Alejandro’sTech es la marca elegida para el portfolio y servicios freelance: el acceso indica Próximamente y no tiene un destino asignado. Su tarjeta compacta usa un borde de color y alinea el estado con el nombre, dejando el globo a un lado. El pie muestra «Copyright © 2026 Alejandro’sTech. Todos los derechos reservados.», con su traducción al inglés. Ambas impresiones incluyen Alejandro’sTech con Próximamente mientras no tenga una URL.
 
 Las tecnologías incluyen ASP.NET Core/Web API, Entity Framework Core, LINQ, inyección de dependencias, pruebas unitarias y procedimientos almacenados; en Power Platform, apps canvas/model-driven, plugins de Dataverse, componentes PCF, RPA, conectores personalizados y soluciones/ALM. Fueron confirmadas por el titular y se reutilizan en ambas versiones impresas. Los seis años corresponden a la trayectoria profesional total, no a una duración atribuida a cada tecnología.
 
