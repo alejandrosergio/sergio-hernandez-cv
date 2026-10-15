@@ -1,15 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="sh-title sh-description">
   <title id="sh-title">SH · Sergio Hernández</title>
-  <desc id="sh-description">Monograma geométrico SH dentro de una etiqueta de código.</desc>
-  <!-- El monograma ocupa de (16, 20) a (48, 44): centro exacto en ambos ejes. -->
-  <rect width="64" height="64" rx="13" fill="#12283c"/>
+  <desc id="sh-description">Monograma geométrico SH en la cabeza de un agente robot.</desc>
+  <!-- La silueta y el visor comparten el centro (32, 32). -->
+  <path fill="#6bbcff" d="M28 6h8v6h10l8 8v5h6v14h-6v5l-8 8h-7v6H25v-6h-7l-8-8v-5H4V25h6v-5l8-8h10z"/>
+  <path fill="#12283c" d="M19 16h26l6 6v20l-6 6H19l-6-6V22z"/>
+  <!-- Las letras ocupan de (17, 20) a (47, 44), centradas en el visor. -->
   <g fill="#f3f8ff">
-    <path d="M20 20h10v5h-9v4h5l4 4v7l-4 4H16v-5h9v-4h-5l-4-4v-7z"/>
-    <path d="M34 20h5v9h4v-9h5v24h-5v-9h-4v9h-5z"/>
-  </g>
-  <!-- Los signos de código enmarcan las iniciales sin desplazar su centro. -->
-  <g fill="none" stroke="#6bbcff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-    <path d="m9 26-6 6 6 6m46-12 6 6-6 6"/>
-    <path d="m53 27-3 10" stroke-width="1.8"/>
+    <path d="M22 20h9v6h-8v3h4l4 4v6l-5 5h-9v-6h8v-3h-4l-4-4v-6z"/>
+    <path d="M33 20h5v9h4v-9h5v24h-5v-9h-4v9h-5z"/>
   </g>
 </svg>

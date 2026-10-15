@@ -76,10 +76,13 @@ h1 span { font-weight:550; color:var(--accent); }
 .experience-note { display:flex; align-items:center; justify-content:center; gap:.55rem; margin:0; border:1px solid var(--brand); background:var(--brand); color:#fff; }
 .experience-number { flex-shrink:0; color:inherit; font-size:1.75rem; font-weight:720; line-height:1; letter-spacing:-.045em; }
 .experience-note p { min-width:0; margin:0; color:inherit; font-size:.8125rem; line-height:1.3; overflow-wrap:anywhere; }
-.portfolio-link { display:grid; grid-template-columns:18px minmax(0,max-content); grid-template-rows:auto auto; gap:0 .4rem; align-items:center; align-content:center; justify-content:center; border:1px solid var(--primary-line); background:var(--soft); color:var(--ink); line-height:1.3; cursor:default; }
-.portfolio-link svg { width:18px; height:18px; color:var(--accent); }
+/* El borde distingue la marca sin simular una acción, el estado se centra bajo su nombre. */
+.portfolio-link { display:flex; gap:.55rem; align-items:center; justify-content:center; border:1px solid transparent; background:linear-gradient(125deg,color-mix(in srgb,var(--accent-soft) 72%,var(--paper)),var(--paper)) padding-box,linear-gradient(120deg,color-mix(in srgb,#16b8d8 68%,var(--accent)),var(--accent),color-mix(in srgb,#9274e8 75%,var(--accent))) border-box; box-shadow:0 2px 10px color-mix(in srgb,var(--accent) 8%,transparent); color:var(--ink); line-height:1.3; cursor:default; }
+.portfolio-icon { display:grid; place-items:center; flex:0 0 auto; width:1.75rem; height:1.75rem; border:1px solid color-mix(in srgb,var(--accent) 30%,var(--paper)); border-radius:50%; background:color-mix(in srgb,var(--accent) 10%,var(--paper)); color:var(--accent); }
+.portfolio-icon svg { width:1.125rem; height:1.125rem; }
+.portfolio-copy { display:grid; justify-items:center; min-width:0; }
 .portfolio-name { min-width:0; font-size:.8125rem; font-weight:600; overflow-wrap:anywhere; }
-.portfolio-status { grid-column:1 / -1; margin-top:.1rem; color:var(--muted); font-size:.75rem; }
+.portfolio-status { margin-top:.1rem; color:var(--muted); font-size:.75rem; }
 .profile-summary { max-width:850px; margin-top:1.15rem; }
 .profile-summary p { margin:0 0 .8rem; }
 strong { font-weight:600; }
@@ -178,6 +181,8 @@ h3 { color:var(--ink); }
  [data-reading-spacing="wide"] .profile-summary p { margin-bottom:1.35rem; }
  [data-reading-spacing="wide"] .job-details li { margin-top:.8rem; }
  [data-contrast="high"] .experience-note { color:#000; }
+ [data-contrast="high"] .portfolio-link { border-color:var(--line); background:var(--paper); box-shadow:none; }
+ [data-contrast="high"] .portfolio-icon { border-color:var(--line); background:var(--paper); }
  [data-contrast="high"] .accessibility-toggle,[data-contrast="high"] .monogram { color:#000; }
  [data-contrast="high"] .contact-strip a { color:var(--accent); text-decoration:underline; }
  [data-contrast="high"] .site-header { background:#000; backdrop-filter:none; }
@@ -186,6 +191,7 @@ h3 { color:var(--ink); }
  [data-motion="reduced"] *,[data-motion="reduced"] *::before,[data-motion="reduced"] *::after { animation:none!important; transition:none!important; }
  [data-motion="reduced"] .specialty:hover,[data-motion="reduced"] .action-button:hover { transform:none; }
 }
+@media (forced-colors:active) { .portfolio-link,.portfolio-icon { border-color:CanvasText; background:Canvas; box-shadow:none; } }
 @media screen and (min-width:901px) and (max-width:1200px) { .resume { margin:2rem 1.5rem; padding-right:2.5rem; padding-left:2.5rem; } }
 @media screen and (min-width:1051px) {
  /* La columna de la foto se ajusta al perfil y evita un hueco bajo la descripción. */
