@@ -40,7 +40,7 @@ No guardar credenciales, tokens, perfiles del navegador, `.env`, `node_modules/`
 - Mantener las tecnologías y la experiencia confirmadas por el titular; no inventar resultados, certificaciones, herramientas o fechas. Java, Spring Boot, Oracle, PL/SQL y microservicios figuran como experiencia histórica en CODESA, no como tecnologías que se ofrecen actualmente. Python no está confirmado y no debe añadirse como competencia.
 - Los portales de administración confirmados son Security, Identity, Azure, SharePoint y Power Platform.
 - Usar comas en lugar de puntos y coma en el texto visible del currículum. El pie usa Copyright ©, Alejandro’sTech y la reserva de derechos del idioma actual, sin describir la marca.
-- El logo usa iniciales SH geométricas con margen interior dentro de una cabeza de agente robot con hombros simétricos, sin etiquetas HTML y compacto a 32 px. El favicon conserva solo la cabeza para ser legible a 16 px.
+- El logo usa iniciales SH geométricas con margen interior dentro de una cabeza de agente robot con hombros simétricos, sin etiquetas HTML y compacto a 32 px. El favicon conserva el robot completo con hombros visibles también a 16 px.
 - La tarjeta Alejandro’sTech mantiene el nombre y Próximamente centrados entre sí, con el globo separado a la izquierda y altura compacta.
 - Los controles tienen ayudas breves en ambos idiomas y respuesta de pulsación. Las ayudas admiten teclado y Escape, explican las siglas útiles y se ocultan al imprimir. Respetar la reducción de movimiento.
 - La marca elegida es Alejandro’sTech. Mientras no tenga URL, mostrar Próximamente también en ambas impresiones, sin crear un enlace ficticio.
