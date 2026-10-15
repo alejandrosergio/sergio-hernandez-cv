@@ -30,6 +30,7 @@ No guardar credenciales, tokens, perfiles del navegador, `.env`, `node_modules/`
 ## Contenido y funcionamiento
 
 - Perfil: Analista y Desarrollador de Software full stack, +6 años; español e inglés. Evitar repetir el cargo al comienzo de la descripción y no presentarlo como un perfil exclusivamente backend.
+- Los títulos al compartir e imprimir destacan Power Platform · .NET · IA (AI en inglés), manteniendo full stack como capacidad dentro del perfil.
 - .NET, Power Platform e IA mantienen la misma jerarquía de títulos y acentos. En escritorio, Power Platform ocupa dos filas junto a .NET e IA apiladas; adaptar la composición al tamaño de pantalla.
 - Mantener la fotografía de perfil aprobada, los contactos y sus vínculos, la accesibilidad y la impresión sin controles. El titular autorizó editar solo el vestuario a un estilo formal juvenil «old money» y el fondo, preservando rostro, pelo, barba, expresión y pose. No alterar su identidad en futuras ediciones.
 - El halo del ratón es decorativo, transparente y con seguimiento suave, conserva el cursor nativo y se desactiva con teclado, táctil, impresión, alto contraste o reducción de movimiento. Mantener el reflujo al ampliar el texto, sin ocultar desbordamientos ni reducir la tipografía.

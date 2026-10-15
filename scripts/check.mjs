@@ -23,7 +23,7 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(schema['@type'],'ProfilePage');
   assert.equal(schema.mainEntity.name,'Sergio Alejandro Hernández Patiño');
   assert.equal(schema.inLanguage,language);
-  assert.match(document.title,/Full Stack/);
+  assert.equal(document.title,`Sergio Hernández | Power Platform · .NET · ${language === 'es' ? 'IA' : 'AI'}`);
   assert.ok(schema.mainEntity.knowsAbout.some(skill=>skill.includes('Identity')));
   assert.doesNotMatch(schema.mainEntity.knowsAbout.join(' '),/Oracle|PL\/SQL|microservicios|microservices|Python/iu);
   assert.equal(document.querySelector('meta[property="og:description"]').content,document.querySelector('meta[name="description"]').content);

@@ -1,12 +1,12 @@
 [
   {
     "selector": "title",
-    "text": "Sergio Hernández | Full Stack Developer"
+    "text": "Sergio Hernández | Power Platform · .NET · AI"
   },
   {
     "selector": "meta[name=\"description\"]",
     "attribute": "content",
-    "text": "Full stack developer with over six years of experience. Angular, .NET, Power Platform and AI for business applications, automation and system integration."
+    "text": "Power Platform, .NET and AI for business applications, automation and integration. Software developer with over six years of experience."
   },
   {
     "selector": ".skip-link",
