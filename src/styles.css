@@ -193,10 +193,9 @@ h3 { color:var(--ink); }
 .setting-row input { flex:0 0 auto; width:1.4rem; height:1.4rem; margin:0; accent-color:var(--brand); cursor:pointer; }
 .accessibility-reset { width:100%; min-height:2.75rem; padding:.65rem .8rem; border:1px solid var(--button-line); border-radius:8px; background:var(--soft); color:var(--ink); font-size:.9375rem; font-weight:600; cursor:pointer; }
 .text-size-controls button:not(:disabled):hover,.accessibility-reset:hover { border-color:var(--accent); background:var(--accent-soft); }
-/* Las ayudas no cambian el espacio del CV y son legibles con ratón y teclado. */
-.help-tooltip { position:fixed; z-index:100; max-width:min(21rem,calc(100vw - 1rem)); padding:.5rem .7rem; border:1px solid var(--accent); border-radius:8px; background:var(--ink); color:var(--paper); box-shadow:0 4px 16px rgba(0,0,0,.18); font:400 .8125rem/1.45 var(--font); overflow-wrap:anywhere; text-align:left; animation:tooltip-appear .12s ease-out; }
+/* Ayuda compacta exclusiva de los contactos, sin cambiar el espacio del CV. */
+.help-tooltip { position:fixed; z-index:100; max-width:min(19rem,calc(100vw - 1rem)); padding:.3rem .5rem; border:1px solid var(--accent); border-radius:5px; background:var(--ink); color:var(--paper); box-shadow:0 2px 8px rgba(0,0,0,.15); font:400 .8125rem/1.35 var(--font); overflow-wrap:anywhere; text-align:left; animation:tooltip-appear .12s ease-out; }
 @keyframes tooltip-appear { from { opacity:0; } to { opacity:1; } }
-.tech-list [data-explain] { cursor:help; text-decoration:underline dotted; text-underline-offset:.23em; }
 .site-notice { position:fixed; z-index:35; left:50%; bottom:1.25rem; transform:translateX(-50%); width:max-content; max-width:min(27rem,calc(100% - 2rem)); padding:.75rem 1rem; border:1px solid var(--accent); border-radius:12px; background:var(--paper); color:var(--ink); box-shadow:0 8px 30px rgba(0,0,0,.2); font-size:.875rem; line-height:1.5; }
 .site-notice:empty { display:none; }
 @media screen {
@@ -309,7 +308,6 @@ h3 { color:var(--ink); }
 }
 @media (prefers-reduced-motion:reduce) { html:not([data-motion="full"]) { scroll-behavior:auto; } html:not([data-motion="full"]) *,html:not([data-motion="full"]) *::before,html:not([data-motion="full"]) *::after { animation:none!important; transition:none!important; } }
 @media print {
- .tech-list [data-explain] { text-decoration:none!important; }
  .print-references { display:flex; flex-wrap:wrap; align-items:baseline; gap:3pt 12pt; margin-top:6pt; padding-top:6pt; border-top:1px solid #dce6f2; break-inside:avoid; }
  .print-references .print-web-link,.print-references .print-portfolio { display:block; margin:0!important; padding:0; border:0; font-size:9pt; }
  @page { size:A4; margin:13mm 14mm; }

@@ -1,5 +1,5 @@
-// Una ayuda compartida para ratón, teclado y términos que se pueden tocar.
-export function createTooltips() {
+// Solo los contactos usan una ayuda visual propia; los botones usan el tooltip del navegador.
+export function createContactTooltips() {
   const tooltip = document.getElementById('help-tooltip');
   let active = null;
   let described = null;
@@ -29,7 +29,13 @@ export function createTooltips() {
     const box = tooltip.getBoundingClientRect();
     const width = document.documentElement.clientWidth;
     const height = window.innerHeight;
-    if (anchor.bottom < 0 || anchor.top > height) {hide();return;}
+    if (anchor.bottom < 0 || anchor.top > height) {
+      // El foco puede llegar antes de que termine su desplazamiento automático.
+      if (hasKeyboardFocus()) tooltip.style.visibility = 'hidden';
+      else hide();
+      return;
+    }
+    tooltip.style.visibility = '';
     const left = Math.max(8, Math.min(anchor.left + (anchor.width - box.width) / 2, width - box.width - 8));
     const top = anchor.top >= box.height + 16 ? anchor.top - box.height - 8 : anchor.bottom + 8;
     tooltip.style.left = `${left}px`;
@@ -41,8 +47,8 @@ export function createTooltips() {
     hide();
     active = target;
     mode = origin;
-    described = target.matches('label') ? target.querySelector('input') : target;
-    // La referencia accesible se conserva sin heredar el recorte de los paneles con scroll.
+    described = target;
+    // Se mantiene fuera de los contenedores que pueden recortar su contenido.
     document.body.append(tooltip);
     tooltip.textContent = target.dataset.tooltip;
     tooltip.lang = target.lang || document.documentElement.lang;
@@ -54,7 +60,7 @@ export function createTooltips() {
     described.setAttribute('aria-describedby', [...ids].join(' '));
   }
 
-  const trigger = event => event.target.closest?.('[data-tooltip]');
+  const trigger = event => event.target.closest?.('.contact-strip a[data-tooltip]');
   document.addEventListener('pointerover', event => {
     if (event.pointerType === 'touch' || hasKeyboardFocus()) return;
     const target = trigger(event);
@@ -80,19 +86,10 @@ export function createTooltips() {
     keyboard = false;
     if (!active?.contains(event.target) && !tooltip.contains(event.target)) hide();
   });
-  document.addEventListener('click', event => {
-    const target = trigger(event);
-    if (target?.hasAttribute('data-explain')) show(target, 'touch');
-    else hide();
-  });
+  document.addEventListener('click', hide);
   document.addEventListener('keydown', event => {
     keyboard = true;
     if (event.key === 'Escape') {hide();return;}
-    const target = trigger(event);
-    if (target?.hasAttribute('data-explain') && ['Enter', ' '].includes(event.key)) {
-      event.preventDefault();
-      show(target, 'focus');
-    }
   });
   // El scroll automático del foco no borra una ayuda de teclado; se recoloca una vez por fotograma.
   function updatePlacement() {

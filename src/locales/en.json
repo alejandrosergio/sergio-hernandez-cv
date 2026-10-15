@@ -44,8 +44,8 @@
   },
   {
     "selector": "#print-cv",
-    "attribute": "data-tooltip",
-    "text": "Choose between the concise and complete CV."
+    "attribute": "title",
+    "text": "Choose a CV to print"
   },
   {
     "selector": "#print-cv",
@@ -70,8 +70,8 @@
   },
   {
     "selector": ".location",
-    "attribute": "data-tooltip",
-    "text": "View Cali, Colombia on Google Maps"
+    "attribute": "title",
+    "text": "View Cali on Google Maps"
   },
   {
     "selector": ".location .sr-only",
@@ -121,7 +121,7 @@
   },
   {
     "selector": ".specialty-power-platform .specialty-content > p:first-child",
-    "text": "I develop canvas and model-driven apps with Power Apps and Dataverse. I extend solutions with plug-ins, code components (PCF with React) and custom connectors. I automate processes and desktop tasks with Power Automate and RPA, manage solutions and ALM, and visualize data with Power BI."
+    "text": "I develop canvas and model-driven apps with Power Apps and Dataverse. I extend solutions with plug-ins, code components (PCF) and custom connectors. I automate processes and desktop tasks with Power Automate and RPA, manage solutions and ALM, and visualize data with Power BI."
   },
   {
     "selector": ".specialty-power-platform .tech-list",
@@ -305,8 +305,8 @@
   },
   {
     "selector": "#back-to-top",
-    "attribute": "data-tooltip",
-    "text": "Return to the top of the résumé."
+    "attribute": "title",
+    "text": "Back to top"
   },
   {
     "selector": "#accessibility-toggle",
@@ -315,8 +315,8 @@
   },
   {
     "selector": "#accessibility-toggle",
-    "attribute": "data-tooltip",
-    "text": "Show or hide accessibility settings."
+    "attribute": "title",
+    "text": "Accessibility settings"
   },
   {
     "selector": "#accessibility-heading",
@@ -329,7 +329,7 @@
   },
   {
     "selector": "#accessibility-close",
-    "attribute": "data-tooltip",
+    "attribute": "title",
     "text": "Close accessibility settings"
   },
   {
@@ -409,7 +409,7 @@
   },
   {
     "selector": "#print-chooser-close",
-    "attribute": "data-tooltip",
+    "attribute": "title",
     "text": "Close CV options"
   },
   {
@@ -480,7 +480,7 @@
   },
   {
     "selector": "#power-pcf",
-    "text": "PCF with React"
+    "text": "PCF"
   },
   {
     "selector": "#power-rpa",
@@ -529,57 +529,57 @@
   {
     "selector": "#portfolio-link",
     "attribute": "data-notice",
-    "text": "Alejandro’sTech is in preparation. The services and projects website is coming soon."
+    "text": "Coming soon: Alejandro’sTech will bring together my experience, projects, services and content on development, automation and AI."
   },
   {
     "selector": "#theme-toggle",
-    "attribute": "data-tooltip",
+    "attribute": "title",
     "text": "Switch to dark mode"
   },
   {
     "selector": "#language-toggle",
-    "attribute": "data-tooltip",
+    "attribute": "title",
     "text": "Cambiar a Español"
   },
   {
     "selector": "#print-recruiter",
-    "attribute": "data-tooltip",
-    "text": "Open the print dialog for the concise CV."
+    "attribute": "title",
+    "text": "Print concise CV"
   },
   {
     "selector": "#print-web",
-    "attribute": "data-tooltip",
-    "text": "Open the print dialog for the complete CV."
+    "attribute": "title",
+    "text": "Print complete CV"
   },
   {
     "selector": "#text-decrease",
-    "attribute": "data-tooltip",
-    "text": "Decrease text size. Minimum: 100%."
+    "attribute": "title",
+    "text": "Decrease text size"
   },
   {
     "selector": "#text-increase",
-    "attribute": "data-tooltip",
-    "text": "Increase text size. Maximum: 200%."
+    "attribute": "title",
+    "text": "Increase text size"
   },
   {
     "selector": "#text-size",
-    "attribute": "data-tooltip",
-    "text": "Adjust text size between 100% and 200%."
+    "attribute": "title",
+    "text": "Text size (100–200%)"
   },
   {
     "selector": "#accessibility-reset",
-    "attribute": "data-tooltip",
-    "text": "Reset accessibility preferences."
+    "attribute": "title",
+    "text": "Reset settings"
   },
   {
     "selector": "#portfolio-link",
-    "attribute": "data-tooltip",
-    "text": "Check the status of the new services and projects website."
+    "attribute": "title",
+    "text": "About Alejandro’sTech"
   },
   {
     "selector": "#print-open",
-    "attribute": "data-tooltip",
-    "text": "Open the CV in another tab to print it."
+    "attribute": "title",
+    "text": "Open CV to print"
   },
   {
     "selector": "#theme-toggle",
@@ -601,43 +601,23 @@
     "text": "Español"
   },
   {
-    "selector": "#power-pcf",
-    "attribute": "data-tooltip",
-    "text": "Power Apps Component Framework: custom Power Apps components, with React applied to their interface."
-  },
-  {
-    "selector": "#power-rpa",
-    "attribute": "data-tooltip",
-    "text": "RPA: automation of repetitive tasks in desktop applications."
-  },
-  {
-    "selector": "#power-alm",
-    "attribute": "data-tooltip",
-    "text": "ALM: versioning, testing and deployment throughout the application lifecycle."
-  },
-  {
-    "selector": "#ai-models",
-    "attribute": "data-tooltip",
-    "text": "LLM: language models used to integrate artificial intelligence features."
-  },
-  {
     "selector": ".contact-email",
     "attribute": "data-tooltip",
-    "text": "Send Sergio an email."
+    "text": "Send Sergio an email"
   },
   {
     "selector": ".contact-strip a[href^=\"tel:\"]",
     "attribute": "data-tooltip",
-    "text": "Call Sergio."
+    "text": "Call Sergio"
   },
   {
     "selector": ".contact-strip a[href*=\"linkedin.com\"]",
     "attribute": "data-tooltip",
-    "text": "Open LinkedIn in a new tab."
+    "text": "Open Sergio’s LinkedIn profile"
   },
   {
     "selector": ".contact-strip a[href*=\"github.com\"]",
     "attribute": "data-tooltip",
-    "text": "Open GitHub in a new tab."
+    "text": "Open Sergio’s GitHub profile"
   }
 ]

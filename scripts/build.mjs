@@ -160,7 +160,7 @@ function applyTranslations(page, language) {
   const button = page.getElementById('language-toggle');
   const action = target === 'en' ? 'Switch to English' : 'Cambiar a Español';
   button.setAttribute('lang',target);
-  button.setAttribute('data-tooltip',action);
+  button.setAttribute('title',action);
   button.setAttribute('aria-label',action);
   page.getElementById('language-label').textContent = target === 'en' ? 'English' : 'Español';
   page.getElementById('language-flag').setAttribute('src',`flags/${target === 'en' ? 'us' : 'es'}.svg`);

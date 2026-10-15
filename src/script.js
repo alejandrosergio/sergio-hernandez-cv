@@ -1,6 +1,6 @@
 import translations from 'cv:translations';
 import { createCursorDetail } from './cursor.js';
-import { createTooltips } from './tooltips.js';
+import { createContactTooltips } from './tooltips.js';
 
 // Preferencias compatibles con las versiones anteriores y con almacenamiento bloqueado.
 const preferences = {
@@ -64,7 +64,7 @@ const flagURLs = ui['language-flag'] ? {
 } : {};
 const themeColor = document.querySelector('meta[name="theme-color"]');
 const portraitURL = new URL(document.querySelector('.portrait img').getAttribute('src'),document.baseURI).href;
-const tooltips = createTooltips();
+const tooltips = createContactTooltips();
 let noticeTimer;
 
 function clearPortfolioNotice() {
@@ -81,7 +81,7 @@ function applyTheme() {
   if (ui['theme-toggle']) {
     ui['theme-toggle'].setAttribute('aria-pressed', String(isDark));
     ui['theme-toggle'].setAttribute('aria-label', action);
-    ui['theme-toggle'].dataset.tooltip = action;
+    ui['theme-toggle'].title = action;
     ui['theme-label'].textContent = isDark ? copy.light : copy.dark;
   }
   if (themeColor) themeColor.content = state.accessibility.highContrast ? '#000000' : (isDark ? '#091523' : '#0078d4');
@@ -141,7 +141,7 @@ function applyLanguage(language, announce = false) {
   const target = state.language === 'es' ? 'en' : 'es';
   const action = target === 'en' ? 'Switch to English' : 'Cambiar a Español';
   ui['language-toggle'].lang = target;
-  ui['language-toggle'].dataset.tooltip = action;
+  ui['language-toggle'].title = action;
   ui['language-toggle'].setAttribute('aria-label', action);
   ui['language-flag'].src = flagURLs[target];
   ui['language-label'].textContent = target === 'en' ? 'English' : 'Español';

@@ -38,9 +38,12 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(placeholder.hasAttribute('aria-disabled'),false);
   assert.equal(placeholder.getAttribute('href'),null);
   for (const button of document.querySelectorAll('button')) {
-    assert.ok(button.dataset.tooltip?.trim(),`Falta la ayuda del botón ${button.id}`);
-    assert.equal(button.hasAttribute('title'),false,'Evitar ayudas nativas duplicadas o desincronizadas');
+    assert.ok(button.getAttribute('title')?.trim(),`Falta la ayuda nativa del botón ${button.id}`);
+    assert.equal(button.hasAttribute('data-tooltip'),false,'Los botones conservan el tooltip nativo');
   }
+  assert.equal(document.querySelectorAll('[data-tooltip]').length,4);
+  assert.ok([...document.querySelectorAll('[data-tooltip]')].every(node=>node.closest('.contact-strip')));
+  assert.equal(document.querySelectorAll('.tech-list [data-tooltip],.tech-list [title],.tech-list [tabindex],[data-explain]').length,0);
   assert.equal(document.getElementById('help-tooltip').getAttribute('role'),'tooltip');
   assert.equal(document.querySelector('.job:nth-child(2) .job-period > span').textContent,'2023 – 2025');
   assert.equal(document.querySelector('.language-spanish strong').textContent,language === 'es' ? 'Nativo' : 'Native');
@@ -80,7 +83,8 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   for (const node of document.querySelectorAll('.specialty .tech-list li,.specialty .ecosystem span,.shared-grid [data-print-technology] dd')) {
     assert.ok(normalize(printSkills.textContent).includes(normalize(node.textContent)),`Print summary omits confirmed skills: ${node.textContent}`);
   }
-  for(const skill of ['ASP.NET Core','Web API','Entity Framework Core','LINQ','PCF','React','RPA']){assert.ok(document.querySelector('#tecnologias').textContent.includes(skill));assert.ok(printSkills.textContent.includes(skill));}
+  for(const skill of ['ASP.NET Core','Web API','Entity Framework Core','LINQ','PCF','RPA']){assert.ok(document.querySelector('#tecnologias').textContent.includes(skill));assert.ok(printSkills.textContent.includes(skill));}
+  assert.doesNotMatch(document.body.textContent,/\bReact\b/);
   const webURL = `${origin}/${language === 'en' ? 'en/' : ''}`;
   assert.equal(document.getElementById('web-print-link').href,webURL);
   assert.equal(document.querySelector('#recruiter-print .print-web-link a').href,webURL);
@@ -128,10 +132,10 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
     const initialURL=location.href;
     click('portfolio-link');
     assert.equal(location.href,initialURL,'La marca sin URL real no debe provocar una navegación');
-    assert.match(page.getElementById('portfolio-notice').textContent,language === 'es' ? /próximamente/ : /coming soon/);
+    assert.match(page.getElementById('portfolio-notice').textContent,language === 'es' ? /próximamente/i : /coming soon/i);
     click('language-toggle');
     assert.equal(page.getElementById('portfolio-notice').textContent,'');
-    assert.equal(page.getElementById('language-toggle').dataset.tooltip,language === 'es' ? 'Cambiar a Español' : 'Switch to English');
+    assert.equal(page.getElementById('language-toggle').title,language === 'es' ? 'Cambiar a Español' : 'Switch to English');
     assert.equal(page.documentElement.lang,language === 'es' ? 'en' : 'es');
     assert.equal(page.querySelector('.language-spanish strong').textContent,language === 'es' ? 'Native' : 'Nativo');
     click('language-toggle');
