@@ -17,7 +17,7 @@ La copia `CV_Sergio_Hernandez.html` de la descarga funciona por sí sola: incorp
 - `src/styles.css`: estilos de pantalla e impresión, sin reglas de papel redundantes.
 - `public/`: fotografía original, banderas y favicon que se copian a la versión publicada.
 - `scripts/build.mjs`: genera las páginas estáticas, minifica HTML/CSS/JavaScript y actualiza las descargas.
-- `scripts/build-print.mjs`: reutiliza los datos y todas las tecnologías del CV completo en el marcado para impresión resumida.
+- `scripts/build-print.mjs`: reutiliza el perfil completo, los datos y todas las tecnologías del CV completo en el marcado para impresión resumida.
 - `scripts/check.mjs`: revisa enlaces locales, traducciones, metadatos, las dos opciones de impresión, el teclado y los enlaces de las versiones impresas.
 - `dist/`: archivos listos para publicar. Los recursos se sirven localmente, sin dependencias en ejecución.
 
@@ -33,7 +33,7 @@ El proyecto fija las versiones de sus herramientas de desarrollo. Solo esbuild t
 
 ## Impresión
 
-**Imprimir CV** abre un selector con **CV resumido** primero (perfil breve, todas las tecnologías y experiencia condensada) y **CV completo** después (todo el contenido). Cada versión abre el diálogo de impresión del navegador en el idioma actual.
+**Imprimir CV** abre un selector con **CV resumido** primero (perfil completo, todas las tecnologías y experiencia condensada) y **CV completo** después (todo el contenido). Cada versión abre el diálogo de impresión del navegador en el idioma actual.
 
 Ambos documentos incluyen **Ver el currículum vitae completo en la web**, un enlace clicable a la página del mismo idioma. El enlace solo se muestra al imprimir. Se mantienen los enlaces reales de correo, teléfono, Google Maps, LinkedIn y GitHub.
 

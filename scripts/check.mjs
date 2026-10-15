@@ -63,6 +63,12 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.doesNotMatch(document.getElementById('print-chooser').textContent,/\bPDF\b/iu);
   const printSkills = document.querySelector('#recruiter-print .recruiter-section:nth-of-type(2)');
   const normalize = value => value.replace(/\s+/g,' ').trim();
+  // El perfil se conserva completo, con sus párrafos y énfasis en ambos idiomas.
+  assert.deepEqual(
+    [...document.querySelectorAll('#recruiter-print .recruiter-section:first-of-type > p')].map(node => normalize(node.innerHTML)),
+    [...document.querySelectorAll('.profile-summary > p')].map(node => normalize(node.innerHTML)),
+    'El CV resumido debe reutilizar el perfil completo de la web'
+  );
   for (const node of document.querySelectorAll('.specialty .tech-list li,.specialty .ecosystem span,.shared-grid [data-print-technology] dd')) {
     assert.ok(normalize(printSkills.textContent).includes(normalize(node.textContent)),`Print summary omits confirmed skills: ${node.textContent}`);
   }
