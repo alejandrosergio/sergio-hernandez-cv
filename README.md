@@ -74,7 +74,7 @@ Los documentos impresos incluyen un enlace clicable al currículum completo en l
 
 ## Recursos
 
-La fotografía corresponde al titular del currículum. La licencia de las banderas se conserva en `public/flags/LICENSE.txt`. La página no incorpora analítica ni formularios; las preferencias de lectura se guardan localmente en el navegador.
+La fotografía corresponde al titular del currículum, con vestuario y fondo editados mediante IA por petición suya, con el objetivo de conservar su identidad y expresión. La licencia de las banderas se conserva en `public/flags/LICENSE.txt`. La página no incorpora analítica ni formularios; las preferencias de lectura se guardan localmente en el navegador.
 
 ## Identidad y conocimientos confirmados
 

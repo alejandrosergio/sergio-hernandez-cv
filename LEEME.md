@@ -16,7 +16,7 @@ La copia `CV_Sergio_Hernandez.html` de la descarga funciona por sí sola: incorp
 - `src/script.js`: controladores de idioma, tema, accesibilidad, impresión y navegación.
 - `src/cursor.js`: halo decorativo del ratón, aislado de los controles y las preferencias.
 - `src/styles.css`: estilos de pantalla e impresión, sin reglas de papel redundantes.
-- `public/`: fotografía original, banderas y favicon que se copian a la versión publicada.
+- `public/`: fotografía del perfil, banderas y favicon que se copian a la versión publicada.
 - `scripts/build.mjs`: genera las páginas estáticas, minifica HTML/CSS/JavaScript y actualiza las descargas.
 - `scripts/build-print.mjs`: reutiliza el perfil completo, los datos y todas las tecnologías del CV completo en el marcado para impresión resumida.
 - `scripts/check.mjs`: revisa enlaces locales, traducciones, metadatos, las dos opciones de impresión, el teclado y los enlaces de las versiones impresas.
@@ -30,7 +30,7 @@ pnpm build
 pnpm check
 ```
 
-El proyecto fija las versiones de sus herramientas de desarrollo. Solo esbuild tiene autorizado un paso de instalación propio. Para editar, cambia los originales en `src/` y vuelve a generar; no edites directamente las copias minificadas. Conserva `public/`, que contiene la fotografía original y las banderas con su licencia. La generación reconstruye los recursos de `dist/` desde esta carpeta, también al utilizar el ZIP descargado.
+El proyecto fija las versiones de sus herramientas de desarrollo. Solo esbuild tiene autorizado un paso de instalación propio. Para editar, cambia los originales en `src/` y vuelve a generar; no edites directamente las copias minificadas. Conserva `public/`, que contiene la fotografía del perfil y las banderas con su licencia. La generación reconstruye los recursos de `dist/` desde esta carpeta, también al utilizar el ZIP descargado.
 
 ## Impresión
 
@@ -50,7 +50,7 @@ El detalle del puntero conserva el cursor nativo y se muestra solo con ratón. S
 
 ## SEO
 
-Las páginas en español e inglés tienen títulos y descripciones específicos, dirección canónica propia, referencias recíprocas `hreflang`, metadatos para compartir y datos estructurados `ProfilePage`/`Person`. Se generan `robots.txt` y un mapa del sitio con ambas versiones. El mapa omite fechas de modificación automáticas que solo reflejen una recompilación. Las descargas no se anuncian para indexación. La fotografía original se reutiliza en los metadatos de vista previa.
+Las páginas en español e inglés tienen títulos y descripciones específicos, dirección canónica propia, referencias recíprocas `hreflang`, metadatos para compartir y datos estructurados `ProfilePage`/`Person`. Se generan `robots.txt` y un mapa del sitio con ambas versiones. El mapa omite fechas de modificación automáticas que solo reflejen una recompilación. Las descargas no se anuncian para indexación. La fotografía del perfil se reutiliza en los metadatos de vista previa.
 
 HTML, CSS y JavaScript se minifican con herramientas dedicadas. Los recursos incluyen una huella de contenido en su URL para evitar que una actualización utilice archivos antiguos. Estas mejoras facilitan el rastreo y reducen el peso; la indexación, posición y visitas dependen también de los buscadores y de la difusión del perfil.
 

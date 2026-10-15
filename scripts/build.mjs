@@ -19,6 +19,12 @@ const hash = content => createHash('sha256').update(content).digest('hex').slice
 const htmlOptions = {collapseWhitespace:true, removeComments:true, removeAttributeQuotes:true, useShortDoctype:true, minifyCSS:false, minifyJS:false};
 const spanishSource = await read('src/index.html');
 const {document} = parseHTML(spanishSource);
+// La fotografía del perfil define también las dimensiones y la versión de sus vistas previas.
+const portrait = document.querySelector('.portrait img');
+const portraitPath = portrait.getAttribute('src');
+const portraitDimensions = {width:portrait.getAttribute('width'),height:portrait.getAttribute('height')};
+const portraitVersion = hash(await readFile(path.join(dist,portraitPath)));
+const portraitURL = `${origin}/${portraitPath}?v=${portraitVersion}`;
 const english = JSON.parse(await read('src/locales/en.json'));
 const recruiterSource = await read('src/recruiter.json');
 const recruiterCopy = JSON.parse(recruiterSource);
@@ -64,11 +70,11 @@ addLocalizedMeta('property','og:locale:alternate','en_US','es_CO');
 addLocalizedMeta('property','og:site_name','Sergio Hernández | Currículum profesional','Sergio Hernández | Professional CV');
 for (const [key,value] of Object.entries({
   'og:type':'profile',
-  'og:image':`${origin}/images/sergio-hernandez.jpeg`,'og:image:width':'853','og:image:height':'1280',
+  'og:image':portraitURL,'og:image:width':portraitDimensions.width,'og:image:height':portraitDimensions.height,
   'og:image:alt':'Sergio Alejandro Hernández Patiño'
 })) document.head.append(element('meta',{property:key,content:value}));
 document.head.append(element('meta',{name:'twitter:card',content:'summary'}));
-document.head.append(element('meta',{name:'twitter:image',content:`${origin}/images/sergio-hernandez.jpeg`}));
+document.head.append(element('meta',{name:'twitter:image',content:portraitURL}));
 document.head.append(element('meta',{name:'twitter:image:alt',content:'Sergio Alejandro Hernández Patiño'}));
 addLocalizedMeta('name','twitter:title',document.title,englishTitle);
 addLocalizedMeta('name','twitter:description',description,englishDescription);
@@ -93,7 +99,7 @@ function profileSchema(page,language) {
       '@type':'Person', '@id':`${origin}/#person`, name:'Sergio Alejandro Hernández Patiño', alternateName:'Sergio Hernández',
       jobTitle:page.querySelector('.role').textContent.trim(),
       description:language === 'es' ? description : englishDescription,
-      image:`${origin}/images/sergio-hernandez.jpeg`, url:urls[language],
+      image:portraitURL, url:urls[language],
       sameAs:['https://www.linkedin.com/in/sergio-alejandro-hernandez-patino/','https://github.com/alejandrosergio'],
       homeLocation:{'@type':'Place',name:'Cali, Colombia'}, knowsLanguage:['es','en'],
       knowsAbout:offeredTechnologies(page)
@@ -170,7 +176,8 @@ const versionedResources = [
   ['.monogram img','src','images/sh-logo.svg',hash(assetContents.get('images/sh-logo.svg'))],
   ['link[rel="stylesheet"]','href','styles.css',hash(stylesheet)],
   ['script[src]','src','script.js',hash(javascript)],
-  ['.portrait img','src','images/sergio-hernandez.jpeg',hash(assetContents.get('images/sergio-hernandez.jpeg'))]
+  ['.portrait img','src',portraitPath,portraitVersion],
+  ['.recruiter-photo','src',portraitPath,portraitVersion]
 ];
 const spanishTemplate = document.toString();
 for (const language of ['es','en']) {
