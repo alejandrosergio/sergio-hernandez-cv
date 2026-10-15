@@ -198,7 +198,7 @@ function initLanguage() {
 }
 
 function initPrinting() {
-  const variants = ['web','recruiter'];
+  const variants = ['recruiter','web'];
   let printStarted = false;
   const requestedVariant = new URL(location.href).searchParams.get('cv');
   if (variants.includes(requestedVariant)) root.dataset.printVariant = requestedVariant;
@@ -222,7 +222,7 @@ function initPrinting() {
     root.dataset.printChooserOpen = 'true';
     inertBackground = [...document.body.children].filter(node => node !== ui['print-chooser'] && node.tagName !== 'SCRIPT').map(node => [node,node.inert]);
     inertBackground.forEach(([node]) => {node.inert = true;});
-    ui['print-web'].focus({preventScroll:true});
+    ui[`print-${variants[0]}`].focus({preventScroll:true});
   }
 
   // El mismo flujo imprime ambas versiones y conserva el enlace de respaldo del visor.

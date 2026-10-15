@@ -1,15 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="sh-title">
-  <title id="sh-title">Sergio Hernández</title>
-  <!-- Se conserva el monograma de trazo fino, sin circuitos ni líneas decorativas. -->
-  <defs>
-    <linearGradient id="sh-surface" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#164568"/>
-      <stop offset="1" stop-color="#11263b"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="13" fill="url(#sh-surface)"/>
-  <g fill="none" stroke="#f3f8ff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" transform="translate(32 32) scale(1.2) translate(-32 -32)">
-    <path d="M29 25c-2-2-9-3-10 1-2 6 12 4 11 10-1 6-9 5-12 2"/>
-    <path d="M36 23v18m11-18v18M36 32h11"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="sh-title sh-description">
+  <title id="sh-title">SH · Sergio Hernández</title>
+  <desc id="sh-description">Monograma geométrico SH dentro de una etiqueta de código.</desc>
+  <!-- El monograma ocupa de (16, 20) a (48, 44): centro exacto en ambos ejes. -->
+  <rect width="64" height="64" rx="13" fill="#12283c"/>
+  <g fill="#f3f8ff">
+    <path d="M20 20h10v5h-9v4h5l4 4v7l-4 4H16v-5h9v-4h-5l-4-4v-7z"/>
+    <path d="M34 20h5v9h4v-9h5v24h-5v-9h-4v9h-5z"/>
+  </g>
+  <!-- Los signos de código enmarcan las iniciales sin desplazar su centro. -->
+  <g fill="none" stroke="#6bbcff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m9 26-6 6 6 6m46-12 6 6-6 6"/>
+    <path d="m53 27-3 10" stroke-width="1.8"/>
   </g>
 </svg>

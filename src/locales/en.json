@@ -256,7 +256,7 @@
   },
   {
     "selector": ".job:nth-child(3) .job-details li:nth-child(1)",
-    "text": "Developed applications with Power Apps and .NET; automated processes with Power Automate."
+    "text": "Developed applications with Power Apps and .NET, automated processes with Power Automate."
   },
   {
     "selector": ".job:nth-child(3) .job-details li:nth-child(2)",
@@ -464,7 +464,7 @@
   },
   {
     "selector": "#copyright",
-    "text": "Copyright © 2026 · Created by Alejandro’sTech, Sergio Alejandro Hernández Patiño’s technology brand."
+    "text": "Copyright © 2026 Alejandro’sTech. All rights reserved."
   },
   {
     "selector": "#net-procedures",

@@ -33,7 +33,7 @@ El proyecto fija las versiones de sus herramientas de desarrollo. Solo esbuild t
 
 ## Impresión
 
-**Imprimir CV** abre un selector con **CV completo** (todo el contenido) y **CV resumido** (perfil breve, todas las tecnologías y experiencia condensada). Cada versión abre el diálogo de impresión del navegador en el idioma actual.
+**Imprimir CV** abre un selector con **CV resumido** primero (perfil breve, todas las tecnologías y experiencia condensada) y **CV completo** después (todo el contenido). Cada versión abre el diálogo de impresión del navegador en el idioma actual.
 
 Ambos documentos incluyen **Ver el currículum vitae completo en la web**, un enlace clicable a la página del mismo idioma. El enlace solo se muestra al imprimir. Se mantienen los enlaces reales de correo, teléfono, Google Maps, LinkedIn y GitHub.
 
@@ -57,7 +57,7 @@ La página publica los datos profesionales y la fotografía facilitados por el t
 
 ## Identidad y conocimientos confirmados
 
-El logo utiliza un monograma SH de trazo fino sobre un fondo oscuro, sin circuitos ni líneas decorativas; se muestra a 32 px en la cabecera. Alejandro’sTech es la marca elegida para el portfolio y servicios freelance: el acceso indica Próximamente y no tiene un destino asignado. El pie identifica a Alejandro’sTech como la marca tecnológica de Sergio Alejandro Hernández Patiño, con Copyright © 2026. Ambas impresiones incluyen Alejandro’sTech con Próximamente mientras no tenga una URL.
+El logo utiliza un monograma SH geométrico dentro de una etiqueta HTML, centrado en su contenedor y sin circuitos ni líneas decorativas. Alejandro’sTech es la marca elegida para el portfolio y servicios freelance: el acceso indica Próximamente y no tiene un destino asignado. El pie muestra «Copyright © 2026 Alejandro’sTech. Todos los derechos reservados.», con su traducción al inglés. Ambas impresiones incluyen Alejandro’sTech con Próximamente mientras no tenga una URL.
 
 Las tecnologías incluyen ASP.NET Core/Web API, Entity Framework Core, LINQ, inyección de dependencias, pruebas unitarias y procedimientos almacenados; en Power Platform, apps canvas/model-driven, plugins de Dataverse, componentes PCF, RPA, conectores personalizados y soluciones/ALM. Fueron confirmadas por el titular y se reutilizan en ambas versiones impresas. Los seis años corresponden a la trayectoria profesional total, no a una duración atribuida a cada tecnología.
 

@@ -7,20 +7,20 @@
     "experienceTitle": "Experiencia profesional",
     "jobBullets": [
       [
-        "Aplicaciones con Power Apps y Dataverse; automatización con Power Automate.",
-        "Integración con APIs REST y Azure; requerimientos, implementación y adopción."
+        "Aplicaciones con Power Apps y Dataverse, automatización con Power Automate.",
+        "Integración con APIs REST y Azure, requerimientos, implementación y adopción."
       ],
       [
         "Dirección del equipo técnico y estrategia de desarrollo.",
         "Arquitecturas con Microsoft 365, Power Platform y Azure."
       ],
       [
-        "Aplicaciones con Power Apps y .NET; automatización con Power Automate.",
+        "Aplicaciones con Power Apps y .NET, automatización con Power Automate.",
         "Dashboards e informes con Power BI."
       ],
       [
         "Servicios backend con Java y Spring Boot en arquitectura de microservicios.",
-        "Interfaces con Angular; datos empresariales con Oracle y PL/SQL."
+        "Interfaces con Angular, datos empresariales con Oracle y PL/SQL."
       ]
     ],
     "educationTitle": "Formación e idiomas",
@@ -34,20 +34,20 @@
     "experienceTitle": "Professional experience",
     "jobBullets": [
       [
-        "Power Apps and Dataverse applications; automation with Power Automate.",
-        "REST API and Azure integration; requirements, implementation and user adoption."
+        "Power Apps and Dataverse applications, automation with Power Automate.",
+        "REST API and Azure integration, requirements, implementation and user adoption."
       ],
       [
         "Technical team leadership and development strategy.",
         "Architectures with Microsoft 365, Power Platform and Azure."
       ],
       [
-        "Power Apps and .NET applications; automation with Power Automate.",
+        "Power Apps and .NET applications, automation with Power Automate.",
         "Dashboards and reports with Power BI."
       ],
       [
         "Backend services with Java and Spring Boot in a microservices architecture.",
-        "Angular interfaces; business data with Oracle and PL/SQL."
+        "Angular interfaces, business data with Oracle and PL/SQL."
       ]
     ],
     "educationTitle": "Education and languages",

@@ -11,7 +11,7 @@ Currículum web bilingüe de **Sergio Alejandro Hernández Patiño**, Analista y
 - Español e inglés, con contenido completo en ambas páginas estáticas.
 - Diseño adaptable a móvil y escritorio, con modos claro y oscuro.
 - Ajustes de texto, alto contraste, reducción de movimiento y espaciado de lectura.
-- Selector de CV completo y CV resumido, con impresión en A4 en el idioma actual.
+- Selector con CV resumido primero y CV completo después, con impresión en A4 en el idioma actual.
 - Ambas versiones impresas conservan los contactos y un enlace al currículum web, visible solo al imprimir.
 - Navegación por secciones y botón para volver al inicio.
 - Metadatos SEO, referencias entre idiomas, sitemap y datos estructurados del perfil.
@@ -66,7 +66,7 @@ La configuración y los pasos para usar el proyecto están en [docs/SINCRONIZACI
 
 ## Impresión
 
-Selecciona **Imprimir CV** y elige **CV completo** o **CV resumido**. El completo incluye todo el contenido de la web; el resumido presenta un perfil breve, todas las tecnologías y la trayectoria condensada. Ambos abren la impresión del navegador, usan el idioma seleccionado y conservan los vínculos a Maps, correo, teléfono, LinkedIn y GitHub.
+Selecciona **Imprimir CV** y elige **CV resumido**, que aparece primero, o **CV completo**. El resumido presenta un perfil breve, todas las tecnologías y la trayectoria condensada. El completo incluye todo el contenido de la web. Ambos abren la impresión del navegador, usan el idioma seleccionado y conservan los vínculos a Maps, correo, teléfono, LinkedIn y GitHub.
 
 Los documentos impresos incluyen un enlace clicable al currículum completo en la web del mismo idioma. Ese enlace se oculta en la página de pantalla. Desactiva los encabezados y pies de página del navegador para una presentación limpia.
 
@@ -76,7 +76,7 @@ La fotografía corresponde al titular del currículum. La licencia de las bander
 
 ## Identidad y conocimientos confirmados
 
-El logo utiliza un monograma SH de trazo fino sobre un fondo oscuro, sin circuitos ni líneas decorativas; se muestra a 32 px en la cabecera. Alejandro’sTech es la marca elegida para el portfolio y servicios freelance: el acceso indica Próximamente y no tiene un destino asignado. El pie identifica a Alejandro’sTech como la marca tecnológica de Sergio Alejandro Hernández Patiño, con Copyright © 2026. Ambas impresiones incluyen Alejandro’sTech con Próximamente mientras no tenga una URL.
+El logo utiliza un monograma SH geométrico dentro de una etiqueta HTML, centrado en su contenedor y sin circuitos ni líneas decorativas. Alejandro’sTech es la marca elegida para el portfolio y servicios freelance: el acceso indica Próximamente y no tiene un destino asignado. El pie muestra «Copyright © 2026 Alejandro’sTech. Todos los derechos reservados.», con su traducción al inglés. Ambas impresiones incluyen Alejandro’sTech con Próximamente mientras no tenga una URL.
 
 Las tecnologías incluyen ASP.NET Core/Web API, Entity Framework Core, LINQ, inyección de dependencias, pruebas unitarias y procedimientos almacenados; en Power Platform, apps canvas/model-driven, plugins de Dataverse, componentes PCF, RPA, conectores personalizados y soluciones/ALM. Fueron confirmadas por el titular y se reutilizan en ambas versiones impresas. Los seis años corresponden a la trayectoria profesional total, no a una duración atribuida a cada tecnología.
 

@@ -131,7 +131,7 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
     assert.equal(page.getElementById('accessibility-panel').hidden,true);
     assert.equal(page.getElementById('print-chooser').hidden,false);
     assert.equal(page.getElementById('print-cv').getAttribute('aria-expanded'),'true');
-    assert.equal(focused,page.getElementById('print-web'));
+    assert.equal(focused,page.getElementById('print-recruiter'));
     assert.equal(page.querySelector('main').inert,true);
     click('print-chooser-close');
     assert.equal(page.getElementById('print-chooser').hidden,true);
