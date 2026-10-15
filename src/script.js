@@ -1,5 +1,6 @@
 import translations from 'cv:translations';
 import { createCursorDetail } from './cursor.js';
+import { createTooltips } from './tooltips.js';
 
 // Preferencias compatibles con las versiones anteriores y con almacenamiento bloqueado.
 const preferences = {
@@ -25,7 +26,8 @@ const ui = Object.fromEntries([
   'accessibility-toggle','accessibility-panel','accessibility-close','accessibility-reset',
   'text-size','text-size-value','text-decrease','text-increase','contrast-toggle','motion-toggle','spacing-toggle',
   'print-cv','print-help','print-open','back-to-top',
-  'print-chooser','print-chooser-close','print-web','print-recruiter'
+  'print-chooser','print-chooser-close','print-web','print-recruiter',
+  'portfolio-link','portfolio-notice'
 ].map(id => [id, byId(id)]));
 const media = {
   dark: matchMedia('(prefers-color-scheme: dark)'),
@@ -62,6 +64,13 @@ const flagURLs = ui['language-flag'] ? {
 } : {};
 const themeColor = document.querySelector('meta[name="theme-color"]');
 const portraitURL = new URL(document.querySelector('.portrait img').getAttribute('src'),document.baseURI).href;
+const tooltips = createTooltips();
+let noticeTimer;
+
+function clearPortfolioNotice() {
+  clearTimeout(noticeTimer);
+  ui['portfolio-notice'].textContent = '';
+}
 
 function applyTheme() {
   const theme = state.chosenTheme || (media.dark.matches ? 'dark' : 'light');
@@ -72,13 +81,14 @@ function applyTheme() {
   if (ui['theme-toggle']) {
     ui['theme-toggle'].setAttribute('aria-pressed', String(isDark));
     ui['theme-toggle'].setAttribute('aria-label', action);
-    ui['theme-toggle'].title = action;
+    ui['theme-toggle'].dataset.tooltip = action;
     ui['theme-label'].textContent = isDark ? copy.light : copy.dark;
   }
   if (themeColor) themeColor.content = state.accessibility.highContrast ? '#000000' : (isDark ? '#091523' : '#0078d4');
 }
 
 function applyAccessibility() {
+  tooltips.hide();
   const settings = state.accessibility;
   root.style.fontSize = `${settings.textSize}%`;
   root.dataset.contrast = settings.highContrast ? 'high' : 'normal';
@@ -105,6 +115,7 @@ function saveAccessibility() {
 
 function closeAccessibility(returnFocus = true) {
   if (ui['accessibility-panel'].hidden) return;
+  tooltips.hide();
   ui['accessibility-panel'].hidden = true;
   ui['accessibility-toggle'].setAttribute('aria-expanded', 'false');
   if (returnFocus) ui['accessibility-toggle'].focus({preventScroll:true});
@@ -117,6 +128,8 @@ function updateLanguageURL() {
 }
 
 function applyLanguage(language, announce = false) {
+  tooltips.hide();
+  clearPortfolioNotice();
   state.language = language === 'en' ? 'en' : 'es';
   root.lang = state.language;
   localizedNodes.forEach(({node, entry}) => {
@@ -126,9 +139,9 @@ function applyLanguage(language, announce = false) {
     else node.textContent = value;
   });
   const target = state.language === 'es' ? 'en' : 'es';
-  const action = target === 'en' ? 'Switch to English' : 'Cambiar a español';
+  const action = target === 'en' ? 'Switch to English' : 'Cambiar a Español';
   ui['language-toggle'].lang = target;
-  ui['language-toggle'].title = action;
+  ui['language-toggle'].dataset.tooltip = action;
   ui['language-toggle'].setAttribute('aria-label', action);
   ui['language-flag'].src = flagURLs[target];
   ui['language-label'].textContent = target === 'en' ? 'English' : 'Español';
@@ -137,7 +150,7 @@ function applyLanguage(language, announce = false) {
   const recruiterPhoto = document.querySelector('.recruiter-photo');
   if (recruiterPhoto) recruiterPhoto.src = portraitURL;
   applyAccessibility();
-  if (announce) ui['language-status'].textContent = state.language === 'es' ? 'Idioma cambiado a español.' : 'Language changed to English.';
+  if (announce) ui['language-status'].textContent = state.language === 'es' ? 'Idioma cambiado a Español.' : 'Language changed to English.';
 }
 
 function initTheme() {
@@ -212,6 +225,7 @@ function initPrinting() {
 
   // Restaurar exactamente el estado previo del fondo al cerrar el diálogo modal.
   function closeChooser(returnFocus = true) {
+    tooltips.hide();
     ui['print-chooser'].hidden = true;
     ui['print-cv'].setAttribute('aria-expanded','false');
     inertBackground.forEach(([node,inert]) => {node.inert = inert;});
@@ -221,14 +235,17 @@ function initPrinting() {
   }
 
   function openChooser() {
+    clearPortfolioNotice();
+    tooltips.hide();
     closeAccessibility(false);
     if (!ui['print-chooser'].hidden) {closeChooser();return;}
     ui['print-chooser'].hidden = false;
     ui['print-cv'].setAttribute('aria-expanded','true');
     root.dataset.printChooserOpen = 'true';
-    inertBackground = [...document.body.children].filter(node => node !== ui['print-chooser'] && node.tagName !== 'SCRIPT').map(node => [node,node.inert]);
+    inertBackground = [...document.body.children].filter(node => node !== ui['print-chooser'] && node.id !== 'help-tooltip' && node.tagName !== 'SCRIPT').map(node => [node,node.inert]);
     inertBackground.forEach(([node]) => {node.inert = true;});
-    ui[`print-${variants[0]}`].focus({preventScroll:true});
+    // Si el texto está ampliado, el botón enfocado también debe quedar visible dentro del panel.
+    ui[`print-${variants[0]}`].focus();
   }
 
   // El mismo flujo imprime ambas versiones y conserva el enlace de respaldo del visor.
@@ -264,6 +281,16 @@ function initPrinting() {
     else if (!event.shiftKey && document.activeElement === last) {event.preventDefault();first.focus();}
   });
   for (const variant of variants) ui[`print-${variant}`].addEventListener('click', () => printVariant(variant));
+}
+
+function initPortfolio() {
+  // Hasta tener una URL real, el botón informa del estado sin simular una navegación.
+  ui['portfolio-link'].addEventListener('click', () => {
+    clearPortfolioNotice();
+    ui['portfolio-notice'].textContent = ui['portfolio-link'].dataset.notice;
+    noticeTimer = setTimeout(clearPortfolioNotice, 6500);
+  });
+  window.addEventListener('beforeprint', clearPortfolioNotice);
 }
 
 function initNavigation() {
@@ -323,4 +350,5 @@ initTheme();
 initAccessibility();
 initLanguage();
 initPrinting();
+initPortfolio();
 initNavigation();

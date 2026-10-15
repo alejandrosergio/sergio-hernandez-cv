@@ -18,20 +18,20 @@
         <a class="wordmark" href="#perfil" aria-label="Sergio Hernández, inicio"><span class="monogram" aria-hidden="true"><img src="images/sh-logo.svg" width="32" height="32" alt=""></span><span>Sergio Hernández</span></a>
         <nav class="navigation" aria-label="Secciones del currículum"><a href="#perfil" aria-current="location">Perfil</a><a href="#tecnologias">Tecnologías</a><a href="#experiencia">Experiencia</a><a href="#formacion">Formación</a></nav>
         <div class="header-actions no-print">
-        <button class="action-button theme-button" type="button" id="theme-toggle" aria-pressed="false" aria-label="Activar modo oscuro" hidden><svg class="moon-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.9 13.1A9 9 0 0 1 10.9 3.1 9 9 0 1 0 20.9 13.1Z" /></svg><svg class="sun-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5" /></svg><span id="theme-label">Modo oscuro</span></button>
-        <button class="action-button print-button" type="button" id="print-cv" title="Elegir versión para imprimir" aria-label="Elegir versión para imprimir" aria-expanded="false" aria-controls="print-chooser" hidden><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" /><path d="M6 14h12v8H6zM18 12h.01" /></svg><span>Imprimir CV</span></button>
-        <button class="action-button language-button" type="button" id="language-toggle" lang="en" aria-label="Switch to English" title="Switch to English" hidden><img id="language-flag" src="flags/us.svg" data-flag-en="flags/us.svg" data-flag-es="flags/es.svg" width="24" height="18" alt="" aria-hidden="true"><span id="language-label">English</span></button>
+        <button class="action-button theme-button" type="button" id="theme-toggle" aria-pressed="false" aria-label="Activar modo oscuro" hidden data-tooltip="Activar modo oscuro"><svg class="moon-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.9 13.1A9 9 0 0 1 10.9 3.1 9 9 0 1 0 20.9 13.1Z" /></svg><svg class="sun-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5" /></svg><span id="theme-label">Modo oscuro</span></button>
+        <button class="action-button print-button" type="button" id="print-cv" aria-label="Elegir versión para imprimir" aria-expanded="false" aria-controls="print-chooser" hidden data-tooltip="Elegir entre el CV resumido y el completo."><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" /><path d="M6 14h12v8H6zM18 12h.01" /></svg><span>Imprimir CV</span></button>
+        <button class="action-button language-button" type="button" id="language-toggle" lang="en" aria-label="Switch to English" hidden data-tooltip="Switch to English"><img id="language-flag" src="flags/us.svg" data-flag-en="flags/us.svg" data-flag-es="flags/es.svg" width="24" height="18" alt="" aria-hidden="true"><span id="language-label">English</span></button>
         <span class="sr-only" id="language-status" role="status" aria-live="polite" aria-atomic="true"></span>
       </div>
       </div>
-      <p id="print-help" class="print-help no-print" hidden><span>Si no se abre el diálogo, </span><a id="print-open" href="./" target="_blank" rel="noopener">abre el CV en una pestaña nueva</a><span> y selecciona Imprimir en el menú del navegador.</span></p>
+      <p id="print-help" class="print-help no-print" hidden><span>Si no se abre el diálogo, </span><a id="print-open" href="./" target="_blank" rel="noopener" data-tooltip="Abrir el CV en otra pestaña para imprimirlo.">abre el CV en una pestaña nueva</a><span> y selecciona Imprimir en el menú del navegador.</span></p>
     </header>
     <main id="contenido" class="resume">
       <!-- Perfil y contactos confirmados; el cargo no se repite en la descripción. -->
       <section class="profile" id="perfil" aria-labelledby="nombre">
         <div class="profile-topline">
           <p class="eyebrow">Software empresarial · Automatización · IA</p>
-          <a class="location" href="https://www.google.com/maps/search/?api=1&query=Cali%2C%20Colombia" target="_blank" rel="noopener noreferrer" title="Ver Cali, Colombia en Google Maps"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></svg><span>Cali, Colombia</span><span class="sr-only">, abre Google Maps en una pestaña nueva</span></a>
+          <a class="location" href="https://www.google.com/maps/search/?api=1&query=Cali%2C%20Colombia" target="_blank" rel="noopener noreferrer" data-tooltip="Ver Cali, Colombia en Google Maps"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></svg><span>Cali, Colombia</span><span class="sr-only">, abre Google Maps en una pestaña nueva</span></a>
         </div>
         <div class="profile-heading">
           <div class="profile-copy">
@@ -52,18 +52,18 @@
                 <strong class="experience-number">+6</strong>
                 <p>Años de experiencia creando soluciones empresariales</p>
               </div>
-              <span id="portfolio-link" class="portfolio-link no-print" role="link" aria-disabled="true" aria-label="Alejandro’sTech, web próximamente">
+              <button type="button" id="portfolio-link" class="portfolio-link no-print" aria-label="Alejandro’sTech, ver estado de la web" data-notice="Alejandro’sTech está en preparación. La web de servicios y proyectos estará disponible próximamente." data-tooltip="Ver el estado de la nueva web de servicios y proyectos.">
                 <span class="portfolio-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a18 18 0 0 1 0 18 18 18 0 0 1 0-18Z" /></svg></span>
                 <span class="portfolio-copy"><span class="portfolio-name">Alejandro’sTech</span><span class="portfolio-status">Próximamente</span></span>
-              </span>
+              </button>
             </figcaption>
           </figure>
         </div>
         <div class="contact-strip" aria-label="Datos de contacto">
-        <a class="contact-email" href="mailto:alejandro.dev.sergio@outlook.com"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 6 9 7 9-7" /></svg><span>alejandro.dev.sergio@outlook.com</span></a>
-        <a href="tel:+573128560843"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3 5.2 2 2 0 0 1 5 3h3a1 1 0 0 1 1 1l.7 3a1 1 0 0 1-.3 1l-1.5 1.5a16 16 0 0 0 6.6 6.6l1.5-1.5a1 1 0 0 1 1-.3l3 .7a1 1 0 0 1 1 1Z" /></svg><span>+57 312 856 0843</span></a>
-        <a href="https://www.linkedin.com/in/sergio-alejandro-hernandez-patino/" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M7 10v7M7 7h.01M11 17v-7m0 3a3 3 0 0 1 6 0v4" /></svg><span>LinkedIn</span><span class="sr-only">, abre en una pestaña nueva</span></a>
-        <a href="https://github.com/alejandrosergio" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4 1-4-2-6-2m12 5v-3.5a3 3 0 0 0-.9-2.3c3-.3 6.2-1.5 6.2-6.9a5.4 5.4 0 0 0-1.4-3.7 5 5 0 0 0-.1-3.7S17.6 2.5 15 4a13 13 0 0 0-6 0C6.4 2.5 5.2 2.9 5.2 2.9a5 5 0 0 0-.1 3.7 5.4 5.4 0 0 0-1.4 3.7c0 5.4 3.2 6.6 6.2 6.9a3 3 0 0 0-.9 2.3V22" /></svg><span>GitHub</span><span class="sr-only">, abre en una pestaña nueva</span></a>
+        <a class="contact-email" data-tooltip="Enviar un correo a Sergio." href="mailto:alejandro.dev.sergio@outlook.com"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 6 9 7 9-7" /></svg><span>alejandro.dev.sergio@outlook.com</span></a>
+        <a href="tel:+573128560843" data-tooltip="Llamar a Sergio."><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3 5.2 2 2 0 0 1 5 3h3a1 1 0 0 1 1 1l.7 3a1 1 0 0 1-.3 1l-1.5 1.5a16 16 0 0 0 6.6 6.6l1.5-1.5a1 1 0 0 1 1-.3l3 .7a1 1 0 0 1 1 1Z" /></svg><span>+57 312 856 0843</span></a>
+        <a href="https://www.linkedin.com/in/sergio-alejandro-hernandez-patino/" data-tooltip="Abrir LinkedIn en una pestaña nueva." target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M7 10v7M7 7h.01M11 17v-7m0 3a3 3 0 0 1 6 0v4" /></svg><span>LinkedIn</span><span class="sr-only">, abre en una pestaña nueva</span></a>
+        <a href="https://github.com/alejandrosergio" data-tooltip="Abrir GitHub en una pestaña nueva." target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4 1-4-2-6-2m12 5v-3.5a3 3 0 0 0-.9-2.3c3-.3 6.2-1.5 6.2-6.9a5.4 5.4 0 0 0-1.4-3.7 5 5 0 0 0-.1-3.7S17.6 2.5 15 4a13 13 0 0 0-6 0C6.4 2.5 5.2 2.9 5.2 2.9a5 5 0 0 0-.1 3.7 5.4 5.4 0 0 0-1.4 3.7c0 5.4 3.2 6.6 6.2 6.9a3 3 0 0 0-.9 2.3V22" /></svg><span>GitHub</span><span class="sr-only">, abre en una pestaña nueva</span></a>
       </div>
       </section>
       <!-- Una sola fuente de tecnologías para la web y el CV resumido. -->
@@ -82,15 +82,15 @@
               </div>
             </div>
             <div class="specialty-content">
-              <p>Desarrollo aplicaciones canvas y model-driven con Power Apps y Dataverse. Amplío soluciones con plugins, componentes de código (PCF) y conectores personalizados. Automatizo procesos y tareas de escritorio con Power Automate y RPA, gestiono soluciones y ALM, y visualizo datos con Power BI.</p>
+              <p>Desarrollo aplicaciones canvas y model-driven con Power Apps y Dataverse. Amplío soluciones con plugins, componentes de código (PCF con React) y conectores personalizados. Automatizo procesos y tareas de escritorio con Power Automate y RPA, gestiono soluciones y ALM, y visualizo datos con Power BI.</p>
               <ul class="tech-list" aria-label="Tecnologías de Power Platform">
                 <li id="power-apps">Power Apps (canvas y model-driven)</li>
                 <li id="power-dataverse">Dataverse y plugins</li>
-                <li id="power-pcf">Componentes PCF</li>
+                <li id="power-pcf" tabindex="0" data-explain="" data-tooltip="Power Apps Component Framework: componentes personalizados para Power Apps, con React aplicado a su interfaz.">PCF con React</li>
                 <li>Power Automate</li>
-                <li id="power-rpa">Power Automate Desktop / RPA</li>
+                <li id="power-rpa" tabindex="0" data-explain="" data-tooltip="RPA: automatización de tareas repetitivas en aplicaciones de escritorio.">Power Automate Desktop / RPA</li>
                 <li id="power-connectors">Conectores personalizados</li>
-                <li id="power-alm">Soluciones y ALM</li>
+                <li id="power-alm" tabindex="0" data-explain="" data-tooltip="ALM: gestión de versiones, pruebas y despliegues durante el ciclo de vida de las aplicaciones.">Soluciones y ALM</li>
                 <li>Power Pages</li>
                 <li>Power BI</li>
               </ul>
@@ -133,7 +133,7 @@
             <div class="specialty-content">
               <p>Integro modelos de lenguaje mediante APIs en aplicaciones y automatizaciones. Uso asistentes de IA para análisis, desarrollo y documentación, con revisión técnica de los resultados.</p>
               <ul class="tech-list" aria-label="Capacidades de inteligencia artificial">
-                <li id="ai-models">IA generativa / LLM</li>
+                <li id="ai-models" tabindex="0" data-explain="" data-tooltip="LLM: modelos de lenguaje que permiten integrar funciones de inteligencia artificial.">IA generativa / LLM</li>
                 <li id="ai-apis">APIs de IA</li>
                 <li id="ai-automation">Automatización con IA</li>
               </ul>
@@ -261,7 +261,7 @@
       <section class="print-chooser-panel" role="dialog" aria-modal="true" aria-labelledby="print-chooser-title" aria-describedby="print-chooser-description">
         <div class="print-chooser-heading">
           <h2 id="print-chooser-title">Elige qué CV imprimir</h2>
-          <button class="panel-close" id="print-chooser-close" type="button" aria-label="Cerrar opciones del CV" title="Cerrar opciones del CV"><span aria-hidden="true">×</span></button>
+          <button class="panel-close" id="print-chooser-close" type="button" aria-label="Cerrar opciones del CV" data-tooltip="Cerrar opciones del CV"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18" /></svg></button>
         </div>
         <p id="print-chooser-description">Selecciona la versión que prefieras. Se imprimirá en el idioma actual.</p>
         <div class="print-options">
@@ -269,31 +269,34 @@
             <p class="overline" id="print-recruiter-kicker">Lectura rápida</p>
             <h3 id="print-recruiter-title">CV resumido</h3>
             <p id="print-recruiter-description">Perfil completo, todas las tecnologías y experiencia resumida para una primera revisión.</p>
-            <div class="print-option-actions"><button class="action-button" id="print-recruiter" type="button">Imprimir CV resumido</button></div>
+            <div class="print-option-actions"><button class="action-button" id="print-recruiter" type="button" data-tooltip="Abrir el diálogo de impresión del CV resumido.">Imprimir CV resumido</button></div>
           </article>
           <article class="print-option" aria-labelledby="print-web-title">
             <p class="overline" id="print-web-kicker">Todo el contenido</p>
             <h3 id="print-web-title">CV completo</h3>
             <p id="print-web-description">Todo el contenido del currículum: perfil, tecnologías, experiencia, formación e idiomas.</p>
-            <div class="print-option-actions"><button class="action-button" id="print-web" type="button">Imprimir CV completo</button></div>
+            <div class="print-option-actions"><button class="action-button" id="print-web" type="button" data-tooltip="Abrir el diálogo de impresión del CV completo.">Imprimir CV completo</button></div>
           </article>
         </div>
       </section>
     </div>
-    <button class="back-to-top no-print" id="back-to-top" type="button" aria-label="Volver al inicio" title="Volver al inicio" hidden><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 12 6-6 6 6M12 6v13" /></svg></button>
-    <button class="accessibility-toggle no-print" id="accessibility-toggle" type="button" aria-label="Ajustes de accesibilidad" title="Ajustes de accesibilidad" aria-expanded="false" aria-controls="accessibility-panel" hidden><span class="gear-icon" aria-hidden="true">⚙</span></button>
+    <button class="back-to-top no-print" id="back-to-top" type="button" aria-label="Volver al inicio" hidden data-tooltip="Volver al inicio del currículum."><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 12 6-6 6 6M12 6v13" /></svg></button>
+    <button class="accessibility-toggle no-print" id="accessibility-toggle" type="button" aria-label="Ajustes de accesibilidad" aria-expanded="false" aria-controls="accessibility-panel" hidden data-tooltip="Mostrar u ocultar los ajustes de accesibilidad."><span class="gear-icon" aria-hidden="true">⚙</span></button>
     <aside class="accessibility-panel no-print" id="accessibility-panel" role="dialog" aria-labelledby="accessibility-heading" hidden>
       <div class="accessibility-heading">
         <h2 id="accessibility-heading">Accesibilidad</h2>
-        <button type="button" class="panel-close" id="accessibility-close" aria-label="Cerrar ajustes de accesibilidad" title="Cerrar ajustes de accesibilidad"><span aria-hidden="true">×</span></button>
+        <button type="button" class="panel-close" id="accessibility-close" aria-label="Cerrar ajustes de accesibilidad" data-tooltip="Cerrar ajustes de accesibilidad"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18" /></svg></button>
       </div>
       <div class="text-size-heading"><label for="text-size" id="text-size-label">Tamaño del texto</label><output id="text-size-value" for="text-size" aria-live="polite" aria-atomic="true">100%</output></div>
-      <div class="text-size-controls"><button type="button" id="text-decrease" aria-label="Reducir tamaño del texto"><span aria-hidden="true">A−</span></button><input type="range" id="text-size" min="100" max="200" step="10" value="100" aria-valuetext="100 por ciento"><button type="button" id="text-increase" aria-label="Aumentar tamaño del texto"><span aria-hidden="true">A+</span></button></div>
+      <div class="text-size-controls"><button type="button" id="text-decrease" aria-label="Reducir tamaño del texto" data-tooltip="Reducir el tamaño del texto. Mínimo: 100 %."><span aria-hidden="true">A−</span></button><input type="range" id="text-size" min="100" max="200" step="10" value="100" aria-valuetext="100 por ciento" data-tooltip="Ajustar el tamaño del texto entre 100 % y 200 %."><button type="button" id="text-increase" aria-label="Aumentar tamaño del texto" data-tooltip="Aumentar el tamaño del texto. Máximo: 200 %."><span aria-hidden="true">A+</span></button></div>
       <label class="setting-row" for="contrast-toggle"><span><strong id="contrast-label">Alto contraste</strong><span class="setting-note" id="contrast-note">Colores más definidos para leer mejor.</span></span><input id="contrast-toggle" type="checkbox"></label>
       <label class="setting-row" for="motion-toggle"><span><strong id="motion-label">Reducir animaciones</strong><span class="setting-note" id="motion-note">Sin transiciones ni desplazamiento animado.</span></span><input id="motion-toggle" type="checkbox"></label>
       <label class="setting-row" for="spacing-toggle"><span><strong id="spacing-label">Espaciado de lectura</strong><span class="setting-note" id="spacing-note">Más espacio entre líneas y párrafos.</span></span><input id="spacing-toggle" type="checkbox"></label>
-      <button type="button" class="accessibility-reset" id="accessibility-reset">Restablecer ajustes</button>
+      <button type="button" class="accessibility-reset" id="accessibility-reset" data-tooltip="Restablecer las preferencias de accesibilidad.">Restablecer ajustes</button>
     </aside>
+    <!-- Las ayudas y el aviso de la marca se ocultan al imprimir. -->
+    <div id="help-tooltip" class="help-tooltip no-print" role="tooltip" hidden></div>
+    <div id="portfolio-notice" class="site-notice no-print" role="status" aria-live="polite" aria-atomic="true"></div>
     <noscript>
       <p class="noscript-note">Puedes imprimir este currículum desde el menú de tu navegador.</p>
     </noscript>

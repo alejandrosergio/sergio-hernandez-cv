@@ -33,8 +33,15 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(document.querySelectorAll('.job-contract,.recruiter-job-contract').length,0);
   assert.doesNotMatch(document.querySelector('body').textContent,/Periodo de contrato|Contract term/iu);
   const placeholder=document.getElementById('portfolio-link');
-  assert.equal(placeholder.getAttribute('aria-disabled'),'true');
+  assert.equal(placeholder.tagName,'BUTTON');
+  assert.equal(placeholder.hasAttribute('disabled'),false);
+  assert.equal(placeholder.hasAttribute('aria-disabled'),false);
   assert.equal(placeholder.getAttribute('href'),null);
+  for (const button of document.querySelectorAll('button')) {
+    assert.ok(button.dataset.tooltip?.trim(),`Falta la ayuda del botón ${button.id}`);
+    assert.equal(button.hasAttribute('title'),false,'Evitar ayudas nativas duplicadas o desincronizadas');
+  }
+  assert.equal(document.getElementById('help-tooltip').getAttribute('role'),'tooltip');
   assert.equal(document.querySelector('.job:nth-child(2) .job-period > span').textContent,'2023 – 2025');
   assert.equal(document.querySelector('.language-spanish strong').textContent,language === 'es' ? 'Nativo' : 'Native');
   assert.doesNotMatch(document.querySelector('main').textContent,/\bPHP\b|Bootstrap|\bSenior\b|comercialicé|commercialized|sold|entrega a cliente/iu);
@@ -73,7 +80,7 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   for (const node of document.querySelectorAll('.specialty .tech-list li,.specialty .ecosystem span,.shared-grid [data-print-technology] dd')) {
     assert.ok(normalize(printSkills.textContent).includes(normalize(node.textContent)),`Print summary omits confirmed skills: ${node.textContent}`);
   }
-  for(const skill of ['ASP.NET Core','Web API','Entity Framework Core','LINQ','PCF','RPA']){assert.ok(document.querySelector('#tecnologias').textContent.includes(skill));assert.ok(printSkills.textContent.includes(skill));}
+  for(const skill of ['ASP.NET Core','Web API','Entity Framework Core','LINQ','PCF','React','RPA']){assert.ok(document.querySelector('#tecnologias').textContent.includes(skill));assert.ok(printSkills.textContent.includes(skill));}
   const webURL = `${origin}/${language === 'en' ? 'en/' : ''}`;
   assert.equal(document.getElementById('web-print-link').href,webURL);
   assert.equal(document.querySelector('#recruiter-print .print-web-link a').href,webURL);
@@ -112,12 +119,19 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
     window.print = () => emitWindow('beforeprint');
     const context = {document:page,window,localStorage,matchMedia,URL,location,
       history:{replaceState:(_,__,url) => {location.href=new URL(url,location.href).href;}},
-      getComputedStyle:()=>({position:'relative'}),requestAnimationFrame:callback=>callback()};
+      getComputedStyle:()=>({position:'relative'}),requestAnimationFrame:callback=>callback(),
+      setTimeout:()=>0,clearTimeout:()=>{}};
     vm.runInNewContext(script,context,{timeout:2000});
     const click = id => page.getElementById(id).dispatchEvent(new window.Event('click',{bubbles:true}));
     const change = (id,checked) => {const node=page.getElementById(id);node.checked=checked;node.dispatchEvent(new window.Event('change',{bubbles:true}));};
     assert.equal(page.documentElement.lang,language);
+    const initialURL=location.href;
+    click('portfolio-link');
+    assert.equal(location.href,initialURL,'La marca sin URL real no debe provocar una navegación');
+    assert.match(page.getElementById('portfolio-notice').textContent,language === 'es' ? /próximamente/ : /coming soon/);
     click('language-toggle');
+    assert.equal(page.getElementById('portfolio-notice').textContent,'');
+    assert.equal(page.getElementById('language-toggle').dataset.tooltip,language === 'es' ? 'Cambiar a Español' : 'Switch to English');
     assert.equal(page.documentElement.lang,language === 'es' ? 'en' : 'es');
     assert.equal(page.querySelector('.language-spanish strong').textContent,language === 'es' ? 'Native' : 'Nativo');
     click('language-toggle');
