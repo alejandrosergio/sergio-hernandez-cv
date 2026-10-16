@@ -15,7 +15,11 @@
   {
     "selector": ".wordmark",
     "attribute": "aria-label",
-    "text": "Sergio Hernández, home"
+    "text": "Sergio Hernández, curriculum vitae, home"
+  },
+  {
+    "selector": ".wordmark-context",
+    "text": "Curriculum vitae"
   },
   {
     "selector": ".navigation",
