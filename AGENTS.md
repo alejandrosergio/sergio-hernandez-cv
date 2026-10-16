@@ -29,6 +29,7 @@ No guardar credenciales, tokens, perfiles del navegador, `.env`, `node_modules/`
 
 ## Contenido y funcionamiento
 
+- Mantener el alcance breve del currículum. Los proyectos detallados, casos de estudio y contenidos ampliados se reservan para Alejandro’sTech. No añadirlos al CV sin una petición expresa del usuario.
 - Perfil: Analista y Desarrollador de Software full stack, +6 años; español e inglés. Evitar repetir el cargo al comienzo de la descripción y no presentarlo como un perfil exclusivamente backend.
 - Los títulos al compartir e imprimir destacan Power Platform · .NET · IA (AI en inglés), manteniendo full stack como capacidad dentro del perfil.
 - Mantener componentes PCF sin la mención explícita a React, que no se ofrece como competencia independiente.

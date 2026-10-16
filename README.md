@@ -15,6 +15,7 @@ Currículum web bilingüe de **Sergio Alejandro Hernández Patiño**, Analista y
 - Selector con CV resumido primero y CV completo después, con impresión en A4 en el idioma actual.
 - Ambas versiones impresas conservan los contactos y un enlace al currículum web, visible solo al imprimir. Todos los vínculos impresos se distinguen en azul y subrayados.
 - Navegación por secciones y botón para volver al inicio.
+- Tooltips nativos breves en los botones y ayudas visuales compactas en los contactos.
 - Metadatos SEO, referencias entre idiomas, sitemap y datos estructurados del perfil.
 - Copia HTML autónoma y archivos minificados para publicación.
 
@@ -32,6 +33,7 @@ src/                  Contenido y código editable
   styles.css          Estilos de pantalla e impresión
   script.js           Idioma, tema, accesibilidad y navegación
   cursor.js           Detalle decorativo del ratón
+  tooltips.js         Ayudas compactas de los contactos
 public/               Fotografía, banderas y favicon
 scripts/              Generación y verificaciones
 dist/                 Archivos listos para abrir o publicar
@@ -78,7 +80,11 @@ La fotografía corresponde al titular del currículum, con vestuario y fondo edi
 
 ## Identidad y conocimientos confirmados
 
-El logo utiliza un monograma SH geométrico con margen interior, centrado en una cabeza de agente robot con hombros simétricos. El favicon simplifica la figura a la cabeza para facilitar la lectura a 16 px. Alejandro’sTech es la marca elegida para el portfolio y servicios freelance: el acceso indica Próximamente y no tiene un destino asignado. Su tarjeta compacta usa un borde de color y alinea el estado con el nombre, dejando el globo a un lado. El pie muestra «Copyright © 2026 Alejandro’sTech. Todos los derechos reservados.», con su traducción al inglés. Ambas impresiones incluyen Alejandro’sTech con Próximamente mientras no tenga una URL.
+El logo utiliza un monograma SH geométrico con margen interior, centrado en una cabeza de agente robot con hombros simétricos. El favicon conserva el robot completo, con los hombros visibles también a 16 px. La cabecera identifica el sitio como «Sergio Hernández · Currículum vitae», con su traducción al inglés.
+
+Alejandro’sTech será la web completa para la experiencia, proyectos, servicios y contenidos sobre desarrollo, automatización e IA. Su tarjeta compacta es un botón activo con animación y tooltip nativo, muestra Próximamente y al pulsarlo informa del estado de la web. El nombre y el estado se centran entre sí, con el globo separado a la izquierda. Mientras no exista una URL real, el botón no navega y ambas impresiones muestran el nombre con Próximamente.
+
+El pie muestra «Copyright © 2026 Alejandro’sTech. Todos los derechos reservados.», con su traducción al inglés. El currículum mantiene su alcance breve. Los proyectos detallados, casos de estudio y contenidos ampliados se reservan para Alejandro’sTech.
 
 Las tecnologías incluyen ASP.NET Core/Web API, Entity Framework Core, LINQ, inyección de dependencias, pruebas unitarias y procedimientos almacenados; en Power Platform, apps canvas/model-driven, plugins de Dataverse, componentes PCF, RPA, conectores personalizados y soluciones/ALM. Fueron confirmadas por el titular y se reutilizan en ambas versiones impresas. Los seis años corresponden a la trayectoria profesional total, no a una duración atribuida a cada tecnología.
 

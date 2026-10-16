@@ -15,6 +15,7 @@ La copia `CV_Sergio_Hernandez.html` de la descarga funciona por sí sola: incorp
 - `src/recruiter.json`: resumen bilingüe para reclutadores, sin datos profesionales inventados.
 - `src/script.js`: controladores de idioma, tema, accesibilidad, impresión y navegación.
 - `src/cursor.js`: halo decorativo del ratón, aislado de los controles y las preferencias.
+- `src/tooltips.js`: ayudas visuales compactas de los contactos, compatibles con ratón, teclado y Escape.
 - `src/styles.css`: estilos de pantalla e impresión, sin reglas de papel redundantes.
 - `public/`: fotografía del perfil, banderas y favicon que se copian a la versión publicada.
 - `scripts/build.mjs`: genera las páginas estáticas, minifica HTML/CSS/JavaScript y actualiza las descargas.
@@ -46,6 +47,8 @@ La tuerca abre ajustes de texto del 100–200 %, alto contraste, reducción de m
 
 El botón de la esquina inferior izquierda aparece después de bajar 320 píxeles y vuelve al inicio respetando la reducción de movimiento. Los contactos están centrados, con iconos y enlaces descriptivos. La navegación tiene en cuenta la cabecera fija solo cuando realmente está fija.
 
+Los botones usan tooltips nativos y breves. Solo los contactos conservan ayudas visuales propias, compactas y compatibles con teclado y Escape. Las tecnologías se presentan sin tooltips ni subrayados punteados. Las ayudas se ocultan al imprimir.
+
 El detalle del puntero conserva el cursor nativo y se muestra solo con ratón. Se oculta al usar teclado, salir de la ventana, imprimir, activar alto contraste o reducir movimiento, también según la preferencia del sistema. El anillo transparente de 26 px sigue el movimiento con una transición breve de 80 ms. Su posición se actualiza como máximo una vez por fotograma, sin mantener una animación en reposo.
 
 ## SEO
@@ -60,7 +63,11 @@ La página publica los datos profesionales y la fotografía facilitados por el t
 
 ## Identidad y conocimientos confirmados
 
-El logo utiliza un monograma SH geométrico con margen interior, centrado en una cabeza de agente robot con hombros simétricos. El favicon simplifica la figura a la cabeza para facilitar la lectura a 16 px. Alejandro’sTech es la marca elegida para el portfolio y servicios freelance: el acceso indica Próximamente y no tiene un destino asignado. Su tarjeta compacta usa un borde de color y alinea el estado con el nombre, dejando el globo a un lado. El pie muestra «Copyright © 2026 Alejandro’sTech. Todos los derechos reservados.», con su traducción al inglés. Ambas impresiones incluyen Alejandro’sTech con Próximamente mientras no tenga una URL.
+El logo utiliza un monograma SH geométrico con margen interior, centrado en una cabeza de agente robot con hombros simétricos. El favicon conserva el robot completo, con los hombros visibles también a 16 px. La cabecera identifica el sitio como «Sergio Hernández · Currículum vitae», con su traducción al inglés.
+
+Alejandro’sTech será la web completa para la experiencia, proyectos, servicios y contenidos sobre desarrollo, automatización e IA. Su tarjeta compacta es un botón activo con animación y tooltip nativo, muestra Próximamente y al pulsarlo informa del estado de la web. El nombre y el estado se centran entre sí, con el globo separado a la izquierda. Mientras no exista una URL real, el botón no navega y ambas impresiones muestran el nombre con Próximamente.
+
+El pie muestra «Copyright © 2026 Alejandro’sTech. Todos los derechos reservados.», con su traducción al inglés. El currículum mantiene su alcance breve. Los proyectos detallados, casos de estudio y contenidos ampliados se reservan para Alejandro’sTech.
 
 Las tecnologías incluyen ASP.NET Core/Web API, Entity Framework Core, LINQ, inyección de dependencias, pruebas unitarias y procedimientos almacenados; en Power Platform, apps canvas/model-driven, plugins de Dataverse, componentes PCF, RPA, conectores personalizados y soluciones/ALM. Fueron confirmadas por el titular y se reutilizan en ambas versiones impresas. Los seis años corresponden a la trayectoria profesional total, no a una duración atribuida a cada tecnología.
 
