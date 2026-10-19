@@ -22,7 +22,7 @@ const preferences = {
 const root = document.documentElement;
 const byId = id => document.getElementById(id);
 const ui = Object.fromEntries([
-  'theme-toggle','theme-label','language-toggle','language-flag','language-label','language-status',
+  'theme-toggle','theme-label','language-toggle','language-label','language-status',
   'accessibility-toggle','accessibility-panel','accessibility-close','accessibility-reset',
   'text-size','text-size-value','text-decrease','text-increase','contrast-toggle','motion-toggle','spacing-toggle',
   'print-cv','print-help','print-open','back-to-top',
@@ -58,10 +58,6 @@ const themeCopy = {
   en: { light:'Light mode', dark:'Dark mode', lightAction:'Switch to light mode', darkAction:'Switch to dark mode' }
 };
 const localizedNodes = translations.flatMap(entry => [...document.querySelectorAll(entry.selector)].map(node => ({node, entry})));
-const flagURLs = ui['language-flag'] ? {
-  es: new URL(ui['language-flag'].dataset.flagEs, document.baseURI).href,
-  en: new URL(ui['language-flag'].dataset.flagEn, document.baseURI).href
-} : {};
 const themeColor = document.querySelector('meta[name="theme-color"]');
 const portraitURL = new URL(document.querySelector('.portrait img').getAttribute('src'),document.baseURI).href;
 const tooltips = createContactTooltips();
@@ -143,7 +139,6 @@ function applyLanguage(language, announce = false) {
   ui['language-toggle'].lang = target;
   ui['language-toggle'].title = action;
   ui['language-toggle'].setAttribute('aria-label', action);
-  ui['language-flag'].src = flagURLs[target];
   ui['language-label'].textContent = target === 'en' ? 'English' : 'Español';
   updateLanguageURL();
   if (ui['print-open']) ui['print-open'].href = location.href;

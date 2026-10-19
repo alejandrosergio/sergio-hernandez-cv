@@ -4,7 +4,7 @@ Currículum bilingüe de un Analista y Desarrollador de Software full stack con 
 
 ## Abrir el currículum
 
-El sitio publicado sirve la versión en español en `/` y la versión en inglés en `/en/`. Ambas contienen todo el currículum en el HTML, incluso sin JavaScript. El botón de idioma cambia el contenido, los controles, la URL y los metadatos sin recargar la página.
+El sitio publicado sirve la versión en español en `/` y la versión en inglés en `/en/`. Ambas contienen todo el currículum en el HTML, incluso sin JavaScript. El botón de idioma cambia el contenido, los controles, la URL y los metadatos sin recargar la página. Las dos banderas están integradas en el HTML, su visibilidad cambia con el idioma sin descargar o sustituir imágenes al pulsar.
 
 La copia `CV_Sergio_Hernandez.html` de la descarga funciona por sí sola: incorpora estilos, comportamiento, fotografía y banderas. También puedes abrir `index.html` junto con los archivos y carpetas del ZIP sin instalar dependencias.
 
@@ -71,6 +71,6 @@ El pie muestra «Copyright © 2026 Alejandro’sTech. Todos los derechos reserva
 
 Las tecnologías incluyen ASP.NET Core/Web API, Entity Framework Core, LINQ, inyección de dependencias, pruebas unitarias y procedimientos almacenados; en Power Platform, apps canvas/model-driven, plugins de Dataverse, componentes PCF, RPA, conectores personalizados y soluciones/ALM. Fueron confirmadas por el titular y se reutilizan en ambas versiones impresas. Los seis años corresponden a la trayectoria profesional total, no a una duración atribuida a cada tecnología.
 
-Java, Spring Boot, Oracle, PL/SQL y microservicios se muestran únicamente en la experiencia de CODESA, junto con Angular. La sección de tecnologías describe los conocimientos que se ofrecen actualmente.
+React figura como tecnología frontend actual. Java, Spring Boot, Oracle, PL/SQL y microservicios se muestran únicamente en la experiencia de CODESA, junto con Angular. La sección de tecnologías describe los conocimientos que se ofrecen actualmente. El cargo confirmado en DynamizaTIC es Senior Software Developer, también en ambas impresiones.
 
 Las etiquetas de tecnologías agrupan las capacidades relacionadas sin duplicar Power Apps, Dataverse ni RPA. Los portales de administración confirmados son Security, Identity, Azure, SharePoint y Power Platform. Python no se presenta como competencia. El CV resumido mantiene tres tarjetas de tecnología con igual espacio y conserva todos los conocimientos ofrecidos.

@@ -104,7 +104,7 @@
   },
   {
     "selector": ".profile-summary p:last-child",
-    "html": "I work with <strong>Angular and .NET</strong>, <strong>Power Platform</strong> and <strong>AI</strong>. I combine development, consulting and technical leadership to take solutions from analysis to production and support their evolution."
+    "html": "I work with <strong>React and .NET</strong>, <strong>Power Platform</strong> and <strong>AI</strong>. I combine development, consulting and technical leadership to take solutions from analysis to production and support their evolution."
   },
   {
     "selector": ".contact-strip",
@@ -172,7 +172,7 @@
   },
   {
     "selector": ".shared-grid > div:nth-child(1) dd",
-    "text": "Angular, JavaScript, TypeScript, HTML5 and CSS3."
+    "text": "React, JavaScript, TypeScript, HTML5 and CSS3."
   },
   {
     "selector": ".shared-grid > div:nth-child(2) dt",
@@ -228,7 +228,7 @@
   },
   {
     "selector": ".job:nth-child(1) .job-role",
-    "text": "Software Analyst and Developer"
+    "text": "Senior Software Developer"
   },
   {
     "selector": ".job:nth-child(1) .job-details li:nth-child(1)",

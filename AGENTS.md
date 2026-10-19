@@ -31,8 +31,9 @@ No guardar credenciales, tokens, perfiles del navegador, `.env`, `node_modules/`
 
 - Mantener el alcance breve del currículum. Los proyectos detallados, casos de estudio y contenidos ampliados se reservan para Alejandro’sTech. No añadirlos al CV sin una petición expresa del usuario.
 - Perfil: Analista y Desarrollador de Software full stack, +6 años; español e inglés. Evitar repetir el cargo al comienzo de la descripción y no presentarlo como un perfil exclusivamente backend.
+- En DynamizaTIC el cargo confirmado es Senior Software Developer, en ambos idiomas y versiones impresas.
 - Los títulos al compartir e imprimir destacan Power Platform · .NET · IA (AI en inglés), manteniendo full stack como capacidad dentro del perfil.
-- Mantener componentes PCF sin la mención explícita a React, que no se ofrece como competencia independiente.
+- React es la tecnología frontend actual confirmada. Angular se conserva en la experiencia histórica de CODESA, sin ofrecerse como competencia actual. Mantener PCF sin añadir «con React» a su etiqueta.
 - .NET, Power Platform e IA mantienen la misma jerarquía de títulos y acentos. En escritorio, Power Platform ocupa dos filas junto a .NET e IA apiladas; adaptar la composición al tamaño de pantalla.
 - Mantener la fotografía de perfil aprobada, los contactos y sus vínculos, la accesibilidad y la impresión sin controles. La última edición autorizada conserva su identidad, rostro, pelo, barba y expresión, con pose sentada de brazos cruzados, polo de punto gris carbón de cuello bajo sobre camiseta blanca y fondo de estudio azul suave según sus referencias. Las futuras ediciones seguirán los cambios que autorice el titular, preservando su identidad.
 - El halo del ratón es decorativo, transparente y con seguimiento suave, conserva el cursor nativo y se desactiva con teclado, táctil, impresión, alto contraste o reducción de movimiento. Mantener el reflujo al ampliar el texto, sin ocultar desbordamientos ni reducir la tipografía.
@@ -44,6 +45,7 @@ No guardar credenciales, tokens, perfiles del navegador, `.env`, `node_modules/`
 - El logo usa iniciales SH geométricas con margen interior dentro de una cabeza de agente robot con hombros simétricos, sin etiquetas HTML y compacto a 32 px. El favicon conserva el robot completo con hombros visibles también a 16 px.
 - La tarjeta Alejandro’sTech mantiene el nombre y Próximamente centrados entre sí, con el globo separado a la izquierda y altura compacta.
 - Los botones tienen tooltips nativos y breves en ambos idiomas, conservando su respuesta de pulsación. Solo los contactos usan ayudas visuales compactas, accesibles con teclado y Escape, ocultas al imprimir. Las tecnologías no llevan ayudas ni subrayados punteados. Respetar la reducción de movimiento.
+- Las dos banderas del selector se integran en las páginas generadas. Alternar su visibilidad con el idioma, sin descargar o sustituir imágenes al pulsar.
 - La marca elegida es Alejandro’sTech. Mientras no tenga URL, mostrar Próximamente también en ambas impresiones, sin crear un enlace ficticio.
 - La tarjeta de la marca es un botón activo que muestra un aviso de Próximamente sobre la web completa (experiencia, proyectos, servicios y contenidos de desarrollo, automatización e IA), sin navegar hasta disponer de una URL real.
 

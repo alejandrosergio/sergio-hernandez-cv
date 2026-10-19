@@ -55,7 +55,10 @@ html[data-print-chooser-open="true"] { overflow:hidden; }
 .action-button:hover { transform:translateY(-1px); background:var(--soft); border-color:var(--accent); box-shadow:0 5px 16px rgba(20,43,61,.1); }
 button:not(:disabled):active { transform:scale(.96); }
 .language-button { flex:0 0 auto; min-height:44px; padding:.55rem .95rem; }
-.language-button img { display:block; width:24px; height:18px; object-fit:cover; border-radius:2px; box-shadow:0 0 0 1px rgba(128,142,156,.3); }
+/* Las dos banderas se integran en el HTML y alternan en el mismo espacio, sin pedir otra imagen. */
+.language-flags { display:grid; flex:0 0 auto; width:24px; height:18px; }
+.language-flags img { grid-area:1 / 1; display:block; visibility:hidden; width:24px; height:18px; object-fit:cover; border-radius:2px; box-shadow:0 0 0 1px rgba(128,142,156,.3); }
+html[lang="es"] .language-flag-en,html[lang="en"] .language-flag-es { visibility:visible; }
 .sun-icon { display:none; }
 [data-theme="dark"] .moon-icon { display:none; }
 [data-theme="dark"] .sun-icon { display:block; }

@@ -30,6 +30,8 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(document.querySelector('meta[property="og:title"]').content,document.title);
   assert.match(document.querySelector('.shared-grid').textContent,/MongoDB/);
   assert.equal(document.querySelector('.job:nth-child(1) .job-period > span').textContent,'2025–2027');
+  assert.equal(document.querySelector('.job:nth-child(1) .job-role').textContent,'Senior Software Developer');
+  assert.equal(document.querySelector('.recruiter-job:nth-child(1) .recruiter-job-role').textContent,'Senior Software Developer');
   assert.equal(document.querySelectorAll('.job-contract,.recruiter-job-contract').length,0);
   assert.doesNotMatch(document.querySelector('body').textContent,/Periodo de contrato|Contract term/iu);
   const placeholder=document.getElementById('portfolio-link');
@@ -47,8 +49,8 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(document.getElementById('help-tooltip').getAttribute('role'),'tooltip');
   assert.equal(document.querySelector('.job:nth-child(2) .job-period > span').textContent,'2023 – 2025');
   assert.equal(document.querySelector('.language-spanish strong').textContent,language === 'es' ? 'Nativo' : 'Native');
-  assert.doesNotMatch(document.querySelector('main').textContent,/\bPHP\b|Bootstrap|\bSenior\b|comercialicé|commercialized|sold|entrega a cliente/iu);
-  assert.doesNotMatch(document.querySelector('#tecnologias').textContent,/\bJava\b|Spring Boot|Oracle|PL\/SQL|microservicios|microservices/iu);
+  assert.doesNotMatch(document.querySelector('main').textContent,/\bPHP\b|Bootstrap|comercialicé|commercialized|sold|entrega a cliente/iu);
+  assert.doesNotMatch(document.querySelector('#tecnologias').textContent,/\bJava\b|Spring Boot|Oracle|PL\/SQL|microservicios|microservices|Angular/iu);
   for(const name of ['Java','Spring Boot','Angular','micro']){assert.ok(document.querySelector('.job:nth-child(4)').textContent.toLowerCase().includes(name.toLowerCase()));assert.ok(document.querySelector('.recruiter-job:nth-child(4)').textContent.toLowerCase().includes(name.toLowerCase()));}
   const offered = document.querySelector('#tecnologias');
   assert.ok(offered.textContent.includes('Identity'));
@@ -83,8 +85,12 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   for (const node of document.querySelectorAll('.specialty .tech-list li,.specialty .ecosystem span,.shared-grid [data-print-technology] dd')) {
     assert.ok(normalize(printSkills.textContent).includes(normalize(node.textContent)),`Print summary omits confirmed skills: ${node.textContent}`);
   }
-  for(const skill of ['ASP.NET Core','Web API','Entity Framework Core','LINQ','PCF','RPA']){assert.ok(document.querySelector('#tecnologias').textContent.includes(skill));assert.ok(printSkills.textContent.includes(skill));}
-  assert.doesNotMatch(document.body.textContent,/\bReact\b/);
+  for(const skill of ['ASP.NET Core','Web API','Entity Framework Core','LINQ','PCF','RPA','React']){assert.ok(document.querySelector('#tecnologias').textContent.includes(skill));assert.ok(printSkills.textContent.includes(skill));}
+  assert.match(document.querySelector('.profile-summary').textContent,/React/);
+  assert.doesNotMatch(document.querySelector('.profile-summary').textContent,/Angular/);
+  const flags=[...document.querySelectorAll('.language-flags img')];
+  assert.equal(flags.length,2);
+  assert.ok(flags.every(flag=>flag.src.startsWith('data:image/svg+xml;base64,')),'Las banderas deben estar disponibles sin otra petición de red');
   const webURL = `${origin}/${language === 'en' ? 'en/' : ''}`;
   assert.equal(document.getElementById('web-print-link').href,webURL);
   assert.equal(document.querySelector('#recruiter-print .print-web-link a').href,webURL);
@@ -126,6 +132,7 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
       getComputedStyle:()=>({position:'relative'}),requestAnimationFrame:callback=>callback(),
       setTimeout:()=>0,clearTimeout:()=>{}};
     vm.runInNewContext(script,context,{timeout:2000});
+    const flagSources=[...page.querySelectorAll('.language-flags img')].map(flag=>flag.src);
     const click = id => page.getElementById(id).dispatchEvent(new window.Event('click',{bubbles:true}));
     const change = (id,checked) => {const node=page.getElementById(id);node.checked=checked;node.dispatchEvent(new window.Event('change',{bubbles:true}));};
     assert.equal(page.documentElement.lang,language);
@@ -137,10 +144,11 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
     assert.equal(page.getElementById('portfolio-notice').textContent,'');
     assert.equal(page.getElementById('language-toggle').title,language === 'es' ? 'Cambiar a Español' : 'Switch to English');
     assert.equal(page.documentElement.lang,language === 'es' ? 'en' : 'es');
+    assert.deepEqual([...page.querySelectorAll('.language-flags img')].map(flag=>flag.src),flagSources,'Cambiar de idioma no debe cargar ni sustituir imágenes');
     assert.equal(page.querySelector('.language-spanish strong').textContent,language === 'es' ? 'Native' : 'Nativo');
     click('language-toggle');
     assert.equal(page.documentElement.lang,language);
-    assert.equal(new URL(page.getElementById('language-flag').src).pathname,language === 'es' ? '/flags/us.svg' : '/flags/es.svg');
+    assert.deepEqual([...page.querySelectorAll('.language-flags img')].map(flag=>flag.src),flagSources);
     click('accessibility-toggle');
     assert.equal(page.getElementById('accessibility-panel').hidden,false);
     change('spacing-toggle',true);

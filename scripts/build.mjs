@@ -31,7 +31,7 @@ const recruiterCopy = JSON.parse(recruiterSource);
 const englishTitle = english.find(entry => entry.selector === 'title').text;
 const englishDescription = english.find(entry => entry.selector === 'meta[name="description"]').text;
 const description = document.querySelector('meta[name="description"]').content;
-const resourceAttributes = ['href','src','data-flag-en','data-flag-es'];
+const resourceAttributes = ['href','src'];
 
 // La publicación en /en/ y la copia autónoma usan el mismo recorrido de recursos.
 function updateResources(page,resolve) {
@@ -163,7 +163,6 @@ function applyTranslations(page, language) {
   button.setAttribute('title',action);
   button.setAttribute('aria-label',action);
   page.getElementById('language-label').textContent = target === 'en' ? 'English' : 'Español';
-  page.getElementById('language-flag').setAttribute('src',`flags/${target === 'en' ? 'us' : 'es'}.svg`);
 }
 
 const assetTypes = new Map([
@@ -171,6 +170,9 @@ const assetTypes = new Map([
   ['images/sergio-hernandez.jpeg','image/jpeg'],['images/sh-logo.svg','image/svg+xml']
 ]);
 const assetContents = new Map(await Promise.all([...assetTypes.keys()].map(async file => [file,await readFile(path.join(dist,file))])));
+const embeddedAssets = new Map([...assetTypes].map(([file,mime]) => [file,`data:${mime};base64,${assetContents.get(file).toString('base64')}`]));
+// El cambio de idioma solo alterna la visibilidad de banderas ya disponibles, también sin red.
+for (const flag of document.querySelectorAll('.language-flags img')) flag.setAttribute('src',embeddedAssets.get(flag.getAttribute('src')));
 const versionedResources = [
   ['link[rel="icon"]','href','favicon.svg',hash(assetContents.get('favicon.svg'))],
   ['.monogram img','src','images/sh-logo.svg',hash(assetContents.get('images/sh-logo.svg'))],
@@ -200,7 +202,6 @@ const {document:download} = parseHTML(spanishTemplate);
 download.querySelector('link[rel="stylesheet"]').replaceWith(element('style',{},stylesheet));
 download.querySelector('script[src]').remove();
 download.querySelector('meta[name="robots"]').content = 'noindex,nofollow';
-const embeddedAssets = new Map([...assetTypes].map(([file,mime]) => [file,`data:${mime};base64,${assetContents.get(file).toString('base64')}`]));
 updateResources(download,value => embeddedAssets.get(value) ?? value);
 download.body.append(element('script',{},javascript));
 await writeFile(path.join(dist,'descargas/CV_Sergio_Hernandez.html'),await minify(download.toString(),htmlOptions));
