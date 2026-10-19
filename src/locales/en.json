@@ -228,7 +228,7 @@
   },
   {
     "selector": ".job:nth-child(1) .job-role",
-    "text": "Senior Software Developer"
+    "text": "Senior Developer • Microsoft 365"
   },
   {
     "selector": ".job:nth-child(1) .job-details li:nth-child(1)",

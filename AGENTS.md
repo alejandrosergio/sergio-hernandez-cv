@@ -31,7 +31,7 @@ No guardar credenciales, tokens, perfiles del navegador, `.env`, `node_modules/`
 
 - Mantener el alcance breve del currículum. Los proyectos detallados, casos de estudio y contenidos ampliados se reservan para Alejandro’sTech. No añadirlos al CV sin una petición expresa del usuario.
 - Perfil: Analista y Desarrollador de Software full stack, +6 años; español e inglés. Evitar repetir el cargo al comienzo de la descripción y no presentarlo como un perfil exclusivamente backend.
-- En DynamizaTIC el cargo confirmado es Senior Software Developer, en ambos idiomas y versiones impresas.
+- En DynamizaTIC el cargo confirmado es «Desarrollador Senior • Microsoft 365», traducido como «Senior Developer • Microsoft 365» en inglés, también en ambas versiones impresas.
 - Los títulos al compartir e imprimir destacan Power Platform · .NET · IA (AI en inglés), manteniendo full stack como capacidad dentro del perfil.
 - React es la tecnología frontend actual confirmada. Angular se conserva en la experiencia histórica de CODESA, sin ofrecerse como competencia actual. Mantener PCF sin añadir «con React» a su etiqueta.
 - .NET, Power Platform e IA mantienen la misma jerarquía de títulos y acentos. En escritorio, Power Platform ocupa dos filas junto a .NET e IA apiladas; adaptar la composición al tamaño de pantalla.

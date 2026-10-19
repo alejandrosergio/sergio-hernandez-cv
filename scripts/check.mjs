@@ -30,8 +30,9 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(document.querySelector('meta[property="og:title"]').content,document.title);
   assert.match(document.querySelector('.shared-grid').textContent,/MongoDB/);
   assert.equal(document.querySelector('.job:nth-child(1) .job-period > span').textContent,'2025–2027');
-  assert.equal(document.querySelector('.job:nth-child(1) .job-role').textContent,'Senior Software Developer');
-  assert.equal(document.querySelector('.recruiter-job:nth-child(1) .recruiter-job-role').textContent,'Senior Software Developer');
+  const dynamizaticRole = language === 'es' ? 'Desarrollador Senior • Microsoft 365' : 'Senior Developer • Microsoft 365';
+  assert.equal(document.querySelector('.job:nth-child(1) .job-role').textContent,dynamizaticRole);
+  assert.equal(document.querySelector('.recruiter-job:nth-child(1) .recruiter-job-role').textContent,dynamizaticRole);
   assert.equal(document.querySelectorAll('.job-contract,.recruiter-job-contract').length,0);
   assert.doesNotMatch(document.querySelector('body').textContent,/Periodo de contrato|Contract term/iu);
   const placeholder=document.getElementById('portfolio-link');
