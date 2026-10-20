@@ -34,9 +34,9 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(document.querySelector('meta[property="og:title"]').content,document.title);
   assert.match(document.querySelector('.shared-grid').textContent,/MongoDB/);
   const periods = language === 'es'
-    ? ['mar. 2025 – oct. 2026','mar. 2023 – mar. 2025','mar. 2021 – mar. 2023','sept. 2020 – mar. 2021']
-    : ['Mar 2025 – Oct 2026','Mar 2023 – Mar 2025','Mar 2021 – Mar 2023','Sep 2020 – Mar 2021'];
-  const durations = language === 'es' ? ['1 año y 7 meses','2 años','2 años','6 meses'] : ['1 year and 7 months','2 years','2 years','6 months'];
+    ? ['mar. 2025 – oct. 2026','jun. 2023 – mar. 2025','mar. 2021 – jun. 2023','sept. 2020 – mar. 2021']
+    : ['Mar 2025 – Oct 2026','Jun 2023 – Mar 2025','Mar 2021 – Jun 2023','Sep 2020 – Mar 2021'];
+  const durations = language === 'es' ? ['1 año y 7 meses','1 año y 9 meses','2 años y 3 meses','6 meses'] : ['1 year and 7 months','1 year and 9 months','2 years and 3 months','6 months'];
   assert.deepEqual([...document.querySelectorAll('.job-dates')].map(node=>node.textContent),periods);
   assert.deepEqual([...document.querySelectorAll('.job-duration')].map(node=>node.textContent),durations);
   assert.deepEqual([...document.querySelectorAll('.recruiter-job-duration')].map(node=>node.textContent),durations);
