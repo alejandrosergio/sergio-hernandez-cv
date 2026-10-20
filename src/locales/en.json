@@ -6,7 +6,7 @@
   {
     "selector": "meta[name=\"description\"]",
     "attribute": "content",
-    "text": "Power Platform, .NET and AI for business applications, automation and integration. Software developer with over six years of experience."
+    "text": ".NET and Power Platform developer with 6+ years of professional experience. Full stack applications, business automation and AI integration."
   },
   {
     "selector": ".skip-link",
@@ -83,11 +83,11 @@
   },
   {
     "selector": ".role",
-    "text": "Software Analyst and Developer"
+    "text": ".NET and Power Platform Developer"
   },
   {
     "selector": "#focus-ai",
-    "text": "AI"
+    "text": "AI integration"
   },
   {
     "selector": ".portrait img",
@@ -100,11 +100,11 @@
   },
   {
     "selector": ".profile-summary p:first-child",
-    "text": "I build full stack solutions that connect interfaces, services and data. With over six years of experience, I turn business needs into applications, automation and integrations."
+    "text": "I build full stack applications and integrations to connect systems and automate business processes. I bring over six years of experience combining development, consulting and technical leadership."
   },
   {
     "selector": ".profile-summary p:last-child",
-    "html": "I work with <strong>React and .NET</strong>, <strong>Power Platform</strong> and <strong>AI</strong>. I combine development, consulting and technical leadership to take solutions from analysis to production and support their evolution."
+    "html": "I work with <strong>React and .NET</strong>, <strong>Power Platform</strong> and <strong>AI through APIs</strong>. I contribute from requirements analysis and design through testing, production deployment and software evolution."
   },
   {
     "selector": ".contact-strip",
@@ -219,10 +219,6 @@
     "text": "Professional experience"
   },
   {
-    "selector": ".job:nth-child(1) .job-period > span:first-child",
-    "text": "2025–2027"
-  },
-  {
     "selector": ".job:nth-child(-n+2) .job-country",
     "text": "Spain"
   },
@@ -232,15 +228,15 @@
   },
   {
     "selector": ".job:nth-child(1) .job-details li:nth-child(1)",
-    "text": "Develop applications with Power Apps and Dataverse and automate processes with Power Automate."
+    "text": "Developed applications with Power Apps and Dataverse, and process automation with Power Automate."
   },
   {
     "selector": ".job:nth-child(1) .job-details li:nth-child(2)",
-    "text": "Connect external systems through REST APIs and Azure services."
+    "text": "Integrated applications with external systems through REST APIs and Azure services."
   },
   {
     "selector": ".job:nth-child(1) .job-details li:nth-child(3)",
-    "text": "Lead requirements analysis, implementation and user adoption."
+    "text": "Led requirements analysis and supported solution implementation and user adoption."
   },
   {
     "selector": ".job:nth-child(2) .job-role",
@@ -391,10 +387,6 @@
     "text": "Native"
   },
   {
-    "selector": ".job:nth-child(2) .job-period > span:first-child",
-    "text": "2023 – 2025"
-  },
-  {
     "selector": ".specialty-ai .ecosystem strong",
     "text": "AI assistants"
   },
@@ -516,7 +508,7 @@
   },
   {
     "selector": "#m365-admin-skills",
-    "text": "Security · Identity · Azure · SharePoint · Power Platform"
+    "text": "Microsoft Defender (Security) · Microsoft Entra ID (Identity) · Azure · SharePoint · Power Platform"
   },
   {
     "selector": "#ai-models",
@@ -623,5 +615,13 @@
     "selector": ".contact-strip a[href*=\"github.com\"]",
     "attribute": "data-tooltip",
     "text": "Open Sergio’s GitHub profile"
+  },
+  {
+    "selector": "#focus-full-stack",
+    "text": "Full stack development"
+  },
+  {
+    "selector": "#focus-automation",
+    "text": "Automation"
   }
 ]

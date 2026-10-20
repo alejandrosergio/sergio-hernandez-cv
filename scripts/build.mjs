@@ -33,6 +33,34 @@ const englishDescription = english.find(entry => entry.selector === 'meta[name="
 const description = document.querySelector('meta[name="description"]').content;
 const resourceAttributes = ['href','src'];
 
+// Se cuentan meses entre los límites acordados, sin duplicar el mes de cambio de empresa.
+const monthNames = {
+  es:['ene.','feb.','mar.','abr.','may.','jun.','jul.','ago.','sept.','oct.','nov.','dic.'],
+  en:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+};
+function parseMonth(value) {
+  if (!/^\d{4}-(?:0[1-9]|1[0-2])$/.test(value ?? '')) throw new Error(`Mes de experiencia no válido: ${value}`);
+  const [year,month] = value.split('-').map(Number);
+  return {year,month,ordinal:year * 12 + month};
+}
+function durationText(total,language) {
+  const units = language === 'es' ? [['año','años'],['mes','meses']] : [['year','years'],['month','months']];
+  return [Math.floor(total / 12),total % 12]
+    .map((count,index) => count ? `${count} ${units[index][count === 1 ? 0 : 1]}` : '')
+    .filter(Boolean).join(language === 'es' ? ' y ' : ' and ');
+}
+for (const [index,job] of [...document.querySelectorAll('.job')].entries()) {
+  const start = parseMonth(job.getAttribute('data-start'));
+  const end = parseMonth(job.getAttribute('data-end'));
+  const total = end.ordinal - start.ordinal;
+  if (total <= 0) throw new Error(`Periodo de experiencia no válido: ${job.querySelector('h3').textContent}`);
+  for (const className of ['job-dates','job-duration']) {
+    const value = language => className === 'job-duration' ? durationText(total,language) : [start,end].map(({year,month}) => `${monthNames[language][month - 1]} ${year}`).join(' – ');
+    job.querySelector(`.${className}`).textContent = value('es');
+    english.push({selector:`.job:nth-child(${index + 1}) .${className}`,text:value('en')});
+  }
+}
+
 // La publicación en /en/ y la copia autónoma usan el mismo recorrido de recursos.
 function updateResources(page,resolve) {
   for (const node of page.querySelectorAll(resourceAttributes.map(attribute => `[${attribute}]`).join(','))) {

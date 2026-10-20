@@ -19,7 +19,7 @@ function labeledSkills(items) {
 }
 
 function experienceItem(job,bullets) {
-  return `<li class="recruiter-job"><div class="recruiter-job-heading"><h3>${escape(job.company)}</h3><span class="recruiter-job-period">${escape(job.period)} · ${escape(job.country)}</span></div><p class="recruiter-job-role">${escape(job.role)}</p><ul>${bullets.map(bullet => `<li>${escape(bullet)}</li>`).join('')}</ul></li>`;
+  return `<li class="recruiter-job"><div class="recruiter-job-heading"><h3>${escape(job.company)}</h3><span class="recruiter-job-period">${escape(job.period)} · ${escape(job.country)}</span></div><div class="recruiter-job-subheading"><p class="recruiter-job-role">${escape(job.role)}</p><span class="recruiter-job-duration">${escape(job.duration)}</span></div><ul>${bullets.map(bullet => `<li>${escape(bullet)}</li>`).join('')}</ul></li>`;
 }
 
 // El perfil, las tecnologías y los datos de trayectoria se reutilizan del CV completo.
@@ -42,7 +42,8 @@ export function createRecruiterMarkup(page,copy,webURL) {
   }));
   const jobs = [...page.querySelectorAll('.job')].map(node => ({
     company:text(node.querySelector('h3')),
-    period:text(node.querySelector('.job-period > span')),
+    period:text(node.querySelector('.job-dates')),
+    duration:text(node.querySelector('.job-duration')),
     country:text(node.querySelector('.job-country')),
     role:text(node.querySelector('.job-role'))
   }));

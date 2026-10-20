@@ -23,13 +23,25 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(schema['@type'],'ProfilePage');
   assert.equal(schema.mainEntity.name,'Sergio Alejandro Hernández Patiño');
   assert.equal(schema.inLanguage,language);
+  const profileRole = language === 'es' ? 'Desarrollador .NET y Power Platform' : '.NET and Power Platform Developer';
+  assert.equal(document.querySelector('.role').textContent,profileRole);
+  assert.equal(document.querySelector('.recruiter-role').textContent,profileRole);
+  assert.equal(schema.mainEntity.jobTitle,profileRole);
   assert.equal(document.title,`Sergio Hernández | Power Platform · .NET · ${language === 'es' ? 'IA' : 'AI'}`);
   assert.ok(schema.mainEntity.knowsAbout.some(skill=>skill.includes('Identity')));
   assert.doesNotMatch(schema.mainEntity.knowsAbout.join(' '),/Oracle|PL\/SQL|microservicios|microservices|Python/iu);
   assert.equal(document.querySelector('meta[property="og:description"]').content,document.querySelector('meta[name="description"]').content);
   assert.equal(document.querySelector('meta[property="og:title"]').content,document.title);
   assert.match(document.querySelector('.shared-grid').textContent,/MongoDB/);
-  assert.equal(document.querySelector('.job:nth-child(1) .job-period > span').textContent,'2025–2027');
+  const periods = language === 'es'
+    ? ['mar. 2025 – oct. 2026','mar. 2023 – mar. 2025','mar. 2021 – mar. 2023','sept. 2020 – mar. 2021']
+    : ['Mar 2025 – Oct 2026','Mar 2023 – Mar 2025','Mar 2021 – Mar 2023','Sep 2020 – Mar 2021'];
+  const durations = language === 'es' ? ['1 año y 7 meses','2 años','2 años','6 meses'] : ['1 year and 7 months','2 years','2 years','6 months'];
+  assert.deepEqual([...document.querySelectorAll('.job-dates')].map(node=>node.textContent),periods);
+  assert.deepEqual([...document.querySelectorAll('.job-duration')].map(node=>node.textContent),durations);
+  assert.deepEqual([...document.querySelectorAll('.recruiter-job-duration')].map(node=>node.textContent),durations);
+  for (const [index,node] of [...document.querySelectorAll('.recruiter-job-period')].entries()) assert.ok(node.textContent.startsWith(periods[index]));
+  assert.doesNotMatch(document.querySelector('#experiencia').textContent,/2027|Actualidad|Present/iu);
   const dynamizaticRole = language === 'es' ? 'Desarrollador Senior • Microsoft 365' : 'Senior Developer • Microsoft 365';
   assert.equal(document.querySelector('.job:nth-child(1) .job-role').textContent,dynamizaticRole);
   assert.equal(document.querySelector('.recruiter-job:nth-child(1) .recruiter-job-role').textContent,dynamizaticRole);
@@ -48,7 +60,6 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.ok([...document.querySelectorAll('[data-tooltip]')].every(node=>node.closest('.contact-strip')));
   assert.equal(document.querySelectorAll('.tech-list [data-tooltip],.tech-list [title],.tech-list [tabindex],[data-explain]').length,0);
   assert.equal(document.getElementById('help-tooltip').getAttribute('role'),'tooltip');
-  assert.equal(document.querySelector('.job:nth-child(2) .job-period > span').textContent,'2023 – 2025');
   assert.equal(document.querySelector('.language-spanish strong').textContent,language === 'es' ? 'Nativo' : 'Native');
   assert.doesNotMatch(document.querySelector('main').textContent,/\bPHP\b|Bootstrap|comercialicé|commercialized|sold|entrega a cliente/iu);
   assert.doesNotMatch(document.querySelector('#tecnologias').textContent,/\bJava\b|Spring Boot|Oracle|PL\/SQL|microservicios|microservices|Angular/iu);
@@ -145,6 +156,12 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
     assert.equal(page.getElementById('portfolio-notice').textContent,'');
     assert.equal(page.getElementById('language-toggle').title,language === 'es' ? 'Cambiar a Español' : 'Switch to English');
     assert.equal(page.documentElement.lang,language === 'es' ? 'en' : 'es');
+    const switchedRole = language === 'es' ? '.NET and Power Platform Developer' : 'Desarrollador .NET y Power Platform';
+    const switchedDuration = language === 'es' ? '1 year and 7 months' : '1 año y 7 meses';
+    assert.equal(page.querySelector('.role').textContent,switchedRole);
+    assert.equal(page.querySelector('.recruiter-role').textContent,switchedRole);
+    assert.equal(page.querySelector('.job-duration').textContent,switchedDuration);
+    assert.equal(page.querySelector('.recruiter-job-duration').textContent,switchedDuration);
     assert.deepEqual([...page.querySelectorAll('.language-flags img')].map(flag=>flag.src),flagSources,'Cambiar de idioma no debe cargar ni sustituir imágenes');
     assert.equal(page.querySelector('.language-spanish strong').textContent,language === 'es' ? 'Native' : 'Nativo');
     click('language-toggle');

@@ -1,6 +1,6 @@
 # Currículum profesional · Sergio Hernández
 
-Currículum web bilingüe de **Sergio Alejandro Hernández Patiño**, Analista y Desarrollador de Software full stack con **+6 años de experiencia**. Presenta su trayectoria, especialidades en .NET, Microsoft Power Platform e inteligencia artificial, y capacidad para acompañar el ciclo de vida completo del software.
+Currículum web bilingüe de **Sergio Alejandro Hernández Patiño**, Desarrollador .NET y Power Platform con **+6 años de experiencia** y capacidad full stack. Presenta su trayectoria, especialidades en .NET, Microsoft Power Platform e inteligencia artificial, y capacidad para acompañar el ciclo de vida completo del software.
 
 **[Consultar el currículum publicado](https://sergio-hernandez-cv.alejosergio3000.chatgpt.site/)**
 
@@ -90,4 +90,8 @@ Las tecnologías incluyen ASP.NET Core/Web API, Entity Framework Core, LINQ, iny
 
 React figura como tecnología frontend actual. Java, Spring Boot, Oracle, PL/SQL y microservicios se muestran únicamente en la experiencia de CODESA, junto con Angular. La sección de tecnologías describe los conocimientos que se ofrecen actualmente. El cargo confirmado en DynamizaTIC es «Desarrollador Senior • Microsoft 365», traducido como «Senior Developer • Microsoft 365» en inglés, también en ambas impresiones.
 
-Las etiquetas de tecnologías agrupan las capacidades relacionadas sin duplicar Power Apps, Dataverse ni RPA. Los portales de administración confirmados son Security, Identity, Azure, SharePoint y Power Platform. Python no se presenta como competencia. El CV resumido mantiene tres tarjetas de tecnología con igual espacio y conserva todos los conocimientos ofrecidos.
+Las etiquetas de tecnologías agrupan las capacidades relacionadas sin duplicar Power Apps, Dataverse ni RPA. Los portales de administración confirmados son Microsoft Defender (Security), Microsoft Entra ID (Identity), Azure, SharePoint y Power Platform. Python no se presenta como competencia. El CV resumido mantiene tres tarjetas de tecnología con igual espacio y conserva todos los conocimientos ofrecidos.
+
+La cabecera presenta «Desarrollador .NET y Power Platform», con desarrollo full stack, automatización e integración de IA como alcance. La cronología acordada es CODESA (sept. 2020–mar. 2021, 6 meses), Intelecto (mar. 2021–mar. 2023, 2 años), Auto Control Empresarial (mar. 2023–mar. 2025, 2 años) y DynamizaTIC (mar. 2025–oct. 2026, 1 año y 7 meses). Los meses intermedios se reconstruyeron con las duraciones y fueron aceptados por el titular.
+
+Las fechas se editan en los atributos data-start y data-end de cada experiencia en src/index.html. El generador calcula los textos de meses y las duraciones en español e inglés, y los reutiliza en el CV resumido. Se cuentan diferencias de meses sin sumar dos veces los límites compartidos. La duración acordada es aproximadamente 6 años y 1 mes. Las descripciones de DynamizaTIC se redactan en pasado porque la experiencia figura cerrada.
