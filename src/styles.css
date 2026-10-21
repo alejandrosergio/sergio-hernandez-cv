@@ -104,15 +104,10 @@ strong { font-weight:600; }
 /* Un solo margen separa el perfil de sus contactos, sin duplicar espacio vertical. */
 .contact-strip { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; text-align:center; gap:.4rem 1.25rem; padding:1.05rem 0 1.2rem; margin-top:1rem; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
 .contact-strip a { display:inline-flex; min-width:0; min-height:36px; align-items:center; justify-content:center; gap:.45rem; padding:.35rem .2rem; font-size:.875rem; text-decoration:none; color:var(--ink); }
-.contact-strip a:hover { color:var(--accent); text-decoration:underline; }
+.contact-strip a:is(:hover,:focus-visible) { color:var(--accent); text-decoration:underline; }
 .contact-strip svg { color:var(--muted); }
+.contact-strip a:is(:hover,:focus-visible) svg { color:currentColor; }
 .contact-strip a > span { min-width:0; overflow-wrap:anywhere; }
-/* El verde identifica el chat, los textos conservan la jerarquía azul del sitio. */
-.contact-whatsapp svg { color:#087f5b; }
-@media screen {
- [data-theme="dark"] .contact-whatsapp svg { color:#65d6a5; }
- [data-contrast="high"] .contact-whatsapp svg { color:var(--accent); }
-}
 .cv-section { padding:2.7rem 0 0; }
 .section-heading { display:flex; align-items:center; gap:.85rem; margin-bottom:1.5rem; }
 .section-heading h2 { min-width:0; overflow-wrap:anywhere; }
