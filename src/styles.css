@@ -144,7 +144,8 @@ h3 { color:var(--ink); }
 .job:last-child { padding-bottom:0; }
 .job-period { min-width:0; padding-top:.15rem; overflow-wrap:anywhere; font-size:.875rem; font-weight:600; color:var(--ink); }
 .job-dates { display:block; }
-.job-duration { display:inline-block; max-width:100%; margin-top:.45rem; padding:.15rem .5rem; border:1px solid var(--line); border-radius:6px; font-weight:500; line-height:1.4; color:var(--accent); background:color-mix(in srgb,var(--accent) 6%,var(--paper)); }
+/* La duración acompaña a la fecha sin competir con el cargo ni parecer un control. */
+.job-duration { display:inline-block; max-width:100%; margin-top:.3rem; padding:.05rem .4rem; border:0; border-radius:4px; font-size:.8125rem; font-weight:400; line-height:1.4; color:var(--muted); background:color-mix(in srgb,var(--accent) 4%,var(--paper)); }
 .job-country { display:block; font-weight:400; color:var(--muted); margin-top:.2rem; }
 .job-content { position:relative; min-width:0; padding:0 0 1.8rem 1.6rem; overflow-wrap:anywhere; border-left:1px solid var(--line); }
 .job-content::before { content:""; position:absolute; width:7px; height:7px; left:-4px; top:.65rem; border:2px solid var(--muted); background:var(--paper); border-radius:50%; }
