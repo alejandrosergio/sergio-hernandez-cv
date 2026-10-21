@@ -56,7 +56,7 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
     assert.ok(button.getAttribute('title')?.trim(),`Falta la ayuda nativa del botón ${button.id}`);
     assert.equal(button.hasAttribute('data-tooltip'),false,'Los botones conservan el tooltip nativo');
   }
-  assert.equal(document.querySelectorAll('[data-tooltip]').length,4);
+  assert.equal(document.querySelectorAll('[data-tooltip]').length,5);
   assert.ok([...document.querySelectorAll('[data-tooltip]')].every(node=>node.closest('.contact-strip')));
   assert.equal(document.querySelectorAll('.tech-list [data-tooltip],.tech-list [title],.tech-list [tabindex],[data-explain]').length,0);
   assert.equal(document.getElementById('help-tooltip').getAttribute('role'),'tooltip');
@@ -81,7 +81,28 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(document.querySelectorAll('.print-option-actions button').length,2);
   assert.equal(document.querySelectorAll('.print-option-actions a').length,0);
   assert.equal(document.querySelectorAll('#recruiter-print .print-job').length,4);
-  assert.deepEqual([...document.querySelectorAll('#recruiter-print .print-contact a')].map(link => link.getAttribute('href')),[document.querySelector('.location'),...document.querySelectorAll('.contact-strip a')].map(link => link.getAttribute('href')), 'Print preserves every contact URL exactly');
+  const contactURLs = [document.querySelector('.location'),...document.querySelectorAll('.contact-strip a:not(.no-print)')].map(link => link.getAttribute('href'));
+  for (const print of document.querySelectorAll('.print-resume')) {
+    assert.deepEqual([...print.querySelectorAll('.print-contact a')].map(link=>link.getAttribute('href')),contactURLs,'Las impresiones conservan todos los contactos salvo WhatsApp');
+    assert.equal(print.querySelectorAll('a[href*="wa.me"],.contact-whatsapp').length,0);
+    assert.doesNotMatch(print.textContent,/WhatsApp/i);
+  }
+  const phone = document.querySelector('.contact-phone');
+  assert.equal(phone.getAttribute('href'),'tel:+573128560843');
+  assert.equal(phone.textContent,'+57 312 856 0843');
+  const whatsapp = document.querySelector('.contact-whatsapp');
+  const chat = new URL(whatsapp.getAttribute('href'));
+  assert.equal(chat.origin,'https://wa.me');
+  assert.equal(chat.pathname,'/573128560843');
+  assert.equal(chat.searchParams.get('text'),language === 'es'
+    ? 'Hola Sergio, he visto tu CV y me gustaría conversar contigo sobre una oportunidad profesional.'
+    : 'Hi Sergio, I’ve reviewed your résumé and would like to discuss a professional opportunity with you.');
+  assert.equal(whatsapp.target,'_blank');
+  assert.match(whatsapp.getAttribute('rel'),/noopener/);
+  assert.match(whatsapp.getAttribute('rel'),/noreferrer/);
+  assert.ok(whatsapp.classList.contains('no-print'));
+  assert.ok(whatsapp.querySelector('svg'));
+  assert.ok(whatsapp.textContent.includes('WhatsApp'));
   assert.equal(document.querySelector('#recruiter-print').querySelectorAll('.print-skill').length,4);
   assert.equal(document.querySelectorAll('a[href*=".pdf"],a[download$=".pdf"],[id^="download-"][id$="-pdf"]').length,0);
   assert.doesNotMatch(document.getElementById('print-chooser').textContent,/\bPDF\b/iu);
@@ -170,6 +191,11 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
     assert.equal(page.getElementById('portfolio-notice').textContent,'');
     assert.equal(page.getElementById('language-toggle').title,language === 'es' ? 'Cambiar a Español' : 'Switch to English');
     assert.equal(page.documentElement.lang,language === 'es' ? 'en' : 'es');
+    const switchedChat = new URL(page.querySelector('.contact-whatsapp').getAttribute('href'));
+    assert.equal(switchedChat.searchParams.get('text'),language === 'es'
+      ? 'Hi Sergio, I’ve reviewed your résumé and would like to discuss a professional opportunity with you.'
+      : 'Hola Sergio, he visto tu CV y me gustaría conversar contigo sobre una oportunidad profesional.');
+    assert.equal(page.querySelector('.contact-phone').getAttribute('href'),'tel:+573128560843');
     const switchedRole = language === 'es' ? '.NET and Power Platform Developer' : 'Desarrollador .NET y Power Platform';
     const switchedDuration = language === 'es' ? '1 year and 7 months' : '1 año y 7 meses';
     assert.equal(page.querySelector('.role').textContent,switchedRole);

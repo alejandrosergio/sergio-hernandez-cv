@@ -27,6 +27,7 @@ def verify_text(pages, case, method):
         assert norm(paragraph) in joined, label + ": perfil alterado"
     assert norm(case["degree"]) in joined, label + ": ADSI incorrecto"
     assert not re.search(r"Alejandro.sTech|Próximamente|Coming soon", joined, re.I), label + ": marca provisional en papel"
+    assert "WhatsApp" not in joined, label + ": contacto exclusivo de la web en papel"
     for index, job in enumerate(case["jobs"]):
         following = case["jobs"][index + 1]["company"] if index + 1 < len(case["jobs"]) else case["sections"][2]
         start = joined.index(job["company"])
@@ -58,6 +59,7 @@ def main():
         verify_text(pypdf_pages, case, "pypdf")
         links = {str(annotation.get_object().get("/A", {}).get("/URI")) for page in reader.pages for annotation in page.get("/Annots", []) if annotation.get_object().get("/A", {}).get("/URI")}
         assert set(case["links"]).issubset(links), path.name + ": enlace perdido"
+        assert not any("wa.me" in link for link in links), path.name + ": enlace de WhatsApp en papel"
         with pdfplumber.open(path) as pdf:
             plumber_pages = [page.extract_text() or "" for page in pdf.pages]
             verify_text(plumber_pages, case, "pdfplumber")

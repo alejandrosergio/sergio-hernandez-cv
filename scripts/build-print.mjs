@@ -32,7 +32,8 @@ export function createPrintMarkup(page,copy,webURL,variant) {
   const complete = variant === 'web';
   const profile = [...page.querySelectorAll('.profile-summary > p')].map(p => `<p>${p.innerHTML}</p>`).join('');
   const photo = page.querySelector('.portrait img');
-  const contacts = [page.querySelector('.location'),...page.querySelectorAll('.contact-strip a')];
+  // Los contactos exclusivos de pantalla no pasan a ninguna de las dos impresiones.
+  const contacts = [page.querySelector('.location'),...page.querySelectorAll('.contact-strip a:not(.no-print)')];
   const link = n => `<a href="${escape(n.getAttribute('href'))}">${escape(text(n))}</a>`;
   const jobs = [...page.querySelectorAll('.job')].map(n => ({
     company:text(n.querySelector('h3')),role:text(n.querySelector('.job-role')),
