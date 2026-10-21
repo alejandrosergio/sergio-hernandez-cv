@@ -228,15 +228,15 @@
   },
   {
     "selector": ".job:nth-child(1) .job-details li:nth-child(1)",
-    "text": "Developed applications with Power Apps and Dataverse, and process automation with Power Automate."
+    "text": "Developed applications with Power Apps and Dataverse and automated tasks and business processes with Power Automate."
   },
   {
     "selector": ".job:nth-child(1) .job-details li:nth-child(2)",
-    "text": "Integrated applications with external systems through REST APIs and Azure services."
+    "text": "Integrated applications with external systems through REST APIs and Azure services to connect information and functionality across business solutions."
   },
   {
     "selector": ".job:nth-child(1) .job-details li:nth-child(3)",
-    "text": "Led requirements analysis and supported solution implementation and user adoption."
+    "text": "Led requirements analysis and supported solution implementation and adoption, from business needs through practical use."
   },
   {
     "selector": ".job:nth-child(2) .job-role",
@@ -244,11 +244,11 @@
   },
   {
     "selector": ".job:nth-child(2) .job-details li:nth-child(1)",
-    "text": "Led the technical team and defined the development strategy."
+    "text": "Led the technical team and defined the development strategy for building and evolving business solutions."
   },
   {
     "selector": ".job:nth-child(2) .job-details li:nth-child(2)",
-    "text": "Designed and implemented architectures and integrations with Microsoft 365, Power Platform and Azure."
+    "text": "Designed and implemented architectures and integrations with Microsoft 365, Power Platform and Azure to connect business processes and systems."
   },
   {
     "selector": ".job:nth-child(3) .job-role",
@@ -256,11 +256,11 @@
   },
   {
     "selector": ".job:nth-child(3) .job-details li:nth-child(1)",
-    "text": "Developed applications with Power Apps and .NET and automated processes with Power Automate."
+    "text": "Developed applications with Power Apps and .NET and automated processes with Power Automate, combining development and integration to address business needs."
   },
   {
     "selector": ".job:nth-child(3) .job-details li:nth-child(2)",
-    "text": "Developed Power BI dashboards and reports for data analysis."
+    "text": "Developed Power BI dashboards and reports to support access to and analysis of business information."
   },
   {
     "selector": ".job:nth-child(4) .job-role",
@@ -272,7 +272,7 @@
   },
   {
     "selector": ".job:nth-child(4) .job-details li:nth-child(2)",
-    "text": "Developed web interfaces with Angular."
+    "text": "Developed web interfaces with Angular and worked with Oracle and PL/SQL to manage business data."
   },
   {
     "selector": "#titulo-formacion",
@@ -280,7 +280,7 @@
   },
   {
     "selector": ".education h3",
-    "html": "Technology degree in Software Analysis and Development <span>(ADSI)</span>"
+    "html": "Technology degree in Information Systems Analysis and Development <span>(ADSI)</span>"
   },
   {
     "selector": "#titulo-idiomas",
@@ -430,7 +430,7 @@
   },
   {
     "selector": "#print-recruiter-description",
-    "text": "The complete profile, all technologies and a concise career history for an initial review."
+    "text": "The complete profile, a concise career history and key skills for an initial review."
   },
   {
     "selector": "#print-web",
@@ -439,15 +439,6 @@
   {
     "selector": "#print-recruiter",
     "text": "Print concise CV"
-  },
-  {
-    "selector": "#web-print-link",
-    "text": "View the complete curriculum vitae on the web"
-  },
-  {
-    "selector": "#web-print-link",
-    "attribute": "href",
-    "text": "https://sergio-hernandez-cv.alejosergio3000.chatgpt.site/en/"
   },
   {
     "selector": ".portfolio-status",
@@ -489,10 +480,6 @@
   {
     "selector": "#power-alm",
     "text": "Solutions and ALM"
-  },
-  {
-    "selector": ".job:nth-child(4) .job-details li:nth-child(3)",
-    "text": "Worked with Oracle and PL/SQL to manage business data."
   },
   {
     "selector": "#power-apps",

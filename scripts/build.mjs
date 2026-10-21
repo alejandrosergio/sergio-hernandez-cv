@@ -6,7 +6,7 @@ import { build, transform } from 'esbuild';
 import { minify } from 'html-minifier-terser';
 import { parseHTML } from 'linkedom';
 import { zipSync } from 'fflate';
-import { createRecruiterMarkup } from './build-print.mjs';
+import { createPrintMarkup } from './build-print.mjs';
 
 const site = fileURLToPath(new URL('../', import.meta.url));
 const dist = path.join(site, 'dist');
@@ -150,11 +150,14 @@ applyTranslations(englishProfile,'en');
 const schemas = {es:JSON.stringify(profileSchema(document,'es')),en:JSON.stringify(profileSchema(englishProfile,'en'))};
 document.head.append(element('script',{id:'profile-schema',type:'application/ld+json'},schemas.es));
 translations.push({selector:'#profile-schema',format:'text',...schemas});
-const recruiterMarkup = {es:createRecruiterMarkup(document,recruiterCopy.es,urls.es),en:createRecruiterMarkup(englishProfile,recruiterCopy.en,urls.en)};
-const recruiterPrint = element('section',{id:'recruiter-print',class:'recruiter-resume'});
-recruiterPrint.innerHTML = recruiterMarkup.es;
-document.body.insertBefore(recruiterPrint,document.getElementById('print-chooser'));
-translations.push({selector:'#recruiter-print',format:'html',...recruiterMarkup});
+// El orden lógico de papel se genera sin cambiar la disposición de pantalla.
+for (const [variant,id,className] of [['web','complete-print','complete-resume'],['recruiter','recruiter-print','recruiter-resume']]) {
+  const markup = {es:createPrintMarkup(document,recruiterCopy.es,urls.es,variant),en:createPrintMarkup(englishProfile,recruiterCopy.en,urls.en,variant)};
+  const print = element('section',{id,class:'print-resume '+className});
+  print.innerHTML = markup.es;
+  document.body.insertBefore(print,document.getElementById('print-chooser'));
+  translations.push({selector:'#'+id,format:'html',...markup});
+}
 const javascriptBuild = await build({
   absWorkingDir:site, entryPoints:['src/script.js'], write:false, bundle:true, minify:true,
   format:'iife', platform:'browser', target:'es2020', charset:'utf8', legalComments:'none',
@@ -207,7 +210,7 @@ const versionedResources = [
   ['link[rel="stylesheet"]','href','styles.css',hash(stylesheet)],
   ['script[src]','src','script.js',hash(javascript)],
   ['.portrait img','src',portraitPath,portraitVersion],
-  ['.recruiter-photo','src',portraitPath,portraitVersion]
+  ['.complete-photo','src',portraitPath,portraitVersion]
 ];
 const spanishTemplate = document.toString();
 for (const language of ['es','en']) {
@@ -247,7 +250,8 @@ async function addZipDirectory(relative, name = relative) {
 for (const file of ['index.html','styles.css','script.js','favicon.svg','robots.txt','sitemap.xml']) await addZipFile(`dist/${file}`,file);
 for (const directory of ['flags','images','en']) await addZipDirectory(`dist/${directory}`,directory);
 await addZipFile('dist/descargas/CV_Sergio_Hernandez.html','CV_Sergio_Hernandez.html');
-for (const file of ['LEEME.md','package.json','pnpm-lock.yaml','pnpm-workspace.yaml']) await addZipFile(file);
+for (const file of ['LEEME.md','README.md','AGENTS.md','package.json','pnpm-lock.yaml','pnpm-workspace.yaml']) await addZipFile(file);
+await addZipDirectory('docs');
 await addZipDirectory('src');
 await addZipDirectory('scripts');
 await addZipDirectory('public');

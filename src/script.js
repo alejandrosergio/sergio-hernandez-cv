@@ -142,8 +142,8 @@ function applyLanguage(language, announce = false) {
   ui['language-label'].textContent = target === 'en' ? 'English' : 'Español';
   updateLanguageURL();
   if (ui['print-open']) ui['print-open'].href = location.href;
-  const recruiterPhoto = document.querySelector('.recruiter-photo');
-  if (recruiterPhoto) recruiterPhoto.src = portraitURL;
+  const completePhoto = document.querySelector('.complete-photo');
+  if (completePhoto) completePhoto.src = portraitURL;
   applyAccessibility();
   if (announce) ui['language-status'].textContent = state.language === 'es' ? 'Idioma cambiado a Español.' : 'Language changed to English.';
 }

@@ -70,7 +70,7 @@ La configuración y los pasos para usar el proyecto están en [docs/SINCRONIZACI
 
 ## Impresión
 
-Selecciona **Imprimir CV** y elige **CV resumido**, que aparece primero, o **CV completo**. El resumido presenta el perfil completo, todas las tecnologías y la trayectoria condensada. El completo incluye todo el contenido de la web. Ambos abren la impresión del navegador, usan el idioma seleccionado y conservan los vínculos a Maps, correo, teléfono, LinkedIn y GitHub.
+Selecciona **Imprimir CV** y elige **CV resumido**, que aparece primero, o **CV completo**. El resumido presenta el perfil completo, la trayectoria condensada y las competencias clave. El completo incluye todo el contenido de la web. Ambos abren la impresión del navegador, usan el idioma seleccionado y conservan los vínculos a Maps, correo, teléfono, LinkedIn y GitHub.
 
 Los documentos impresos incluyen un enlace clicable al currículum completo en la web del mismo idioma. Ese enlace se oculta en la página de pantalla. Desactiva los encabezados y pies de página del navegador para una presentación limpia.
 
@@ -82,7 +82,7 @@ La fotografía corresponde al titular del currículum, con vestuario y fondo edi
 
 El logo utiliza un monograma SH geométrico con margen interior, centrado en una cabeza de agente robot con hombros simétricos. El favicon conserva el robot completo, con los hombros visibles también a 16 px. La cabecera identifica el sitio como «Sergio Hernández · Currículum vitae», con su traducción al inglés.
 
-Alejandro’sTech será la web completa para la experiencia, proyectos, servicios y contenidos sobre desarrollo, automatización e IA. Su tarjeta compacta es un botón activo con animación y tooltip nativo, muestra Próximamente y al pulsarlo informa del estado de la web. El nombre y el estado se centran entre sí, con el globo separado a la izquierda. Mientras no exista una URL real, el botón no navega y ambas impresiones muestran el nombre con Próximamente.
+Alejandro’sTech será la web completa para la experiencia, proyectos, servicios y contenidos sobre desarrollo, automatización e IA. Su tarjeta compacta es un botón activo con animación y tooltip nativo, muestra Próximamente y al pulsarlo informa del estado de la web. El nombre y el estado se centran entre sí, con el globo separado a la izquierda. Mientras no exista una URL real, el botón de la web no navega. Las impresiones omiten Alejandro’sTech y Próximamente, y conservan el enlace real al CV web.
 
 El pie muestra «Copyright © 2026 Alejandro’sTech. Todos los derechos reservados.», con su traducción al inglés. El currículum mantiene su alcance breve. Los proyectos detallados, casos de estudio y contenidos ampliados se reservan para Alejandro’sTech.
 
@@ -90,8 +90,13 @@ Las tecnologías incluyen ASP.NET Core/Web API, Entity Framework Core, LINQ, iny
 
 React figura como tecnología frontend actual. Java, Spring Boot, Oracle, PL/SQL y microservicios se muestran únicamente en la experiencia de CODESA, junto con Angular. La sección de tecnologías describe los conocimientos que se ofrecen actualmente. El cargo confirmado en DynamizaTIC es «Desarrollador Senior • Microsoft 365», traducido como «Senior Developer • Microsoft 365» en inglés, también en ambas impresiones.
 
-Las etiquetas de tecnologías agrupan las capacidades relacionadas sin duplicar Power Apps, Dataverse ni RPA. Los portales de administración confirmados son Microsoft Defender (Security), Microsoft Entra ID (Identity), Azure, SharePoint y Power Platform. Python no se presenta como competencia. El CV resumido mantiene tres tarjetas de tecnología con igual espacio y conserva todos los conocimientos ofrecidos.
+Las etiquetas de tecnologías agrupan las capacidades relacionadas sin duplicar Power Apps, Dataverse ni RPA. Los portales de administración confirmados son Microsoft Defender (Security), Microsoft Entra ID (Identity), Azure, SharePoint y Power Platform. Python no se presenta como competencia. El resumido selecciona competencias en bloques de ancho completo y no lleva foto. El completo conserva el catálogo confirmado, con una foto solo en cabecera. Ambas impresiones colocan la experiencia antes de tecnologías y mantienen una columna y un orden de lectura coherente.
 
 La cabecera presenta «Desarrollador .NET y Power Platform», con desarrollo full stack, automatización e integración de IA como alcance. La cronología acordada es CODESA (sept. 2020–mar. 2021, 6 meses), Intelecto (mar. 2021–jun. 2023, 2 años y 3 meses), Auto Control Empresarial (jun. 2023–mar. 2025, 1 año y 9 meses) y DynamizaTIC (mar. 2025–oct. 2026, 1 año y 7 meses). Los meses intermedios se reconstruyeron con las duraciones aceptadas por el titular, incluida su corrección de trasladar tres meses de Auto Control a Intelecto.
 
 Las fechas se editan en los atributos data-start y data-end de cada experiencia en src/index.html. El generador calcula los textos de meses y las duraciones en español e inglés, y los reutiliza en el CV resumido. Se cuentan diferencias de meses sin sumar dos veces los límites compartidos. La duración acordada es aproximadamente 6 años y 1 mes. Las descripciones de DynamizaTIC se redactan en pasado porque la experiencia figura cerrada.
+
+
+La formación confirmada es Tecnólogo en Análisis y Desarrollo de Sistemas de Información (ADSI), Servicio Nacional de Aprendizaje (SENA), 2019–2021. En inglés: Technology degree in Information Systems Analysis and Development (ADSI). Los ejemplos de un equipo de cinco personas y un proyecto de nómina no forman parte de la trayectoria.
+
+La revisión de impresiones y la referencia para volver a la versión anterior están documentadas en docs/REVISION_IMPRESIONES.md.

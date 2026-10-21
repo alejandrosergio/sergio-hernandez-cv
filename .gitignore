@@ -3,6 +3,7 @@ node_modules/
 .codex/
 .sites-runtime/
 tmp/
+output/
 *.log
 
 # Configuración local

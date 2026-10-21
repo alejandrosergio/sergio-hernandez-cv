@@ -25,7 +25,7 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(schema.inLanguage,language);
   const profileRole = language === 'es' ? 'Desarrollador .NET y Power Platform' : '.NET and Power Platform Developer';
   assert.equal(document.querySelector('.role').textContent,profileRole);
-  assert.equal(document.querySelector('.recruiter-role').textContent,profileRole);
+  assert.equal(document.querySelector('#recruiter-print .print-role').textContent,profileRole);
   assert.equal(schema.mainEntity.jobTitle,profileRole);
   assert.equal(document.title,`Sergio Hernández | Power Platform · .NET · ${language === 'es' ? 'IA' : 'AI'}`);
   assert.ok(schema.mainEntity.knowsAbout.some(skill=>skill.includes('Identity')));
@@ -39,13 +39,13 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   const durations = language === 'es' ? ['1 año y 7 meses','1 año y 9 meses','2 años y 3 meses','6 meses'] : ['1 year and 7 months','1 year and 9 months','2 years and 3 months','6 months'];
   assert.deepEqual([...document.querySelectorAll('.job-dates')].map(node=>node.textContent),periods);
   assert.deepEqual([...document.querySelectorAll('.job-duration')].map(node=>node.textContent),durations);
-  assert.deepEqual([...document.querySelectorAll('.recruiter-job-duration')].map(node=>node.textContent),durations);
-  for (const [index,node] of [...document.querySelectorAll('.recruiter-job-period')].entries()) assert.ok(node.textContent.startsWith(periods[index]));
+  assert.deepEqual([...document.querySelectorAll('#recruiter-print .print-job-duration')].map(node=>node.textContent),durations);
+  for (const [index,node] of [...document.querySelectorAll('#recruiter-print .print-job-period')].entries()) assert.ok(node.textContent.startsWith(periods[index]));
   assert.doesNotMatch(document.querySelector('#experiencia').textContent,/2027|Actualidad|Present/iu);
   const dynamizaticRole = language === 'es' ? 'Desarrollador Senior • Microsoft 365' : 'Senior Developer • Microsoft 365';
   assert.equal(document.querySelector('.job:nth-child(1) .job-role').textContent,dynamizaticRole);
-  assert.equal(document.querySelector('.recruiter-job:nth-child(1) .recruiter-job-role').textContent,dynamizaticRole);
-  assert.equal(document.querySelectorAll('.job-contract,.recruiter-job-contract').length,0);
+  assert.equal(document.querySelector('#recruiter-print .print-job:nth-child(1) .print-job-role').textContent,dynamizaticRole);
+  assert.equal(document.querySelectorAll('.job-contract,#recruiter-print .print-job-contract').length,0);
   assert.doesNotMatch(document.querySelector('body').textContent,/Periodo de contrato|Contract term/iu);
   const placeholder=document.getElementById('portfolio-link');
   assert.equal(placeholder.tagName,'BUTTON');
@@ -63,48 +63,62 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(document.querySelector('.language-spanish strong').textContent,language === 'es' ? 'Nativo' : 'Native');
   assert.doesNotMatch(document.querySelector('main').textContent,/\bPHP\b|Bootstrap|comercialicé|commercialized|sold|entrega a cliente/iu);
   assert.doesNotMatch(document.querySelector('#tecnologias').textContent,/\bJava\b|Spring Boot|Oracle|PL\/SQL|microservicios|microservices|Angular/iu);
-  for(const name of ['Java','Spring Boot','Angular','micro']){assert.ok(document.querySelector('.job:nth-child(4)').textContent.toLowerCase().includes(name.toLowerCase()));assert.ok(document.querySelector('.recruiter-job:nth-child(4)').textContent.toLowerCase().includes(name.toLowerCase()));}
+  for(const name of ['Java','Spring Boot','Angular','micro']){assert.ok(document.querySelector('.job:nth-child(4)').textContent.toLowerCase().includes(name.toLowerCase()));assert.ok(document.querySelector('#recruiter-print .print-job:nth-child(4)').textContent.toLowerCase().includes(name.toLowerCase()));}
   const offered = document.querySelector('#tecnologias');
   assert.ok(offered.textContent.includes('Identity'));
   assert.equal(offered.querySelectorAll('#power-apps').length,1);
   assert.equal(offered.querySelectorAll('#power-canvas,#power-model-driven').length,0);
   assert.match(document.querySelector('.profile-summary').textContent,/full stack/i);
   assert.doesNotMatch(document.querySelector('.profile-summary').textContent,/analista y desarrollador|software analyst and developer|backend/iu);
-  assert.doesNotMatch(document.querySelector('#recruiter-print .recruiter-section').textContent,/backend/iu);
+  assert.doesNotMatch(document.querySelector('#recruiter-print .print-section').textContent,/backend/iu);
   assert.equal(document.querySelectorAll('#brand-tagline').length,0);
   assert.match(document.getElementById('copyright').textContent,/Copyright © 2026.*Alejandro’sTech/);
   assert.doesNotMatch(offered.textContent,/Python/iu);
-  const coming=language==='es'?'Próximamente':'Coming soon';
-  for(const node of document.querySelectorAll('.print-portfolio')){assert.ok(node.textContent.includes('Alejandro’sTech'));assert.ok(node.textContent.includes(coming));assert.equal(node.querySelectorAll('a[href]').length,0);}
-  assert.equal(document.querySelectorAll('.print-portfolio').length,2);
+  assert.equal(document.querySelectorAll('.print-portfolio').length,0);
+  assert.equal(document.querySelectorAll('#recruiter-print img').length,0);
+  assert.equal(document.querySelectorAll('#complete-print .complete-photo').length,1);
   assert.equal(document.querySelectorAll('.print-option').length,2);
   assert.equal(document.querySelectorAll('.print-option-actions button').length,2);
   assert.equal(document.querySelectorAll('.print-option-actions a').length,0);
-  assert.ok(document.querySelector('#web-print-link').closest('.print-only'));
-  assert.equal(document.querySelectorAll('.recruiter-job').length,4);
-  assert.deepEqual([...document.querySelectorAll('.recruiter-contact a')].map(link => link.getAttribute('href')),[document.querySelector('.location'),...document.querySelectorAll('.contact-strip a')].map(link => link.getAttribute('href')), 'Print preserves every contact URL exactly');
-  assert.equal(document.querySelector('#recruiter-print').querySelectorAll('.recruiter-skill').length,3);
+  assert.equal(document.querySelectorAll('#recruiter-print .print-job').length,4);
+  assert.deepEqual([...document.querySelectorAll('#recruiter-print .print-contact a')].map(link => link.getAttribute('href')),[document.querySelector('.location'),...document.querySelectorAll('.contact-strip a')].map(link => link.getAttribute('href')), 'Print preserves every contact URL exactly');
+  assert.equal(document.querySelector('#recruiter-print').querySelectorAll('.print-skill').length,4);
   assert.equal(document.querySelectorAll('a[href*=".pdf"],a[download$=".pdf"],[id^="download-"][id$="-pdf"]').length,0);
   assert.doesNotMatch(document.getElementById('print-chooser').textContent,/\bPDF\b/iu);
-  const printSkills = document.querySelector('#recruiter-print .recruiter-section:nth-of-type(2)');
+  const printSkills = document.querySelector('#recruiter-print [data-print-section="skills"]');
   const normalize = value => value.replace(/\s+/g,' ').trim();
   // El perfil se conserva completo, con sus párrafos y énfasis en ambos idiomas.
   assert.deepEqual(
-    [...document.querySelectorAll('#recruiter-print .recruiter-section:first-of-type > p')].map(node => normalize(node.innerHTML)),
+    [...document.querySelectorAll('#recruiter-print .print-section:first-of-type > p')].map(node => normalize(node.innerHTML)),
     [...document.querySelectorAll('.profile-summary > p')].map(node => normalize(node.innerHTML)),
     'El CV resumido debe reutilizar el perfil completo de la web'
   );
-  for (const node of document.querySelectorAll('.specialty .tech-list li,.specialty .ecosystem span,.shared-grid [data-print-technology] dd')) {
-    assert.ok(normalize(printSkills.textContent).includes(normalize(node.textContent)),`Print summary omits confirmed skills: ${node.textContent}`);
+  const completeSkills = document.querySelector('#complete-print [data-print-section="skills"]');
+  for (const node of document.querySelectorAll('.specialty .tech-list li,.specialty .ecosystem span,.shared-grid dd')) {
+    assert.ok(normalize(completeSkills.textContent).includes(normalize(node.textContent)), 'El completo conserva: '+node.textContent);
   }
-  for(const skill of ['ASP.NET Core','Web API','Entity Framework Core','LINQ','PCF','RPA','React']){assert.ok(document.querySelector('#tecnologias').textContent.includes(skill));assert.ok(printSkills.textContent.includes(skill));}
+  for (const skill of ['Power Apps','Dataverse','PCF','ALM','ASP.NET Core','Entity Framework Core','SQL Server','React','OAuth 2.0','Git/GitHub']) assert.ok(printSkills.textContent.includes(skill),skill);
+  assert.doesNotMatch(printSkills.textContent,/Microsoft Copilot|ChatGPT|Claude|Gemini|Planner|Administration portals|Portales de administración/iu);
+  const degree = language === 'es' ? 'Tecnólogo en Análisis y Desarrollo de Sistemas de Información (ADSI)' : 'Technology degree in Information Systems Analysis and Development (ADSI)';
+  assert.equal(normalize(document.querySelector('.education h3').textContent),degree);
+  for (const root of document.querySelectorAll('.print-resume')) {
+    assert.deepEqual([...root.querySelectorAll('[data-print-section]')].map(n=>n.getAttribute('data-print-section')),['profile','experience','skills','education']);
+    assert.equal(normalize(root.querySelector('.print-education h3').textContent),degree);
+    assert.equal(root.querySelectorAll('.print-job').length,4);
+    for (const [i,job] of [...root.querySelectorAll('.print-job')].entries()) {
+      assert.deepEqual([...job.children].map(n=>n.tagName),['H3','P','P','UL']);
+      assert.equal(job.querySelector('.print-job-period').textContent,periods[i]);
+      assert.equal(job.querySelector('.print-job-duration').textContent,durations[i]);
+    }
+  }
+  assert.deepEqual([...document.querySelectorAll('#complete-print .print-job ul')].map(n=>normalize(n.textContent)),[...document.querySelectorAll('.job-details')].map(n=>normalize(n.textContent)));
   assert.match(document.querySelector('.profile-summary').textContent,/React/);
   assert.doesNotMatch(document.querySelector('.profile-summary').textContent,/Angular/);
   const flags=[...document.querySelectorAll('.language-flags img')];
   assert.equal(flags.length,2);
   assert.ok(flags.every(flag=>flag.src.startsWith('data:image/svg+xml;base64,')),'Las banderas deben estar disponibles sin otra petición de red');
   const webURL = `${origin}/${language === 'en' ? 'en/' : ''}`;
-  assert.equal(document.getElementById('web-print-link').href,webURL);
+  assert.equal(document.querySelector('#complete-print .print-web-link a').href,webURL);
   assert.equal(document.querySelector('#recruiter-print .print-web-link a').href,webURL);
   const ids = [...document.querySelectorAll('[id]')].map(node => node.id);
   assert.equal(new Set(ids).size,ids.length);
@@ -159,9 +173,9 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
     const switchedRole = language === 'es' ? '.NET and Power Platform Developer' : 'Desarrollador .NET y Power Platform';
     const switchedDuration = language === 'es' ? '1 year and 7 months' : '1 año y 7 meses';
     assert.equal(page.querySelector('.role').textContent,switchedRole);
-    assert.equal(page.querySelector('.recruiter-role').textContent,switchedRole);
+    assert.equal(page.querySelector('#recruiter-print .print-role').textContent,switchedRole);
     assert.equal(page.querySelector('.job-duration').textContent,switchedDuration);
-    assert.equal(page.querySelector('.recruiter-job-duration').textContent,switchedDuration);
+    assert.equal(page.querySelector('#recruiter-print .print-job-duration').textContent,switchedDuration);
     assert.deepEqual([...page.querySelectorAll('.language-flags img')].map(flag=>flag.src),flagSources,'Cambiar de idioma no debe cargar ni sustituir imágenes');
     assert.equal(page.querySelector('.language-spanish strong').textContent,language === 'es' ? 'Native' : 'Nativo');
     click('language-toggle');
@@ -206,9 +220,9 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
     click('print-cv');
     click('language-toggle');
     const switchedURL = `${origin}/${language === 'es' ? 'en/' : ''}`;
-    assert.equal(page.getElementById('web-print-link').href,switchedURL);
+    assert.equal(page.querySelector('#complete-print .print-web-link a').href,switchedURL);
     assert.equal(page.querySelector('#recruiter-print .print-web-link a').href,switchedURL);
-    assert.equal(page.querySelector('.recruiter-photo').src,new URL(page.querySelector('.portrait img').getAttribute('src'),page.baseURI).href);
+    assert.equal(page.querySelector('.complete-photo').src,new URL(page.querySelector('.portrait img').getAttribute('src'),page.baseURI).href);
     const escape = new window.Event('keydown');
     escape.key = 'Escape';
     page.dispatchEvent(escape);
@@ -235,4 +249,4 @@ assert.deepEqual(Buffer.from(zip['script.js']),Buffer.from(script));
 assert.ok(zip['src/script.js'] && zip['src/locales/en.json'] && zip['en/index.html']);
 assert.ok(zip['public/favicon.svg'] && zip['public/flags/us.svg'] && zip['public/images/sergio-hernandez.jpeg']);
 assert.ok(Object.keys(zip).every(file => !file.endsWith('.pdf')));
-console.log('Passed: bilingual SEO, both print variants, complete technology list, keyboard access and print-only website links.');
+console.log('Passed: bilingual SEO, both print variants, logical print reading order, full and selected skills, keyboard access and print-only website links.');

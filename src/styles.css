@@ -14,7 +14,7 @@ button,a { -webkit-tap-highlight-color:transparent; }
 :focus-visible { outline:3px solid var(--accent); outline-offset:5px; border-radius:2px; }
 ::selection { background:#c6e4ff; color:#102d52; }
 [hidden] { display:none!important; }
-.print-only,.recruiter-resume { display:none; }
+.print-resume { display:none; }
 html[data-print-chooser-open="true"] { overflow:hidden; }
 .print-chooser { position:fixed; inset:0; z-index:40; display:flex; align-items:center; justify-content:center; padding:1.25rem; overflow:auto; background:rgba(9,21,35,.58); }
 .print-chooser-panel { width:min(100%,660px); max-height:calc(100dvh - 2.5rem); overflow:auto; padding:1.75rem; border:1px solid var(--line); border-radius:24px; background:var(--paper); box-shadow:0 24px 80px rgba(0,0,0,.25); }
@@ -320,115 +320,60 @@ h3 { color:var(--ink); }
 }
 @media (prefers-reduced-motion:reduce) { html:not([data-motion="full"]) { scroll-behavior:auto; } html:not([data-motion="full"]) *,html:not([data-motion="full"]) *::before,html:not([data-motion="full"]) *::after { animation:none!important; transition:none!important; } }
 @media print {
- .print-references { display:flex; flex-wrap:wrap; align-items:baseline; gap:3pt 12pt; margin-top:6pt; padding-top:6pt; border-top:1px solid #dce6f2; break-inside:avoid; }
- .print-references .print-web-link,.print-references .print-portfolio { display:block; margin:0!important; padding:0; border:0; font-size:9pt; }
- @page { size:A4; margin:13mm 14mm; }
+ @page { size:A4; margin:12mm 14mm; }
  html { font-size:100%!important; scroll-padding:0!important; scroll-behavior:auto; color-scheme:light; }
- body { background:#fff; font-size:10pt; line-height:1.4; color:#263747; orphans:3; widows:3; }
- .no-print,.action-button,.site-header,.skip-link,.resume-footer,.noscript-note { display:none!important; }
- .resume { width:100%; max-width:none; background:#fff; margin:0; padding:0; border:0; box-shadow:none; }
- .profile { break-inside:avoid; }
- .profile-topline { display:block; margin:0 0 10pt; }
- .profile-topline .eyebrow,.location { display:inline-block; }
- .location { float:right; white-space:nowrap; font-size:8.5pt; }
- .profile-heading { display:grid; grid-template-columns:minmax(0,1fr) 100pt; align-items:start; gap:18pt; margin:10pt 0; }
- h1 { font-size:28pt; line-height:1.05; }
- h1 span { color:#005a9e; }
- .role { font-size:12pt; margin:7pt 0 4pt; }
- .focus-line { font-size:10pt; }
- .eyebrow,.overline { font-size:8pt; }
- .profile-summary { margin-top:7pt; }
- .profile-summary p { margin-bottom:5pt; }
- .portrait { max-width:none; margin:0; }
- .portrait-frame { padding:0; border:0; border-radius:8pt; box-shadow:none; background:#fff; }
- .portrait img { height:100pt; width:100pt; border-radius:8pt; object-position:50% 15%; }
- .portrait-caption { margin-top:5pt; gap:0; }
- .experience-note { min-height:0; margin:0; padding:0; border:0; background:#fff; color:#102d52; flex-direction:row; gap:5pt; }
- .experience-number { color:#005a9e; font-size:17pt; }
- .experience-note p { font-size:8.5pt; }
- .contact-strip { display:block; margin-top:9pt; padding:6pt 0; text-align:center; }
- .contact-strip a { display:inline-block; margin:0 6pt; font-size:8.5pt; white-space:nowrap; }
- .contact-strip svg { width:11pt; height:11pt; margin-right:3pt; }
- /* Los contactos y referencias impresos conservan la apariencia reconocible de enlace. */
- .resume a[href],.recruiter-resume a[href] { color:#005a9e; text-decoration:underline; text-decoration-thickness:.7pt; text-underline-offset:1.5pt; }
- .cv-section,#experiencia { padding-top:12pt; }
- .section-heading { display:block; margin-bottom:8pt; break-after:avoid; }
- .section-index,h2 { display:inline; }
- .section-index { margin:0 7pt 0 0; font-size:9pt; }
- h2 { font-size:13pt; }
- .specialties { display:block; }
- .specialty-power-platform .tech-list { display:block; gap:0; }
- .specialty-power-platform .tech-list li { display:inline-block; min-height:0; padding:1pt 4pt; font-size:10pt; }
- .specialty-power-platform { height:auto; min-height:0; }
- .specialty { margin-bottom:7pt; padding:8pt 10pt; background:#fff; break-inside:avoid; }
- .specialty-heading { display:block; border:0; padding:0; }
- .specialty-number { display:none; }
- .specialty .overline { display:inline; margin-right:7pt; font-size:8pt; }
- .specialty h3 { display:inline; margin:0; font-size:12pt; }
- .specialty-content > p { font-size:10pt; line-height:1.4; margin:4pt 0; }
- .tech-list { display:block; margin:5pt 0 0; }
- .tech-list li { margin:0 3pt 3pt 0; padding:1pt 4pt; font-size:10pt; }
- .specialty-content .ecosystem { font-size:10pt; margin:3pt 0 0; }
- .specialty-power-platform .specialty-content .ecosystem { margin-top:3pt; }
- .ecosystem strong { display:inline; margin-right:4pt; }
- .shared-stack { margin-top:8pt; }
- .shared-stack > h3 { font-size:10.5pt; margin-bottom:6pt; break-after:avoid; }
- .shared-grid { display:block; orphans:1; widows:1; }
- .shared-grid > div { display:inline-block; width:49%; vertical-align:top; padding:0 10pt 4pt 0; break-inside:avoid; }
- .shared-grid dt { font-size:10pt; }
- .shared-grid dd { font-size:10pt; }
- .timeline { display:block; }
- .job { display:block; padding-bottom:5pt; break-inside:avoid; }
- .job-period { float:left; width:85pt; padding:0; font-size:9pt; }
- .job-duration { display:block; margin-top:2pt; padding:0; border:0; border-radius:0; background:transparent; color:#005a9e; font-size:9pt; }
- .job-content { margin-left:100pt; padding:0 0 3pt 12pt; }
- .job h3 { font-size:11pt; }
- .job-role { font-size:10pt; margin:2pt 0 3pt; }
- .job-details li { margin-top:2pt; }
- .education-grid { display:block; break-inside:avoid; }
- .education { display:inline-block; width:64%; vertical-align:top; }
- .education h3 { font-size:10.5pt; }
- .education > p:last-child,.languages h3,.language,.language strong { font-size:10pt; }
- .languages { display:inline-block; width:34%; vertical-align:top; border-top:0; border-left:1px solid var(--line); padding:0 0 0 15pt; }
- .language { display:grid; grid-template-columns:47pt minmax(0,1fr); gap:7pt; }
- .language + .language { margin-top:6pt; }
- .language strong { margin-left:0; }
- .language strong span { display:block; margin-left:0; font-size:9pt; }
- .print-web-link { display:block; margin:12pt 0 0; padding-top:7pt; border-top:1px solid #dce6f2; font-size:9pt; break-inside:avoid; }
- .print-portfolio { display:block; margin:3pt 0 0; font-size:9pt; line-height:1.3; color:#52657c; break-inside:avoid; }
- html[data-print-variant="recruiter"] .resume { display:none!important; }
+ body { margin:0; padding:0; background:#fff; color:#263747; font-size:10pt; line-height:1.25; }
+ .resume,.no-print,.site-header,.skip-link,.noscript-note { display:none!important; }
+ .complete-resume { display:block!important; }
+ html[data-print-variant="recruiter"] .complete-resume { display:none!important; }
  html[data-print-variant="recruiter"] .recruiter-resume { display:block!important; }
- .recruiter-resume { font-size:10pt; line-height:1.25; color:#263747; }
- .recruiter-header { display:grid; grid-template-columns:minmax(0,1fr) 68pt; gap:16pt; margin-bottom:6pt; }
- .recruiter-header h1 { margin:3pt 0 5pt; font-size:23pt; line-height:1.1; }
- .recruiter-role { margin:0 0 5pt; font-size:12pt; font-weight:600; color:#102d52; }
- .recruiter-focus { margin:0; font-size:10pt; font-weight:600; color:#005a9e; }
- .recruiter-photo { width:68pt; height:64pt; object-fit:cover; object-position:50% 15%; border-radius:5pt; }
- .recruiter-contact { display:flex; flex-wrap:wrap; gap:4pt 12pt; padding:5pt 0; border-top:1px solid #dce6f2; border-bottom:1px solid #dce6f2; font-size:8.5pt; }
- .recruiter-section { margin-top:5pt; }
- .recruiter-section h2 { break-after:avoid; display:block; margin:0 0 5pt; font-size:11.5pt; color:#102d52; }
- .recruiter-section p { margin:0 0 4pt; }
- /* La fila toma la altura de la tarjeta más extensa y conserva los tres fondos. */
- .recruiter-skills { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8pt; align-items:stretch; }
- .recruiter-skill { min-width:0; break-inside:avoid; padding:5pt 8pt; border:1px solid #dce6f2; border-top:2pt solid #0078d4; border-radius:4pt; }
- .recruiter-skill h3 { margin:0 0 4pt; font-size:10pt; color:#005a9e; }
- .recruiter-skill p,.recruiter-other-skills { font-size:10pt; }
- .recruiter-ecosystems { margin-top:5pt!important; font-size:10pt; }
- .recruiter-other-skills { margin-top:4pt!important; }
- .recruiter-jobs { margin:0; padding:0; list-style:none; }
- .recruiter-job { margin-top:3pt; break-inside:avoid; }
- .recruiter-job-heading { display:flex; justify-content:space-between; gap:12pt; }
- .recruiter-job h3 { margin:0; font-size:10.5pt; color:#102d52; }
- .recruiter-job-period { font-size:8.5pt; white-space:nowrap; }
- .recruiter-job-role { margin:2pt 0 3pt!important; font-size:9pt; font-weight:600; }
- .recruiter-job-subheading { display:flex; justify-content:space-between; align-items:baseline; gap:12pt; }
- .recruiter-job-subheading .recruiter-job-role { min-width:0; }
- .recruiter-job-duration { font-size:9pt; font-weight:500; color:#005a9e; white-space:nowrap; }
- .recruiter-job ul { margin:0; padding-left:13pt; }
- .recruiter-job li { margin:1pt 0; }
- .recruiter-education { display:grid; grid-template-columns:minmax(0,2fr) minmax(0,1fr); gap:18pt; }
- .recruiter-education h3 { margin:0 0 3pt; font-size:9.5pt; }
- .recruiter-resume .print-web-link { margin-top:6pt; }
+ .print-resume { width:100%; max-width:none; margin:0; padding:0; color:#263747; font-size:10pt; line-height:1.25; }
+ .print-resume * { box-shadow:none; }
+ .print-header { margin:0 0 5pt; break-inside:avoid; }
+ /* Solo la imagen comparte la cabecera, todo el texto mantiene una única secuencia. */
+ .print-header--photo { display:grid; grid-template-columns:minmax(0,1fr) 64pt; gap:14pt; align-items:start; }
+ .print-header h1 { margin:0 0 4pt; color:#102d52; font-size:22pt; line-height:1.08; letter-spacing:-.5pt; }
+ .print-role { margin:0 0 3pt; color:#102d52; font-size:11.5pt; font-weight:600; }
+ .print-focus { margin:0 0 3pt; color:#005a9e; font-size:10pt; font-weight:500; }
+ .print-experience { margin:0; color:#52657c; font-size:9pt; }
+ .complete-photo { display:block; width:64pt; height:68pt; object-fit:cover; object-position:50% 15%; border-radius:4pt; }
+ .print-contact { padding:5pt 0; margin-bottom:6pt; border-top:.6pt solid #dce6f2; border-bottom:.6pt solid #dce6f2; font-size:9pt; line-height:1.35; }
+ .print-contact a { display:inline; margin-right:9pt; }
+ .print-resume a[href] { color:#005a9e; text-decoration:underline; text-decoration-thickness:.7pt; text-underline-offset:1.5pt; }
+ .print-section { display:block; margin-top:7pt; }
+ .print-section h2 { display:block; margin:0 0 5pt; color:#102d52; font-size:12pt; line-height:1.15; break-after:avoid; }
+ .print-section p { margin:0 0 4pt; font-size:10pt; }
+ .print-jobs { display:block; margin:0; padding:0; list-style:none; }
+ .print-job { display:block; margin:0 0 7pt; break-inside:avoid; }
+ .print-job:last-child { margin-bottom:0; }
+ .print-job h3 { margin:0 0 1pt; color:#102d52; font-size:10.5pt; line-height:1.2; }
+ .print-job .print-job-role { margin:0 0 2pt; font-size:10pt; font-weight:600; }
+ .print-job .print-job-meta { margin:0 0 3pt; color:#52657c; font-size:9pt; }
+ .print-job ul { margin:0; padding-left:13pt; }
+ .print-job li { margin:0 0 2pt; font-size:10pt; }
+ /* Bloques de ancho completo, sin columnas ni ordenación visual distinta del DOM. */
+ .print-skill { display:block; padding:3pt 0 3pt 7pt; margin:0 0 4pt; border-left:2pt solid #0078d4; break-inside:avoid; }
+ .print-skill h3 { margin:0 0 2pt; color:#005a9e; font-size:10.5pt; line-height:1.2; }
+ .print-skill p:last-child { margin-bottom:0; }
+ .print-shared { margin-top:6pt; }
+ .print-shared h3 { margin:0 0 4pt; color:#005a9e; font-size:10.5pt; break-after:avoid; }
+ .print-shared dl { display:block; margin:0; }
+ .print-shared dl > div { display:block; margin:0 0 4pt; break-inside:avoid; }
+ .print-shared dt { display:block; color:#102d52; font-size:10pt; font-weight:600; }
+ .print-shared dd { display:block; margin:0; font-size:10pt; }
+ .print-education { break-inside:avoid; }
+ .print-education h3 { margin:0 0 3pt; color:#102d52; font-size:10pt; }
+ .print-languages { margin-top:4pt!important; }
+ .print-web-link { display:block; margin:8pt 0 0; padding-top:5pt; border-top:.6pt solid #dce6f2; font-size:9pt; break-inside:avoid; }
+ .recruiter-resume .print-section { margin-top:5pt; }
+ .recruiter-resume .print-job { margin-bottom:5pt; }
+ .recruiter-resume .print-job:last-child { margin-bottom:0; }
+ .recruiter-resume .print-skill { padding-top:2pt; padding-bottom:2pt; margin-bottom:3pt; }
+ .recruiter-resume .print-web-link { margin-top:6pt; padding-top:4pt; }
+ .complete-resume { line-height:1.32; }
+ .complete-resume .print-section { margin-top:10pt; }
+ .complete-resume .print-job { margin-bottom:10pt; }
+ .complete-resume .print-skill { padding-top:5pt; padding-bottom:5pt; margin-bottom:6pt; }
 }
 
 /* Detalle decorativo del ratón: no altera el cursor nativo ni captura eventos. */

@@ -19,7 +19,7 @@ La copia `CV_Sergio_Hernandez.html` de la descarga funciona por sí sola: incorp
 - `src/styles.css`: estilos de pantalla e impresión, sin reglas de papel redundantes.
 - `public/`: fotografía del perfil, banderas y favicon que se copian a la versión publicada.
 - `scripts/build.mjs`: genera las páginas estáticas, minifica HTML/CSS/JavaScript y actualiza las descargas.
-- `scripts/build-print.mjs`: reutiliza el perfil completo, los datos y todas las tecnologías del CV completo en el marcado para impresión resumida.
+- `scripts/build-print.mjs`: genera las dos impresiones en orden lógico, reutilizando el perfil completo y la cronología, con selección de competencias en el resumido.
 - `scripts/check.mjs`: revisa enlaces locales, traducciones, metadatos, las dos opciones de impresión, el teclado y los enlaces de las versiones impresas.
 - `dist/`: archivos listos para publicar. Los recursos se sirven localmente, sin dependencias en ejecución.
 
@@ -35,7 +35,7 @@ El proyecto fija las versiones de sus herramientas de desarrollo. Solo esbuild t
 
 ## Impresión
 
-**Imprimir CV** abre un selector con **CV resumido** primero (perfil completo, todas las tecnologías y experiencia condensada) y **CV completo** después (todo el contenido). Cada versión abre el diálogo de impresión del navegador en el idioma actual.
+**Imprimir CV** abre un selector con **CV resumido** primero (perfil completo, experiencia condensada y competencias clave) y **CV completo** después (todo el contenido). Cada versión abre el diálogo de impresión del navegador en el idioma actual.
 
 Ambos documentos incluyen **Ver el currículum vitae completo en la web**, un enlace clicable a la página del mismo idioma. El enlace solo se muestra al imprimir. Se mantienen los enlaces reales de correo, teléfono, Google Maps, LinkedIn y GitHub, con texto azul y subrayado al imprimir.
 
@@ -65,7 +65,7 @@ La página publica los datos profesionales y la fotografía facilitados por el t
 
 El logo utiliza un monograma SH geométrico con margen interior, centrado en una cabeza de agente robot con hombros simétricos. El favicon conserva el robot completo, con los hombros visibles también a 16 px. La cabecera identifica el sitio como «Sergio Hernández · Currículum vitae», con su traducción al inglés.
 
-Alejandro’sTech será la web completa para la experiencia, proyectos, servicios y contenidos sobre desarrollo, automatización e IA. Su tarjeta compacta es un botón activo con animación y tooltip nativo, muestra Próximamente y al pulsarlo informa del estado de la web. El nombre y el estado se centran entre sí, con el globo separado a la izquierda. Mientras no exista una URL real, el botón no navega y ambas impresiones muestran el nombre con Próximamente.
+Alejandro’sTech será la web completa para la experiencia, proyectos, servicios y contenidos sobre desarrollo, automatización e IA. Su tarjeta compacta es un botón activo con animación y tooltip nativo, muestra Próximamente y al pulsarlo informa del estado de la web. El nombre y el estado se centran entre sí, con el globo separado a la izquierda. Mientras no exista una URL real, el botón de la web no navega. Las impresiones omiten Alejandro’sTech y Próximamente, y conservan el enlace real al CV web.
 
 El pie muestra «Copyright © 2026 Alejandro’sTech. Todos los derechos reservados.», con su traducción al inglés. El currículum mantiene su alcance breve. Los proyectos detallados, casos de estudio y contenidos ampliados se reservan para Alejandro’sTech.
 
@@ -73,8 +73,13 @@ Las tecnologías incluyen ASP.NET Core/Web API, Entity Framework Core, LINQ, iny
 
 React figura como tecnología frontend actual. Java, Spring Boot, Oracle, PL/SQL y microservicios se muestran únicamente en la experiencia de CODESA, junto con Angular. La sección de tecnologías describe los conocimientos que se ofrecen actualmente. El cargo confirmado en DynamizaTIC es «Desarrollador Senior • Microsoft 365», traducido como «Senior Developer • Microsoft 365» en inglés, también en ambas impresiones.
 
-Las etiquetas de tecnologías agrupan las capacidades relacionadas sin duplicar Power Apps, Dataverse ni RPA. Los portales de administración confirmados son Microsoft Defender (Security), Microsoft Entra ID (Identity), Azure, SharePoint y Power Platform. Python no se presenta como competencia. El CV resumido mantiene tres tarjetas de tecnología con igual espacio y conserva todos los conocimientos ofrecidos.
+Las etiquetas de tecnologías agrupan las capacidades relacionadas sin duplicar Power Apps, Dataverse ni RPA. Los portales de administración confirmados son Microsoft Defender (Security), Microsoft Entra ID (Identity), Azure, SharePoint y Power Platform. Python no se presenta como competencia. El resumido selecciona competencias en bloques de ancho completo y no lleva foto. El completo conserva el catálogo confirmado, con una foto solo en cabecera. Ambas impresiones colocan la experiencia antes de tecnologías y mantienen una columna y un orden de lectura coherente.
 
 La cabecera presenta «Desarrollador .NET y Power Platform», con desarrollo full stack, automatización e integración de IA como alcance. La cronología acordada es CODESA (sept. 2020–mar. 2021, 6 meses), Intelecto (mar. 2021–jun. 2023, 2 años y 3 meses), Auto Control Empresarial (jun. 2023–mar. 2025, 1 año y 9 meses) y DynamizaTIC (mar. 2025–oct. 2026, 1 año y 7 meses). Los meses intermedios se reconstruyeron con las duraciones aceptadas por el titular, incluida su corrección de trasladar tres meses de Auto Control a Intelecto.
 
 Las fechas se editan en los atributos data-start y data-end de cada experiencia en src/index.html. El generador calcula los textos de meses y las duraciones en español e inglés, y los reutiliza en el CV resumido. Se cuentan diferencias de meses sin sumar dos veces los límites compartidos. La duración acordada es aproximadamente 6 años y 1 mes. Las descripciones de DynamizaTIC se redactan en pasado porque la experiencia figura cerrada.
+
+
+La formación confirmada es Tecnólogo en Análisis y Desarrollo de Sistemas de Información (ADSI), Servicio Nacional de Aprendizaje (SENA), 2019–2021. En inglés: Technology degree in Information Systems Analysis and Development (ADSI). Los ejemplos de un equipo de cinco personas y un proyecto de nómina no forman parte de la trayectoria.
+
+La revisión de impresiones y la referencia para volver a la versión anterior están documentadas en docs/REVISION_IMPRESIONES.md.

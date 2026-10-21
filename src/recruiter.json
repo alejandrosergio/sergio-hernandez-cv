@@ -6,24 +6,42 @@
     "experienceTitle": "Experiencia profesional",
     "jobBullets": [
       [
-        "Aplicaciones con Power Apps y Dataverse, automatización con Power Automate.",
-        "Integración con APIs REST y Azure, requerimientos, implementación y adopción."
+        "Desarrollo de aplicaciones con Power Apps y Dataverse y automatización de procesos con Power Automate.",
+        "Integración mediante APIs REST y Azure, análisis de requerimientos e implementación y adopción de soluciones."
       ],
       [
-        "Dirección del equipo técnico y estrategia de desarrollo.",
-        "Arquitecturas con Microsoft 365, Power Platform y Azure."
+        "Dirección del equipo técnico y estrategia de desarrollo de soluciones empresariales.",
+        "Diseño e implementación de arquitecturas e integraciones con Microsoft 365, Power Platform y Azure."
       ],
       [
-        "Aplicaciones con Power Apps y .NET, automatización con Power Automate.",
-        "Dashboards e informes con Power BI."
+        "Desarrollo con Power Apps y .NET y automatización de procesos con Power Automate.",
+        "Dashboards e informes con Power BI para la consulta y el análisis de información empresarial."
       ],
       [
-        "Servicios backend con Java y Spring Boot en arquitectura de microservicios.",
-        "Interfaces con Angular, datos empresariales con Oracle y PL/SQL."
+        "Servicios backend con Java y Spring Boot en una arquitectura de microservicios.",
+        "Interfaces con Angular y gestión de datos con Oracle y PL/SQL."
       ]
     ],
     "educationTitle": "Formación e idiomas",
-    "webLink": "Ver el currículum vitae completo en la web"
+    "webLink": "Ver el currículum vitae completo en la web",
+    "skillGroups": [
+      {
+        "title": "Microsoft Power Platform",
+        "body": "Power Apps, Dataverse y plugins, Power Automate, PCF, conectores personalizados y ALM. Power Pages, Power Automate Desktop/RPA, Power BI y SharePoint."
+      },
+      {
+        "title": "C# y .NET",
+        "body": "C#, ASP.NET Core, Entity Framework Core, SQL Server y pruebas unitarias. Azure App Service, Azure Functions y Azure Storage."
+      },
+      {
+        "title": "Frontend e integración",
+        "body": "React, JavaScript/TypeScript, APIs REST, OAuth 2.0 y Git/GitHub."
+      },
+      {
+        "title": "Inteligencia artificial",
+        "body": "Integración de IA en aplicaciones y automatizaciones mediante APIs."
+      }
+    ]
   },
   "en": {
     "experience": "6+ years of experience",
@@ -32,23 +50,41 @@
     "experienceTitle": "Professional experience",
     "jobBullets": [
       [
-        "Power Apps and Dataverse applications, automation with Power Automate.",
-        "REST API and Azure integration, requirements, implementation and user adoption."
+        "Application development with Power Apps and Dataverse and process automation with Power Automate.",
+        "Integration through REST APIs and Azure, requirements analysis, and solution implementation and adoption."
       ],
       [
-        "Technical team leadership and development strategy.",
-        "Architectures with Microsoft 365, Power Platform and Azure."
+        "Technical team leadership and development strategy for business solutions.",
+        "Architecture and integration design and implementation with Microsoft 365, Power Platform and Azure."
       ],
       [
-        "Power Apps and .NET applications, automation with Power Automate.",
-        "Dashboards and reports with Power BI."
+        "Development with Power Apps and .NET and process automation with Power Automate.",
+        "Power BI dashboards and reports for accessing and analyzing business information."
       ],
       [
         "Backend services with Java and Spring Boot in a microservices architecture.",
-        "Angular interfaces, business data with Oracle and PL/SQL."
+        "Angular interfaces and data management with Oracle and PL/SQL."
       ]
     ],
     "educationTitle": "Education and languages",
-    "webLink": "View the complete curriculum vitae on the web"
+    "webLink": "View the complete curriculum vitae on the web",
+    "skillGroups": [
+      {
+        "title": "Microsoft Power Platform",
+        "body": "Power Apps, Dataverse and plug-ins, Power Automate, PCF, custom connectors and ALM. Power Pages, Power Automate Desktop/RPA, Power BI and SharePoint."
+      },
+      {
+        "title": "C# and .NET",
+        "body": "C#, ASP.NET Core, Entity Framework Core, SQL Server and unit testing. Azure App Service, Azure Functions and Azure Storage."
+      },
+      {
+        "title": "Frontend and integration",
+        "body": "React, JavaScript/TypeScript, REST APIs, OAuth 2.0 and Git/GitHub."
+      },
+      {
+        "title": "Artificial intelligence",
+        "body": "AI integration into applications and automation through APIs."
+      }
+    ]
   }
 }
