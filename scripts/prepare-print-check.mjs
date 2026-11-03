@@ -43,6 +43,10 @@ for (const language of ['es','en']) {
         paragraphs:[...n.querySelectorAll('p')].map(p=>clean(p.textContent))
       })),
       degree:clean(print.querySelector('.print-education h3').textContent),
+      web_label:language === 'es' ? 'CV en línea' : 'Online CV',
+      web_url:print.querySelector('.print-cv-link').getAttribute('href'),
+      portfolio_label:language === 'es' ? 'Web profesional' : 'Professional website',
+      portfolio_url:print.querySelector('.print-portfolio').getAttribute('href'),
       links:[...print.querySelectorAll('a[href]')].map(n=>n.getAttribute('href'))
     });
   }

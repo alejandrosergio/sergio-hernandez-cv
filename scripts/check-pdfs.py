@@ -26,7 +26,9 @@ def verify_text(pages, case, method):
     for paragraph in case["profile"]:
         assert norm(paragraph) in joined, label + ": perfil alterado"
     assert norm(case["degree"]) in joined, label + ": ADSI incorrecto"
-    assert not re.search(r"Alejandro.sTech|Próximamente|Coming soon", joined, re.I), label + ": marca provisional en papel"
+    assert not re.search(r"Próximamente|Coming soon", joined, re.I), label + ": aviso provisional en papel"
+    assert norm(case["web_label"]) in joined and case["web_url"] in joined, label + ": falta el CV en línea legible"
+    assert norm(case["portfolio_label"]) in joined and case["portfolio_url"] in joined, label + ": falta la web profesional legible"
     assert "WhatsApp" not in joined, label + ": contacto exclusivo de la web en papel"
     for index, job in enumerate(case["jobs"]):
         following = case["jobs"][index + 1]["company"] if index + 1 < len(case["jobs"]) else case["sections"][2]
@@ -59,6 +61,8 @@ def main():
         verify_text(pypdf_pages, case, "pypdf")
         links = {str(annotation.get_object().get("/A", {}).get("/URI")) for page in reader.pages for annotation in page.get("/Annots", []) if annotation.get_object().get("/A", {}).get("/URI")}
         assert set(case["links"]).issubset(links), path.name + ": enlace perdido"
+        assert case["portfolio_url"] in links and case["web_url"] in links, path.name + ": destinos web no diferenciados"
+        assert len([link for link in links if "alejandros-tech." in link]) == 1, path.name + ": web profesional duplicada"
         assert not any("wa.me" in link for link in links), path.name + ": enlace de WhatsApp en papel"
         with pdfplumber.open(path) as pdf:
             plumber_pages = [page.extract_text() or "" for page in pdf.pages]
@@ -81,7 +85,7 @@ def main():
         stem = Path("tmp/pdfs") / path.stem
         stem.with_suffix(".pypdf.txt").write_text("\n\n".join(pypdf_pages), encoding="utf-8")
         stem.with_suffix(".pdfplumber.txt").write_text("\n\n".join(plumber_pages), encoding="utf-8")
-        report.append({"file": path.name, "pages": len(reader.pages), "links": len(links), "extractors": ["pypdf", "pdfplumber"], "body_min_pt": 10})
+        report.append({"file": path.name, "pages": len(reader.pages), "links": sorted(links), "extractors": ["pypdf", "pdfplumber"], "body_min_pt": 10})
     print(json.dumps(report, ensure_ascii=False, indent=2))
 if __name__ == "__main__":
     main()

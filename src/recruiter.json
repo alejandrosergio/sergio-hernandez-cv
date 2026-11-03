@@ -23,7 +23,8 @@
       ]
     ],
     "educationTitle": "Formación e idiomas",
-    "webLink": "Ver el currículum vitae completo en la web",
+    "webLink": "CV en línea",
+    "portfolioLink": "Web profesional",
     "skillGroups": [
       {
         "title": "Microsoft Power Platform",
@@ -67,7 +68,8 @@
       ]
     ],
     "educationTitle": "Education and languages",
-    "webLink": "View the complete curriculum vitae on the web",
+    "webLink": "Online CV",
+    "portfolioLink": "Professional website",
     "skillGroups": [
       {
         "title": "Microsoft Power Platform",

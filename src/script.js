@@ -26,8 +26,7 @@ const ui = Object.fromEntries([
   'accessibility-toggle','accessibility-panel','accessibility-close','accessibility-reset',
   'text-size','text-size-value','text-decrease','text-increase','contrast-toggle','motion-toggle','spacing-toggle',
   'print-cv','print-help','print-open','back-to-top',
-  'print-chooser','print-chooser-close','print-web','print-recruiter',
-  'portfolio-link','portfolio-notice'
+  'print-chooser','print-chooser-close','print-web','print-recruiter'
 ].map(id => [id, byId(id)]));
 const media = {
   dark: matchMedia('(prefers-color-scheme: dark)'),
@@ -61,13 +60,6 @@ const localizedNodes = translations.flatMap(entry => [...document.querySelectorA
 const themeColor = document.querySelector('meta[name="theme-color"]');
 const portraitURL = new URL(document.querySelector('.portrait img').getAttribute('src'),document.baseURI).href;
 const tooltips = createContactTooltips();
-let noticeTimer;
-
-function clearPortfolioNotice() {
-  clearTimeout(noticeTimer);
-  ui['portfolio-notice'].textContent = '';
-}
-
 function applyTheme() {
   const theme = state.chosenTheme || (media.dark.matches ? 'dark' : 'light');
   const isDark = theme === 'dark';
@@ -125,7 +117,6 @@ function updateLanguageURL() {
 
 function applyLanguage(language, announce = false) {
   tooltips.hide();
-  clearPortfolioNotice();
   state.language = language === 'en' ? 'en' : 'es';
   root.lang = state.language;
   localizedNodes.forEach(({node, entry}) => {
@@ -230,7 +221,6 @@ function initPrinting() {
   }
 
   function openChooser() {
-    clearPortfolioNotice();
     tooltips.hide();
     closeAccessibility(false);
     if (!ui['print-chooser'].hidden) {closeChooser();return;}
@@ -276,16 +266,6 @@ function initPrinting() {
     else if (!event.shiftKey && document.activeElement === last) {event.preventDefault();first.focus();}
   });
   for (const variant of variants) ui[`print-${variant}`].addEventListener('click', () => printVariant(variant));
-}
-
-function initPortfolio() {
-  // Hasta tener una URL real, el botón informa del estado sin simular una navegación.
-  ui['portfolio-link'].addEventListener('click', () => {
-    clearPortfolioNotice();
-    ui['portfolio-notice'].textContent = ui['portfolio-link'].dataset.notice;
-    noticeTimer = setTimeout(clearPortfolioNotice, 6500);
-  });
-  window.addEventListener('beforeprint', clearPortfolioNotice);
 }
 
 function initNavigation() {
@@ -345,5 +325,4 @@ initTheme();
 initAccessibility();
 initLanguage();
 initPrinting();
-initPortfolio();
 initNavigation();

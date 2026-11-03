@@ -18,7 +18,7 @@ El ZIP es local y está excluido del repositorio. Los commits anteriores permane
 | Resumido | Tres tarjetas paralelas con todo el inventario y fotografía | Competencias seleccionadas en bloques de ancho completo y sin fotografía |
 | Orden de papel | Tecnologías antes de experiencia, fechas laterales en el completo | Perfil, experiencia, competencias y formación, en orden lógico y una columna |
 | Cabecera completa | Experiencia total junto al perfil en la columna de la fotografía | Experiencia total junto a la identidad, fotografía solo en cabecera |
-| Marca pendiente | Alejandro’sTech y Próximamente en papel | Solo en la web, ambos CV conservan el enlace real al currículum |
+| Enlaces finales | Alejandro’sTech pendiente de publicación | CV en línea y web profesional publicados, con URL legibles y destinos según el idioma |
 
 El perfil, los cargos, los países y la cronología se reutilizan de la web. La versión completa también reutiliza sus descripciones, competencias y formación. Solo las viñetas condensadas y la selección del resumido viven en `src/recruiter.json`. Se mantienen dos versiones de impresión y dos idiomas, con el diseño de pantalla anterior.
 
@@ -32,9 +32,15 @@ La formación confirmada es «Tecnólogo en Análisis y Desarrollo de Sistemas d
 4. Ejecutar `python scripts/check-pdfs.py` con un Python que disponga de `pypdf` y `pdfplumber`. Revisa ambos órdenes de extracción, secciones, perfil, empleo completo en una misma página, competencias sin intercalar, ADSI, enlaces, ausencia de marca pendiente, límites de texto y tamaño del cuerpo.
 5. Renderizar las páginas con Poppler y revisar todas las imágenes. La comprobación de texto no reemplaza la revisión visual de espacios, recortes y solapamientos.
 
-Resultado verificado de esta revisión: resumido de una página A4 en español e inglés, completo de dos páginas A4 en ambos idiomas, seis páginas revisadas visualmente. Cuerpo principal de 10 pt, metadatos y contactos de 9 pt. Cada PDF conserva seis destinos de enlace. Las dos extracciones mantienen juntas empresa, cargo, periodo, país, duración y viñetas. Sin páginas vacías, recortes observados ni columnas de competencias intercaladas.
+Resultado verificado de esta revisión: resumido de una página A4 en español e inglés, completo de dos páginas A4 en ambos idiomas, seis páginas revisadas visualmente. Cuerpo principal de 10 pt, metadatos y contactos de 9 pt. La revisión inicial conservaba seis destinos de enlace. La actualización con Alejandro’sTech añade un séptimo destino, con el CV en línea y la web profesional diferenciados. Las dos extracciones mantienen juntas empresa, cargo, periodo, país, duración y viñetas. Sin páginas vacías, recortes observados ni columnas de competencias intercaladas.
 
 Los PDF y las imágenes de revisión son salidas locales excluidas del repositorio, no nuevas opciones de descarga del Site. No se ha probado un ATS real ni se promete compatibilidad universal o una puntuación ATS.
+
+## Enlaces de Alejandro’sTech, 3 de noviembre de 2026
+
+La tarjeta enlaza directamente a la marca en español o inglés. Cada impresión termina con dos líneas: CV en línea y web profesional, ambas con URL completa y subrayado azul. El destino de la marca se toma de la tarjeta para mantener una única fuente por idioma. Se ajustaron solo pequeños espacios del resumido para conservar una página, sin reducir su cuerpo de 10 pt.
+
+Se revisaron las cuatro salidas con pypdf y pdfplumber y las seis páginas renderizadas. Cada PDF contiene siete destinos, con el correo y la llamada conservados y WhatsApp excluido. El informe local `output/pdf/verificacion-alejandros-tech.json` enumera las anotaciones por archivo. Los Site de la marca responden en ambos idiomas con una portada de lanzamiento, mantenida en su proyecto independiente.
 
 ## Referencias consultadas
 

@@ -442,12 +442,12 @@
   },
   {
     "selector": ".portfolio-status",
-    "text": "Coming soon"
+    "text": "Visit website"
   },
   {
     "selector": "#portfolio-link",
     "attribute": "aria-label",
-    "text": "Alejandro’sTech, check website status"
+    "text": "Visit Alejandro’sTech in a new tab"
   },
   {
     "selector": "#copyright",
@@ -511,8 +511,8 @@
   },
   {
     "selector": "#portfolio-link",
-    "attribute": "data-notice",
-    "text": "Coming soon: Alejandro’sTech will bring together my experience, projects, services and content on development, automation and AI."
+    "attribute": "href",
+    "text": "https://alejandros-tech.alejosergio3000.chatgpt.site/en/"
   },
   {
     "selector": "#theme-toggle",
@@ -557,7 +557,7 @@
   {
     "selector": "#portfolio-link",
     "attribute": "title",
-    "text": "About Alejandro’sTech"
+    "text": "Visit Alejandro’sTech"
   },
   {
     "selector": "#print-open",

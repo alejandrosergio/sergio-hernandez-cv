@@ -47,11 +47,17 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(document.querySelector('#recruiter-print .print-job:nth-child(1) .print-job-role').textContent,dynamizaticRole);
   assert.equal(document.querySelectorAll('.job-contract,#recruiter-print .print-job-contract').length,0);
   assert.doesNotMatch(document.querySelector('body').textContent,/Periodo de contrato|Contract term/iu);
-  const placeholder=document.getElementById('portfolio-link');
-  assert.equal(placeholder.tagName,'BUTTON');
-  assert.equal(placeholder.hasAttribute('disabled'),false);
-  assert.equal(placeholder.hasAttribute('aria-disabled'),false);
-  assert.equal(placeholder.getAttribute('href'),null);
+  const portfolioURL = `https://alejandros-tech.alejosergio3000.chatgpt.site/${language === 'en' ? 'en/' : ''}`;
+  const portfolio=document.getElementById('portfolio-link');
+  assert.equal(portfolio.tagName,'A');
+  assert.equal(portfolio.getAttribute('href'),portfolioURL);
+  assert.equal(portfolio.getAttribute('target'),'_blank');
+  assert.match(portfolio.getAttribute('rel'),/noopener/);
+  assert.match(portfolio.getAttribute('rel'),/noreferrer/);
+  assert.ok(portfolio.getAttribute('title')?.trim());
+  assert.equal(document.querySelector('.portfolio-status').textContent,language === 'es' ? 'Visitar web' : 'Visit website');
+  assert.equal(document.querySelectorAll('#portfolio-notice,[data-notice],.contact-strip a[href*="alejandros-tech"]').length,0);
+  assert.doesNotMatch(document.body.textContent,/Próximamente|Coming soon/iu);
   for (const button of document.querySelectorAll('button')) {
     assert.ok(button.getAttribute('title')?.trim(),`Falta la ayuda nativa del botón ${button.id}`);
     assert.equal(button.hasAttribute('data-tooltip'),false,'Los botones conservan el tooltip nativo');
@@ -74,7 +80,7 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(document.querySelectorAll('#brand-tagline').length,0);
   assert.match(document.getElementById('copyright').textContent,/Copyright © 2026.*Alejandro’sTech/);
   assert.doesNotMatch(offered.textContent,/Python/iu);
-  assert.equal(document.querySelectorAll('.print-portfolio').length,0);
+  assert.equal(document.querySelectorAll('.print-portfolio').length,2);
   assert.equal(document.querySelectorAll('#recruiter-print img').length,0);
   assert.equal(document.querySelectorAll('#complete-print .complete-photo').length,1);
   assert.equal(document.querySelectorAll('.print-option').length,2);
@@ -139,8 +145,16 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(flags.length,2);
   assert.ok(flags.every(flag=>flag.src.startsWith('data:image/svg+xml;base64,')),'Las banderas deben estar disponibles sin otra petición de red');
   const webURL = `${origin}/${language === 'en' ? 'en/' : ''}`;
-  assert.equal(document.querySelector('#complete-print .print-web-link a').href,webURL);
-  assert.equal(document.querySelector('#recruiter-print .print-web-link a').href,webURL);
+  for (const print of document.querySelectorAll('.print-resume')) {
+    const footer = print.querySelector('.print-web-link');
+    assert.equal(footer.querySelectorAll('a').length,2);
+    assert.equal(footer.querySelector('.print-cv-link').href,webURL);
+    assert.ok(footer.querySelector('.print-cv-link').textContent.includes(webURL));
+    assert.equal(footer.querySelector('.print-portfolio').href,portfolioURL);
+    assert.ok(footer.querySelector('.print-portfolio').textContent.includes(portfolioURL));
+    assert.match(footer.querySelector('.print-portfolio').textContent,language === 'es' ? /^Web profesional:/ : /^Professional website:/);
+    assert.equal(print.querySelectorAll('a[href*="alejandros-tech"]').length,1);
+  }
   const ids = [...document.querySelectorAll('[id]')].map(node => node.id);
   assert.equal(new Set(ids).size,ids.length);
   for (const node of document.querySelectorAll('[href],[src]')) {
@@ -183,12 +197,10 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
     const click = id => page.getElementById(id).dispatchEvent(new window.Event('click',{bubbles:true}));
     const change = (id,checked) => {const node=page.getElementById(id);node.checked=checked;node.dispatchEvent(new window.Event('change',{bubbles:true}));};
     assert.equal(page.documentElement.lang,language);
-    const initialURL=location.href;
-    click('portfolio-link');
-    assert.equal(location.href,initialURL,'La marca sin URL real no debe provocar una navegación');
-    assert.match(page.getElementById('portfolio-notice').textContent,language === 'es' ? /próximamente/i : /coming soon/i);
     click('language-toggle');
-    assert.equal(page.getElementById('portfolio-notice').textContent,'');
+    const switchedPortfolioURL = `https://alejandros-tech.alejosergio3000.chatgpt.site/${language === 'es' ? 'en/' : ''}`;
+    assert.equal(page.getElementById('portfolio-link').href,switchedPortfolioURL);
+    for (const print of page.querySelectorAll('.print-resume')) assert.equal(print.querySelector('.print-portfolio').href,switchedPortfolioURL);
     assert.equal(page.getElementById('language-toggle').title,language === 'es' ? 'Cambiar a Español' : 'Switch to English');
     assert.equal(page.documentElement.lang,language === 'es' ? 'en' : 'es');
     const switchedChat = new URL(page.querySelector('.contact-whatsapp').getAttribute('href'));
@@ -206,6 +218,8 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
     assert.equal(page.querySelector('.language-spanish strong').textContent,language === 'es' ? 'Native' : 'Nativo');
     click('language-toggle');
     assert.equal(page.documentElement.lang,language);
+    assert.equal(page.getElementById('portfolio-link').href,portfolioURL);
+    for (const print of page.querySelectorAll('.print-resume')) assert.equal(print.querySelector('.print-portfolio').href,portfolioURL);
     assert.deepEqual([...page.querySelectorAll('.language-flags img')].map(flag=>flag.src),flagSources);
     click('accessibility-toggle');
     assert.equal(page.getElementById('accessibility-panel').hidden,false);
@@ -248,6 +262,7 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
     const switchedURL = `${origin}/${language === 'es' ? 'en/' : ''}`;
     assert.equal(page.querySelector('#complete-print .print-web-link a').href,switchedURL);
     assert.equal(page.querySelector('#recruiter-print .print-web-link a').href,switchedURL);
+    for (const print of page.querySelectorAll('.print-resume')) assert.equal(print.querySelector('.print-portfolio').href,switchedPortfolioURL);
     assert.equal(page.querySelector('.complete-photo').src,new URL(page.querySelector('.portrait img').getAttribute('src'),page.baseURI).href);
     const escape = new window.Event('keydown');
     escape.key = 'Escape';

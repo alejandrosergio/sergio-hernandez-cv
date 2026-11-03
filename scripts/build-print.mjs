@@ -32,6 +32,7 @@ export function createPrintMarkup(page,copy,webURL,variant) {
   const complete = variant === 'web';
   const profile = [...page.querySelectorAll('.profile-summary > p')].map(p => `<p>${p.innerHTML}</p>`).join('');
   const photo = page.querySelector('.portrait img');
+  const portfolioURL = page.querySelector('#portfolio-link').getAttribute('href');
   // Los contactos exclusivos de pantalla no pasan a ninguna de las dos impresiones.
   const contacts = [page.querySelector('.location'),...page.querySelectorAll('.contact-strip a:not(.no-print)')];
   const link = n => `<a href="${escape(n.getAttribute('href'))}">${escape(text(n))}</a>`;
@@ -49,5 +50,5 @@ export function createPrintMarkup(page,copy,webURL,variant) {
     ${section('experience',copy.experienceTitle,`<ol class="print-jobs">${jobs.map((job,i) => experienceItem(job,complete ? job.bullets : copy.jobBullets[i])).join('')}</ol>`)}
     ${section('skills',copy.skillsTitle,skills)}
     ${section('education',copy.educationTitle,education)}
-    <p class="print-web-link"><a href="${escape(webURL)}">${escape(copy.webLink)}</a></p>`;
+    <div class="print-web-link"><p><a class="print-cv-link" href="${escape(webURL)}">${escape(copy.webLink)}: ${escape(webURL)}</a></p><p><a class="print-portfolio" href="${escape(portfolioURL)}">${escape(copy.portfolioLink)}: ${escape(portfolioURL)}</a></p></div>`;
 }
