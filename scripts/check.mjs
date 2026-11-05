@@ -74,7 +74,8 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.ok(offered.textContent.includes('Identity'));
   assert.equal(offered.querySelectorAll('#power-apps').length,1);
   assert.equal(offered.querySelectorAll('#power-canvas,#power-model-driven').length,0);
-  assert.match(document.querySelector('.profile-summary').textContent,/full stack/i);
+  assert.match(document.querySelector('.profile-summary').textContent,/\.NET.*React.*Microsoft Power Platform/i);
+  assert.match(document.querySelector('.profile-summary').textContent,language === 'es' ? /agentes y asistentes.*procesar documentos/i : /agents and assistants.*process documents/i);
   assert.doesNotMatch(document.querySelector('.profile-summary').textContent,/analista y desarrollador|software analyst and developer|backend/iu);
   assert.doesNotMatch(document.querySelector('#recruiter-print .print-section').textContent,/backend/iu);
   assert.equal(document.querySelectorAll('#brand-tagline').length,0);

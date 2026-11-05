@@ -6,7 +6,7 @@
   {
     "selector": "meta[name=\"description\"]",
     "attribute": "content",
-    "text": ".NET and Power Platform developer with 6+ years of professional experience. Full stack applications, business automation and AI integration."
+    "text": ".NET, React and Power Platform developer with 6+ years of experience. Business solutions, automation, AI agents and assistants."
   },
   {
     "selector": ".skip-link",
@@ -87,7 +87,7 @@
   },
   {
     "selector": "#focus-ai",
-    "text": "AI integration"
+    "text": "Applied AI"
   },
   {
     "selector": ".portrait img",
@@ -99,12 +99,8 @@
     "text": "Years of experience building business solutions"
   },
   {
-    "selector": ".profile-summary p:first-child",
-    "text": "I build full stack applications and integrations to connect systems and automate business processes. I bring over six years of experience combining development, consulting and technical leadership."
-  },
-  {
-    "selector": ".profile-summary p:last-child",
-    "html": "I work with <strong>React and .NET</strong>, <strong>Power Platform</strong> and <strong>AI through APIs</strong>. I contribute from requirements analysis and design through testing, production deployment and software evolution."
+    "selector": ".profile-summary > p",
+    "html": "I develop business solutions with <strong>.NET, React and Microsoft Power Platform</strong>. I apply artificial intelligence to automate processes, develop agents and assistants, process documents and enhance application capabilities. I contribute from analysis and design through testing, production deployment and the ongoing evolution of solutions."
   },
   {
     "selector": ".contact-strip",
@@ -159,7 +155,7 @@
   },
   {
     "selector": ".specialty-ai .specialty-content > p:first-child",
-    "text": "I integrate language models into applications and automation through APIs. I use AI assistants for analysis, development and documentation, with technical review of the results."
+    "text": "I develop agents and assistants, automate workflows and process documents with AI. I integrate these capabilities into business applications and technically review the results."
   },
   {
     "selector": ".specialty-ai .tech-list",
@@ -625,5 +621,13 @@
     "selector": ".contact-whatsapp",
     "attribute": "aria-label",
     "text": "Open a WhatsApp chat with Sergio in a new tab"
+  },
+  {
+    "selector": "#ai-agents",
+    "text": "AI agents and assistants"
+  },
+  {
+    "selector": "#ai-documents",
+    "text": "Document processing"
   }
 ]
