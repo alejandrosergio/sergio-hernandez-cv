@@ -70,7 +70,7 @@
   },
   {
     "selector": ".eyebrow",
-    "text": "Business software · Automation · AI"
+    "text": "Available immediately"
   },
   {
     "selector": ".location",
@@ -121,7 +121,7 @@
   },
   {
     "selector": ".specialty-power-platform .specialty-content > p:first-child",
-    "text": "I develop canvas and model-driven apps with Power Apps and Dataverse. I extend solutions with plug-ins, code components (PCF) and custom connectors. I automate processes and desktop tasks with Power Automate and RPA, manage solutions and ALM, and visualize data with Power BI."
+    "text": "Business applications and process automation, connected to the Microsoft ecosystem and designed to evolve."
   },
   {
     "selector": ".specialty-power-platform .tech-list",
@@ -138,7 +138,7 @@
   },
   {
     "selector": ".specialty-net .specialty-content > p",
-    "text": "I develop REST APIs and backend services with ASP.NET Core. I work with Entity Framework Core, LINQ and SQL, apply dependency injection and unit testing, and integrate Azure services."
+    "text": "Services and integrations that connect applications and data, with testing and a structure that supports maintenance."
   },
   {
     "selector": ".specialty-net .tech-list",
@@ -155,7 +155,7 @@
   },
   {
     "selector": ".specialty-ai .specialty-content > p:first-child",
-    "text": "I develop agents and assistants, automate workflows and process documents with AI. I integrate these capabilities into business applications and technically review the results."
+    "text": "AI capabilities integrated into everyday work and business applications, with technical review of the results."
   },
   {
     "selector": ".specialty-ai .tech-list",
@@ -176,7 +176,7 @@
   },
   {
     "selector": ".shared-grid > div:nth-child(2) dd",
-    "text": "JSON · OAuth 2.0 authentication."
+    "text": "REST APIs, JSON, OAuth 2.0, gRPC and RabbitMQ. Integration with SAP and other ERP systems."
   },
   {
     "selector": ".shared-grid > div:nth-child(3) dt",
@@ -184,7 +184,7 @@
   },
   {
     "selector": ".shared-grid > div:nth-child(3) dd",
-    "text": "MySQL · MongoDB (NoSQL)."
+    "text": "MySQL · MongoDB (NoSQL) · Redis · Databricks."
   },
   {
     "selector": ".shared-grid > div:nth-child(4) dt",
@@ -208,7 +208,7 @@
   },
   {
     "selector": ".shared-grid > div:nth-child(6) dd",
-    "text": "Node.js · Git · GitHub."
+    "text": "Node.js · Python · Git · GitHub · Docker · CI/CD."
   },
   {
     "selector": "#titulo-experiencia",
@@ -216,7 +216,7 @@
   },
   {
     "selector": ".job:nth-child(-n+2) .job-country",
-    "text": "Spain"
+    "text": "Spain · Remote from Colombia"
   },
   {
     "selector": ".job:nth-child(1) .job-role",
@@ -285,10 +285,6 @@
   {
     "selector": ".language-english > span",
     "text": "English"
-  },
-  {
-    "selector": ".language-english strong span",
-    "text": "Intermediate"
   },
   {
     "selector": ".resume-footer a",
@@ -475,7 +471,7 @@
   },
   {
     "selector": "#power-alm",
-    "text": "Solutions and ALM"
+    "text": "Solutions, Pipelines and ALM"
   },
   {
     "selector": "#power-apps",
@@ -483,7 +479,7 @@
   },
   {
     "selector": "#power-dataverse",
-    "text": "Dataverse and plug-ins"
+    "text": "Dataverse, plug-ins and role-based security"
   },
   {
     "selector": "#m365-admin-label",
@@ -629,5 +625,9 @@
   {
     "selector": "#ai-documents",
     "text": "Document processing"
+  },
+  {
+    "selector": ".language-english strong",
+    "html": "B1 reference <span>Technical reading and use, no conversation</span>"
   }
 ]

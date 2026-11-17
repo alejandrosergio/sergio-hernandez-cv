@@ -28,11 +28,11 @@
     "skillGroups": [
       {
         "title": "Microsoft Power Platform",
-        "body": "Power Apps, Dataverse y plugins, Power Automate, PCF, conectores personalizados y ALM. Power Pages, Power Automate Desktop/RPA, Power BI y SharePoint."
+        "body": "Power Apps, Power Fx, Dataverse y plugins, Power Automate, PCF, conectores personalizados y ALM. Power Pages, Power Automate Desktop/RPA, Power BI y SharePoint."
       },
       {
         "title": "C# y .NET",
-        "body": "C#, ASP.NET Core, Entity Framework Core, SQL Server y pruebas unitarias. Azure App Service, Azure Functions y Azure Storage."
+        "body": "C#, ASP.NET Core, Entity Framework Core, Dapper, SQL Server y pruebas unitarias. Servicios Azure."
       },
       {
         "title": "Frontend e integración",
@@ -40,7 +40,7 @@
       },
       {
         "title": "Inteligencia artificial",
-        "body": "Agentes y asistentes, automatización y procesamiento de documentos con IA en aplicaciones empresariales."
+        "body": "Copilot Studio, RAG, AI Builder y APIs de IA. Agentes, asistentes, automatización y procesamiento de documentos."
       }
     ]
   },
@@ -73,11 +73,11 @@
     "skillGroups": [
       {
         "title": "Microsoft Power Platform",
-        "body": "Power Apps, Dataverse and plug-ins, Power Automate, PCF, custom connectors and ALM. Power Pages, Power Automate Desktop/RPA, Power BI and SharePoint."
+        "body": "Power Apps, Power Fx, Dataverse and plug-ins, Power Automate, PCF, custom connectors and ALM. Power Pages, Power Automate Desktop/RPA, Power BI and SharePoint."
       },
       {
         "title": "C# and .NET",
-        "body": "C#, ASP.NET Core, Entity Framework Core, SQL Server and unit testing. Azure App Service, Azure Functions and Azure Storage."
+        "body": "C#, ASP.NET Core, Entity Framework Core, Dapper, SQL Server and unit testing. Azure services."
       },
       {
         "title": "Frontend and integration",
@@ -85,7 +85,7 @@
       },
       {
         "title": "Artificial intelligence",
-        "body": "AI agents and assistants, automation and document processing for business applications."
+        "body": "Copilot Studio, RAG, AI Builder and AI APIs. Agents, assistants, automation and document processing."
       }
     ]
   }

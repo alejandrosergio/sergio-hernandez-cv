@@ -29,7 +29,7 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.equal(schema.mainEntity.jobTitle,profileRole);
   assert.equal(document.title,`Sergio Hernández | Power Platform · .NET · ${language === 'es' ? 'IA' : 'AI'}`);
   assert.ok(schema.mainEntity.knowsAbout.some(skill=>skill.includes('Identity')));
-  assert.doesNotMatch(schema.mainEntity.knowsAbout.join(' '),/Oracle|PL\/SQL|microservicios|microservices|Python/iu);
+  assert.doesNotMatch(schema.mainEntity.knowsAbout.join(' '),/Oracle|PL\/SQL|microservicios|microservices/iu);
   assert.equal(document.querySelector('meta[property="og:description"]').content,document.querySelector('meta[name="description"]').content);
   assert.equal(document.querySelector('meta[property="og:title"]').content,document.title);
   assert.match(document.querySelector('.shared-grid').textContent,/MongoDB/);
@@ -80,7 +80,9 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
   assert.doesNotMatch(document.querySelector('#recruiter-print .print-section').textContent,/backend/iu);
   assert.equal(document.querySelectorAll('#brand-tagline').length,0);
   assert.match(document.getElementById('copyright').textContent,/Copyright © 2026.*Alejandro’sTech/);
-  assert.doesNotMatch(offered.textContent,/Python/iu);
+  assert.match(offered.textContent,/Python/);
+  for (const skill of ['Power Fx','Copilot Studio','RAG','AI Builder','Dapper','Azure Service Bus']) assert.ok(offered.textContent.includes(skill),skill);
+  assert.ok(document.querySelector('.availability').textContent.trim());
   assert.equal(document.querySelectorAll('.print-portfolio').length,2);
   assert.equal(document.querySelectorAll('#recruiter-print img').length,0);
   assert.equal(document.querySelectorAll('#complete-print .complete-photo').length,1);
