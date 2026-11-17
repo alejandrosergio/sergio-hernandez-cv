@@ -58,6 +58,9 @@ const themeCopy = {
 };
 const localizedNodes = translations.flatMap(entry => [...document.querySelectorAll(entry.selector)].map(node => ({node, entry})));
 const themeColor = document.querySelector('meta[name="theme-color"]');
+// El icono mantiene su URL al cambiar / y /en/ mediante el historial del navegador.
+const siteIcon = document.querySelector('link[rel="icon"]');
+if (siteIcon) siteIcon.href = new URL(siteIcon.getAttribute('href'),document.baseURI).href;
 const portraitURL = new URL(document.querySelector('.portrait img').getAttribute('src'),document.baseURI).href;
 const tooltips = createContactTooltips();
 function applyTheme() {

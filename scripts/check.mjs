@@ -196,11 +196,14 @@ for (const [file,language] of [['index.html','es'],['en/index.html','en']]) {
       getComputedStyle:()=>({position:'relative'}),requestAnimationFrame:callback=>callback(),
       setTimeout:()=>0,clearTimeout:()=>{}};
     vm.runInNewContext(script,context,{timeout:2000});
+    const iconURL = page.querySelector('link[rel="icon"]').getAttribute('href');
+    assert.ok(iconURL.startsWith(`${origin}/favicon.svg?v=`),'El icono debe conservar una ruta estable al cambiar de idioma');
     const flagSources=[...page.querySelectorAll('.language-flags img')].map(flag=>flag.src);
     const click = id => page.getElementById(id).dispatchEvent(new window.Event('click',{bubbles:true}));
     const change = (id,checked) => {const node=page.getElementById(id);node.checked=checked;node.dispatchEvent(new window.Event('change',{bubbles:true}));};
     assert.equal(page.documentElement.lang,language);
     click('language-toggle');
+    assert.equal(page.querySelector('link[rel="icon"]').getAttribute('href'),iconURL);
     const switchedPortfolioURL = `https://alejandros-tech.alejosergio3000.chatgpt.site/${language === 'es' ? 'en/' : ''}`;
     assert.equal(page.getElementById('portfolio-link').href,switchedPortfolioURL);
     for (const print of page.querySelectorAll('.print-resume')) assert.equal(print.querySelector('.print-portfolio').href,switchedPortfolioURL);
